@@ -14,12 +14,12 @@ struct Activity {
     let idActivity: Int
     var idUser : Int
     var nomActivité: String
-    var descriptionActivite: String
+    var descriptionActivity: String
     var typeActivity: String
     var adresse: String
     var gpsx: Double
     var gpsy: Double
-    var affiché: Bool
+    var showActivity: Bool
     var imageDesc: [UIImage]
     
 }
