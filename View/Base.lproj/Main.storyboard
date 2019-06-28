@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pAN-wW-2YW">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B6m-SZ-Ahv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="-86"/>
+        </scene>
+        <!--Proposer-->
+        <scene sceneID="WIc-hI-2R9">
+            <objects>
+                <viewController id="IFE-Ki-YCK" customClass="ProposerViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t03-SV-C58">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0SQ-lx-CLK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Proposer" image="ProposerTabBar" id="Sdy-BG-rYe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cP7-vt-VUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3312" y="632"/>
+        </scene>
+        <!--Découvrir-->
+        <scene sceneID="v6Q-d6-hu9">
+            <objects>
+                <viewController id="Mf4-4P-oza" customClass="DecouvrirViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fTy-uy-1NP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Hbh-q2-qeL"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Découvrir" image="DecouvrirTabBar" id="DcM-K0-yOx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ewd-zb-a4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2216" y="640"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uGE-HK-oUo">
+            <objects>
+                <tabBarController id="pAN-wW-2YW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sZf-RC-QcX"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DRo-mw-HAR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Mf4-4P-oza" kind="relationship" relationship="viewControllers" id="t6t-QL-4Qj"/>
+                        <segue destination="IFE-Ki-YCK" kind="relationship" relationship="viewControllers" id="xU7-e3-gGe"/>
+                        <segue destination="ziU-40-Kr4" kind="relationship" relationship="viewControllers" id="x5n-RD-WII"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQ7-r6-daB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3312" y="-86"/>
+        </scene>
+        <!--Profil-->
+        <scene sceneID="N1k-bG-G0C">
+            <objects>
+                <viewController id="Tif-Uy-e1l" customClass="ProfilViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nTt-or-91Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Oak-92-zmU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profil" id="XiE-Ae-9rj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnG-aN-qCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5279.7101449275369" y="631.47321428571422"/>
+        </scene>
+        <!--Profil-->
+        <scene sceneID="XBG-gi-J7B">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ziU-40-Kr4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profil" image="UserTabBar" id="1Km-sg-Vro"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6kv-IH-DBM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tif-Uy-e1l" kind="relationship" relationship="rootViewController" id="FOJ-lp-6z8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihH-4C-HPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4369.5652173913049" y="631.47321428571422"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DecouvrirTabBar" width="30" height="30"/>
+        <image name="ProposerTabBar" width="30" height="30"/>
+        <image name="UserTabBar" width="30" height="30"/>
+    </resources>
+</document>
