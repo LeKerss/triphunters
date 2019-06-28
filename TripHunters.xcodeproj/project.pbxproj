@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
 		FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */; };
 		FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC5C77A722C5FD8800712C32 /* TripHunters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHunters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				FC50398522C6122B005E8209 /* Activity.swift */,
+				C74F16DD22C612E70009F809 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
 				FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */,
 				FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */,
+				C74F16DE22C612E70009F809 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
