@@ -142,6 +142,15 @@
 			path = TripHuntersUITests;
 			sourceTree = "<group>";
 		};
+		FC5C77D822C5FDA600712C32 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95F2A80122C60CEB002B733B /* User.swift */,
+				C74F16D722C610BC0009F809 /* Activity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FC5C77D922C5FDAF00712C32 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +312,8 @@
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
+				C74F16D822C610BC0009F809 /* Activity.swift in Sources */,
+				95F2A80222C60CEB002B733B /* User.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
 				FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */,
 				FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */,
