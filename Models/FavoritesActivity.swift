@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FavoriActivity {
+struct FavoritesActivity {
     
     let idActivity : Int
     let idUser: Int
