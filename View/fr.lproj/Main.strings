@@ -1,0 +1,12 @@
+
+/* Class = "UITabBarItem"; title = "Profil"; ObjectID = "1Km-sg-Vro"; */
+"1Km-sg-Vro.title" = "Profil";
+
+/* Class = "UITabBarItem"; title = "Découvrir"; ObjectID = "DcM-K0-yOx"; */
+"DcM-K0-yOx.title" = "Découvrir";
+
+/* Class = "UITabBarItem"; title = "Proposer"; ObjectID = "Sdy-BG-rYe"; */
+"Sdy-BG-rYe.title" = "Proposer";
+
+/* Class = "UINavigationItem"; title = "Profil"; ObjectID = "XiE-Ae-9rj"; */
+"XiE-Ae-9rj.title" = "Profil";
