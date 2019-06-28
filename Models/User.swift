@@ -12,8 +12,10 @@ import UIKit
 struct User{
     
     let idUser : Int
+    var pseudo: String
     var firstName : String
     var lastName : String
+    var description: String?
     var email : String
     var password : String
     var nationality : String
