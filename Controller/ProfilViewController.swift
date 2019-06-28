@@ -10,12 +10,24 @@ import UIKit
 
 class ProfilViewController: UIViewController {
 
+    @IBOutlet weak var imgProfil: UIImageView!
+    @IBOutlet weak var imgNationality: UIImageView!
+    @IBOutlet weak var pseudoLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
+    
+    var myUser : User = User(idUser: 1, firstName: "Simon", lastName: "Chevalier", email: "sim.chevalier@gmail.com", password: "testpw", nationality: "france", imageProfil: nil)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initProfilInformations()
         // Do any additional setup after loading the view.
     }
     
+    func initProfilInformations() {
+        nameLabel.text = "\(myUser.firstName) \(myUser.lastName)"
+    }
 
     /*
     // MARK: - Navigation
