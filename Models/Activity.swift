@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum typeActivityEnum {
-    case Sports, Gastronomy, Cultural, Entertainement, Exploration, Insolit, NightLife
+    case Sports, Gastronomy, Cultural, Entertainement, Exploration, Freaky, NightLife
 }
 
 struct Activity {
