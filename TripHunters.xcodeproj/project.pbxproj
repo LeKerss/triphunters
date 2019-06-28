@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
 		FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */; };
 		FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */; };
 		FC5C77B022C5FD8800712C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C77AE22C5FD8800712C32 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC5C77A722C5FD8800712C32 /* TripHunters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHunters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -80,9 +82,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC50398422C61213005E8209 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC50398522C6122B005E8209 /* Activity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FC5C779E22C5FD8800712C32 = {
 			isa = PBXGroup;
 			children = (
+				FC50398422C61213005E8209 /* Models */,
 				FC5C77DB22C5FDC100712C32 /* Assets */,
 				FC5C77DA22C5FDB400712C32 /* Controller */,
 				FC5C77D922C5FDAF00712C32 /* View */,
@@ -289,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
