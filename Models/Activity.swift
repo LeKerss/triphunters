@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 
+enum typeActivityEnum {
+    case Sports, Gastronomy, Cultural, Entertainement, Exploration, Insolit, NightLife
+}
+
 struct Activity {
     
     let idActivity: Int
     var idUser : Int
-    var nomActivité: String
+    var nameActivity: String
     var descriptionActivity: String
-    var typeActivity: String
+    var typeActivity: typeActivityEnum
     var adresse: String
+    var country: String
     var gpsx: Double
     var gpsy: Double
     var showActivity: Bool
