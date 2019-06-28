@@ -24,9 +24,16 @@ class ShowActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //favoriteText init
         favoriteText.setTitle("☆",for: .normal)
         favoriteText.setTitle("★",for: .selected)
         favoriteText.isSelected = false
+        favoriteText.layer.cornerRadius = 25
+        favoriteText.layer.shadowColor = UIColor.black.cgColor
+        favoriteText.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        favoriteText.layer.masksToBounds = false
+        favoriteText.layer.shadowRadius = 2.0
+        favoriteText.layer.shadowOpacity = 0.5
         
         imageActivity.image = currentActivity.imageDesc[0]
         nameActivity.text = currentActivity.nameActivity
