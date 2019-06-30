@@ -1,5 +1,5 @@
 //
-//  FavoriActivity.swift
+//  likeActivity.swift
 //  TripHunters
 //
 //  Created by oscar Amzalag on 28/06/2019.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct FavoritesActivity {
+struct LikeActivity {
     
     let idActivity : Int
     let idUser: Int
-    let dateFav: Date
+    
 }
