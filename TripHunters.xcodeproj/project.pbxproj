@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9547412822C64B5800C1BAE2 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547412722C64B5800C1BAE2 /* ProfileCollectionViewCell.swift */; };
-		9547412A22C653C000C1BAE2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547412922C653BF00C1BAE2 /* ProfileTableViewCell.swift */; };
+		9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD522CA0238003D1676 /* profileJoinedCollectionViewCell.swift */; };
+		9544CFD822CA02F9003D1676 /* profileProposedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */; };
+		9544CFDA22CA0403003D1676 /* profileFavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */; };
+		9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */; };
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
@@ -47,8 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9547412722C64B5800C1BAE2 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
-		9547412922C653BF00C1BAE2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		9544CFD522CA0238003D1676 /* profileJoinedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileJoinedCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileProposedCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileFavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C74F16E922C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -173,8 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				FC5C77AE22C5FD8800712C32 /* Main.storyboard */,
-				9547412722C64B5800C1BAE2 /* ProfileCollectionViewCell.swift */,
-				9547412922C653BF00C1BAE2 /* ProfileTableViewCell.swift */,
+				9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */,
+				9544CFD522CA0238003D1676 /* profileJoinedCollectionViewCell.swift */,
+				9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */,
+				9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,17 +338,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */,
 				FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */,
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
-				9547412A22C653C000C1BAE2 /* ProfileTableViewCell.swift in Sources */,
-				9547412822C64B5800C1BAE2 /* ProfileCollectionViewCell.swift in Sources */,
+				9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
 				FC772E1922C8BAA2008C67D6 /* Like.swift in Sources */,
 				FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */,
 				FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */,
+				9544CFD822CA02F9003D1676 /* profileProposedCollectionViewCell.swift in Sources */,
+				9544CFDA22CA0403003D1676 /* profileFavoriteCollectionViewCell.swift in Sources */,
 				FC50398D22C63B17005E8209 /* ShowActivityViewController.swift in Sources */,
 				FC772E1722C84684008C67D6 /* Comment.swift in Sources */,
 				C74F16DE22C612E70009F809 /* User.swift in Sources */,
