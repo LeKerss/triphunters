@@ -11,7 +11,7 @@ import UIKit
 class ProposerViewController: UITableViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var placeTextField: UITextField!
+    @IBOutlet weak var adresseTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +22,6 @@ class ProposerViewController: UITableViewController {
     }
     
     @IBAction func addImage(_ sender: Any) {
-
-    }
-
-    @IBAction func daySwitch(_ sender: UISwitch) {
 
     }
     
