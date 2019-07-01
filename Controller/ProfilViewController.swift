@@ -21,6 +21,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var favoriteActivityCollection: UICollectionView!
     @IBOutlet weak var likedActivityCollection: UICollectionView!
     
+    var activitySelected : Activity? = nil
+    
     var listActivityJoined : [Activity] = []
     var listActivityProposed : [Activity] = []
     var listActivityFavorites : [Activity] = []
@@ -61,6 +63,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         imgNationality.image = UIImage(named: "france")
     }
     
+    // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
         listActivityLiked.append(Activity1)
         listActivityJoined.append(Activity2)
@@ -70,6 +73,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         listActivityFavorites.append(Activity2)
     }
     
+    
+    // Nombre d'item max : 10 sinon longueur tableau
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(collectionView){
         case self.joinedActivityCollection:
@@ -105,6 +110,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         }
     }
     
+    
+    // Fonction d'ajout d'element dans les differentes collectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch (collectionView){
         case self.joinedActivityCollection:
@@ -146,6 +153,27 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         default:
             return UICollectionViewCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch (collectionView){
+        case self.joinedActivityCollection:
+            activitySelected = listActivityJoined[indexPath.row]
+        case self.proposedActivityCollection:
+            activitySelected = listActivityProposed[indexPath.row]
+        case self.favoriteActivityCollection:
+            activitySelected = listActivityFavorites[indexPath.row]
+        case self.likedActivityCollection:
+            activitySelected = listActivityLiked[indexPath.row]
+        default:
+            break
+        }
+        performSegue(withIdentifier: "showDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as? ShowActivityViewController
+        destinationViewController?.currentActivity = activitySelected!
     }
     
 }
