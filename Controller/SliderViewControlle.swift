@@ -2,22 +2,22 @@
 //  SliderViewController.swift
 //  TripHunters
 //
-//  Created by Annas Saker on 01/07/2019.
+//  Created by Annas Saker on 28/06/2019.
 //  Copyright © 2019 oscar Amzalag. All rights reserved.
 //
 
 import UIKit
 
-class SliderViewController: UIViewController {
-
-    @IBOutlet var handleArea: UIView!
-    @IBOutlet var handleLine: UIScrollView!
+class SliderViewControlle: UIViewController {
+    @IBOutlet weak var handleArea: UIView!
+    @IBOutlet weak var handleLine: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        handleLine.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation

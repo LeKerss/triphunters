@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
-		C74F173F22CA10500009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F173D22CA10500009F809 /* SliderViewController.swift */; };
+		C74F174122CA14130009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F174022CA14130009F809 /* SliderViewController.swift */; };
+		C74F174222CA15280009F809 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74F173E22CA10500009F809 /* SliderViewController.xib */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
 		FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398722C61547005E8209 /* InscriptionActivity.swift */; };
 		FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398922C6158E005E8209 /* FavoritesActivity.swift */; };
@@ -51,8 +52,8 @@
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C74F16EE22C61D210009F809 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C74F16F022C61D250009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C74F173D22CA10500009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderViewController.swift; path = /Users/kersa/Documents/triphunters/Controller/SliderViewController.swift; sourceTree = "<absolute>"; };
 		C74F173E22CA10500009F809 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SliderViewController.xib; path = /Users/kersa/Documents/triphunters/Controller/SliderViewController.xib; sourceTree = "<absolute>"; };
+		C74F174022CA14130009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC50398722C61547005E8209 /* InscriptionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionActivity.swift; sourceTree = "<group>"; };
 		FC50398922C6158E005E8209 /* FavoritesActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesActivity.swift; sourceTree = "<group>"; };
@@ -70,7 +71,7 @@
 		FC5C77C622C5FD8800712C32 /* TripHuntersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripHuntersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77CA22C5FD8800712C32 /* TripHuntersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHuntersUITests.swift; sourceTree = "<group>"; };
 		FC5C77CC22C5FD8800712C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecouvrirViewController.swift; sourceTree = "<group>"; };
+		FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DecouvrirViewController.swift; path = Controller/DecouvrirViewController.swift; sourceTree = SOURCE_ROOT; };
 		FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		FC5C77E022C6059000712C32 /* ProposerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposerViewController.swift; sourceTree = "<group>"; };
 		FC772E1622C84684008C67D6 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -179,7 +180,7 @@
 		FC5C77DA22C5FDB400712C32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C74F173D22CA10500009F809 /* SliderViewController.swift */,
+				C74F174022CA14130009F809 /* SliderViewController.swift */,
 				C74F173E22CA10500009F809 /* SliderViewController.xib */,
 				FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */,
 				FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */,
@@ -303,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74F174222CA15280009F809 /* SliderViewController.xib in Resources */,
 				FC5C77B522C5FD8800712C32 /* LaunchScreen.storyboard in Resources */,
 				C74F16ED22C61D210009F809 /* Localizable.strings in Resources */,
 				FC5C77B222C5FD8800712C32 /* Assets.xcassets in Resources */,
@@ -332,8 +334,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */,
+				C74F174122CA14130009F809 /* SliderViewController.swift in Sources */,
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
-				C74F173F22CA10500009F809 /* SliderViewController.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,

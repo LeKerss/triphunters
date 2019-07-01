@@ -27,15 +27,14 @@ class DecouvrirViewController: UIViewController {
     
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted:CGFloat = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSlider()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
@@ -57,12 +56,12 @@ class DecouvrirViewController: UIViewController {
         sliderViewController.view.clipsToBounds = true
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DecouvrirViewController.handleSliderTap(recognizer:)))
-
+        
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DecouvrirViewController.handleSliderPan(recognizer:)))
-
+        
         sliderViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         sliderViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
-
+        
     }
     
     @objc
