@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
-		C74F173722C663E90009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F173522C663E90009F809 /* SliderViewController.swift */; };
-		C74F173822C663E90009F809 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74F173622C663E90009F809 /* SliderViewController.xib */; };
+		C74F173F22CA10500009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F173D22CA10500009F809 /* SliderViewController.swift */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
 		FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398722C61547005E8209 /* InscriptionActivity.swift */; };
 		FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398922C6158E005E8209 /* FavoritesActivity.swift */; };
@@ -52,8 +51,8 @@
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C74F16EE22C61D210009F809 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C74F16F022C61D250009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C74F173522C663E90009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
-		C74F173622C663E90009F809 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
+		C74F173D22CA10500009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderViewController.swift; path = /Users/kersa/Documents/triphunters/Controller/SliderViewController.swift; sourceTree = "<absolute>"; };
+		C74F173E22CA10500009F809 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SliderViewController.xib; path = /Users/kersa/Documents/triphunters/Controller/SliderViewController.xib; sourceTree = "<absolute>"; };
 		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC50398722C61547005E8209 /* InscriptionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionActivity.swift; sourceTree = "<group>"; };
 		FC50398922C6158E005E8209 /* FavoritesActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesActivity.swift; sourceTree = "<group>"; };
@@ -180,13 +179,13 @@
 		FC5C77DA22C5FDB400712C32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C74F173D22CA10500009F809 /* SliderViewController.swift */,
+				C74F173E22CA10500009F809 /* SliderViewController.xib */,
 				FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */,
 				FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */,
 				FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */,
 				FC5C77E022C6059000712C32 /* ProposerViewController.swift */,
 				FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */,
-				C74F173522C663E90009F809 /* SliderViewController.swift */,
-				C74F173622C663E90009F809 /* SliderViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,7 +305,6 @@
 			files = (
 				FC5C77B522C5FD8800712C32 /* LaunchScreen.storyboard in Resources */,
 				C74F16ED22C61D210009F809 /* Localizable.strings in Resources */,
-				C74F173822C663E90009F809 /* SliderViewController.xib in Resources */,
 				FC5C77B222C5FD8800712C32 /* Assets.xcassets in Resources */,
 				FC5C77B022C5FD8800712C32 /* Main.storyboard in Resources */,
 			);
@@ -335,13 +333,13 @@
 			files = (
 				FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */,
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
+				C74F173F22CA10500009F809 /* SliderViewController.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
 				FC772E1922C8BAA2008C67D6 /* Like.swift in Sources */,
 				FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */,
-				C74F173722C663E90009F809 /* SliderViewController.swift in Sources */,
 				FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */,
 				FC50398D22C63B17005E8209 /* ShowActivityViewController.swift in Sources */,
 				FC772E1722C84684008C67D6 /* Comment.swift in Sources */,
@@ -534,11 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = BV2TMVF6X4;
-=======
 				DEVELOPMENT_TEAM = P6FCPFN549;
->>>>>>> master
 				INFOPLIST_FILE = TripHunters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,11 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = BV2TMVF6X4;
-=======
 				DEVELOPMENT_TEAM = P6FCPFN549;
->>>>>>> master
 				INFOPLIST_FILE = TripHunters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
