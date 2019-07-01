@@ -17,6 +17,7 @@ class ProposerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        longPressGestureRecognizer()
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -30,6 +31,7 @@ class ProposerViewController: UITableViewController {
     @IBAction func createButton(_ sender: Any) {
         
     }
+    
     @IBAction func dismissKeyboard(_ sender: Any) {
         titleTextField.resignFirstResponder()
         adresseTextField.resignFirstResponder()
@@ -45,6 +47,27 @@ class ProposerViewController: UITableViewController {
         imagePickerController.allowsEditing = false
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    private func longPressGestureRecognizer() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed(gesture:)))
+        activityImageView.addGestureRecognizer(longPress)
+    }
+    
+    /**
+     * Allow to delete picture by long press gesture on it
+     */
+    @objc private func longPressed(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .ended { return }
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Annuler", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let deleteAction = UIAlertAction(title: "Supprimer", style: .destructive, handler: { (action) -> Void in
+            self.activityImageView.image = nil // delete image
+            self.addImageButton.isHidden = false // show picture selection button
+        })
+        alert.addAction(deleteAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -52,7 +75,7 @@ extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             activityImageView.image = image
-            addImageButton.isHidden = true // hide picture selection button after picking
+            addImageButton.isHidden = true
         }
         dismiss(animated: true, completion: nil)
     }
