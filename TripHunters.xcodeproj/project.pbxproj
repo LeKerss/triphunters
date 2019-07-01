@@ -12,6 +12,7 @@
 		9544CFDA22CA0403003D1676 /* profileFavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */; };
 		9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */; };
 		9544CFE022CA39ED003D1676 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9544CFDF22CA39ED003D1676 /* SliderViewController.xib */; };
+		9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */; };
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
 		C74F174122CA14130009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F174022CA14130009F809 /* SliderViewController.swift */; };
@@ -56,6 +57,7 @@
 		9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileFavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		9544CFDF22CA39ED003D1676 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SliderViewController.xib; path = Controller/SliderViewController.xib; sourceTree = "<group>"; };
+		9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderForView.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C74F16E922C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		FC5C77DB22C5FDC100712C32 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */,
 				FC5C77B122C5FD8800712C32 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -353,6 +356,7 @@
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */,
+				9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
