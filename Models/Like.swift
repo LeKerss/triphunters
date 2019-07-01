@@ -1,16 +1,15 @@
 //
-//  FavoriActivity.swift
+//  Like.swift
 //  TripHunters
 //
-//  Created by oscar Amzalag on 28/06/2019.
+//  Created by oscar Amzalag on 30/06/2019.
 //  Copyright © 2019 oscar Amzalag. All rights reserved.
 //
 
 import Foundation
 
-struct FavoritesActivity {
-    
+struct Like {
     let idActivity : Int
     let idUser: Int
-    let dateFav: Date
+    let dateLike: Date
 }
