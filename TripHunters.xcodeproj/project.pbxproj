@@ -56,14 +56,13 @@
 		9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileProposedCollectionViewCell.swift; sourceTree = "<group>"; };
 		9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileFavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
-		9544CFDF22CA39ED003D1676 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SliderViewController.xib; path = Controller/SliderViewController.xib; sourceTree = "<group>"; };
+		9544CFDF22CA39ED003D1676 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 		9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderForView.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C74F16E922C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C74F16EE22C61D210009F809 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C74F16F022C61D250009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C74F173E22CA10500009F809 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SliderViewController.xib; path = /Users/kersa/Documents/triphunters/Controller/SliderViewController.xib; sourceTree = "<absolute>"; };
 		C74F174022CA14130009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC50398722C61547005E8209 /* InscriptionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionActivity.swift; sourceTree = "<group>"; };
@@ -130,7 +129,6 @@
 		FC5C779E22C5FD8800712C32 = {
 			isa = PBXGroup;
 			children = (
-				9544CFDF22CA39ED003D1676 /* SliderViewController.xib */,
 				C74F16EF22C61D210009F809 /* Localizable.strings */,
 				FC50398422C61213005E8209 /* Models */,
 				FC5C77DB22C5FDC100712C32 /* Assets */,
@@ -197,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C74F174022CA14130009F809 /* SliderViewController.swift */,
-				C74F173E22CA10500009F809 /* SliderViewController.xib */,
+				9544CFDF22CA39ED003D1676 /* SliderViewController.xib */,
 				FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */,
 				FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */,
 				FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */,

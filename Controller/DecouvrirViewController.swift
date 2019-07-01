@@ -46,7 +46,6 @@ class DecouvrirViewController: UIViewController {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
         self.view.addSubview(visualEffectView)
-        
         sliderViewController = SliderViewController(nibName: "SliderViewController", bundle:nil)
         self.addChild(sliderViewController)
         self.view.addSubview(sliderViewController.view)
@@ -66,7 +65,13 @@ class DecouvrirViewController: UIViewController {
     
     @objc
     func handleSliderTap(recognizer:UITapGestureRecognizer) {
-        
+        switch recognizer.state {
+        case .ended:
+            startInteractiveTransition(state: nextState, duration: 0.8)
+            continueInteractiveTransition()
+        default:
+            break
+        }
     }
     
     
@@ -76,7 +81,9 @@ class DecouvrirViewController: UIViewController {
         case .began:
             startInteractiveTransition(state: nextState, duration: 0.5)
         case .changed:
-            updateInteractiveTransition(fractionCompleted: 0)
+            let translation = recognizer.translation(in: self.sliderViewController.handleArea)
+            var fractionCompleted = translation.y / sliderHeight
+            updateInteractiveTransition(fractionCompleted: sliderVisible ? fractionCompleted : -fractionCompleted)
         case .ended:
             continueInteractiveTransition()
         default:
@@ -102,6 +109,31 @@ class DecouvrirViewController: UIViewController {
             
             frameAnimator.startAnimation()
             self.runningAnimations.append(frameAnimator)
+            
+            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+                switch state {
+                case .expanded:
+                    self.sliderViewController.view.layer.cornerRadius = 12
+                case .collapsed:
+                    self.sliderViewController.view.layer.cornerRadius = 0
+                    
+                }
+            }
+            
+            cornerRadiusAnimator.startAnimation()
+            runningAnimations.append(cornerRadiusAnimator)
+            
+            let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+                switch state {
+                case .expanded:
+                    self.visualEffectView.effect = UIBlurEffect(style: .dark)
+                case .collapsed:
+                    self.visualEffectView.effect = nil
+                }
+            }
+            
+            blurAnimator.startAnimation()
+            runningAnimations.append(blurAnimator)
         }
     }
     
