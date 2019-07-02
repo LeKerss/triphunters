@@ -58,6 +58,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         initProfilInformations()
         initListForCollections()
         manageView()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -201,6 +202,20 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationViewController = segue.destination as? ShowActivityViewController
         destinationViewController?.currentActivity = activitySelected!
+    }
+    
+    //annimation
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        print("test")
+        
+        switch collectionView.indexPathsForSelectedItems?.first {
+        case .some(indexPath):
+            return CGSize() // your selected height
+        default:
+            let height = (view.frame.width) * 9 / 16
+            return CGSize(width: view.frame.width, height: height + 50 + 50)
+        }
     }
 
 //     self.tabBarController?.selectedIndex = 0
