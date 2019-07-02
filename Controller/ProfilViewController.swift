@@ -138,7 +138,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityJoined[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
                 cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
@@ -149,7 +149,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
                 cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
@@ -160,7 +160,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
                 cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
@@ -171,7 +171,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
                 cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
