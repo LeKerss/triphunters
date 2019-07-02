@@ -2,15 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/kersa/Documents/triphunters/Controller/SliderViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/kersa/Documents/triphunters/Controller/SliderViewController.xib">
-   </FileRef>
-   <FileRef
-      location = "group:../Controller">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

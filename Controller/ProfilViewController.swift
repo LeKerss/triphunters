@@ -16,10 +16,19 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var imgNationality: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var joinedActivityCollection: UICollectionView!
     @IBOutlet weak var proposedActivityCollection: UICollectionView!
     @IBOutlet weak var favoriteActivityCollection: UICollectionView!
     @IBOutlet weak var likedActivityCollection: UICollectionView!
+    
+    @IBOutlet weak var myStackView: UIStackView!
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var joinedView: UIView!
+    @IBOutlet weak var proposedView: UIView!
+    @IBOutlet weak var favoriteView: UIView!
+    @IBOutlet weak var likedView: UIView!
+    
     
     var activitySelected : Activity? = nil
     
@@ -31,9 +40,9 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     // Création d'une variable myUser
     var myUser : User = User(idUser: 1, pseudo: "NqbraL", firstName: "Simon", lastName: "Chevalier", description: nil, email: "sim.chevalier@gmail.com", password: "testpw", nationality: "france", imageProfil: nil)
     
-    var Activity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: typeActivityEnum.NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!])
+    var Activity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: .NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!])
     
-    var Activity2 = Activity(idActivity: 2, idUser: 2, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: typeActivityEnum.Cultural, adresse: "99, rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!])
+    var Activity2 = Activity(idActivity: 2, idUser: 2, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: .Cultural, adresse: "99, rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!])
     
     
     override func viewDidLoad() {
@@ -48,6 +57,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         likedActivityCollection.dataSource = self
         initProfilInformations()
         initListForCollections()
+        manageView()
         // Do any additional setup after loading the view.
     }
     
@@ -65,12 +75,20 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-        listActivityLiked.append(Activity1)
+//        listActivityLiked.append(Activity1)
         listActivityJoined.append(Activity2)
         listActivityJoined.append(Activity1)
         listActivityProposed.append(Activity2)
         listActivityFavorites.append(Activity1)
         listActivityFavorites.append(Activity2)
+    }
+    
+    func manageView(){
+        if (listActivityLiked.count == 0){
+            var height = likedView.frame.height
+            print(height)
+//            likedView.isHidden = true
+        }
     }
     
     
@@ -120,6 +138,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityJoined[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -129,6 +149,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -138,6 +160,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -147,6 +171,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -154,6 +180,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             return UICollectionViewCell()
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch (collectionView){
@@ -175,6 +202,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         let destinationViewController = segue.destination as? ShowActivityViewController
         destinationViewController?.currentActivity = activitySelected!
     }
+
+//     self.tabBarController?.selectedIndex = 0
     
 }
 
