@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposerViewController: UITableViewController {
+class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     
     //MARK:- Outlets
     @IBOutlet weak var titleTextField: UITextField!
@@ -27,6 +27,8 @@ class ProposerViewController: UITableViewController {
         titleTextField.text = nil
         adresseTextField.text = nil
         activityImageView.image = nil
+        activityImageView.isHidden = false
+        addImageButton.isHidden = false
         descriptionTextView.text = nil
     }
     
@@ -57,6 +59,15 @@ class ProposerViewController: UITableViewController {
         
         let activity = Activity(idActivity: 0, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: .Cultural, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
         print(activity)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as? TypeActivityTableViewController
+        destinationViewController?.delegate = self
+    }
+
+    func didSelectCategory(type: ActivityType) {
+        print()
     }
     
     /**

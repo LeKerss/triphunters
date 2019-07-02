@@ -8,26 +8,46 @@
 
 import UIKit
 
-class TypeActivityTableViewController: UITableViewController {
+protocol CategoryPickerDelegate: class {
+    func didSelectCategory(type: ActivityType)
+}
+
+class TypeActivityTableViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var typeActivity = ["Sports", "Gastronomy", "Cultural", "Entertainement", "Exploration", "Freaky", "NightLife"]
+    weak var delegate: CategoryPickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.delegate = self
     }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return typeActivityEnum.allCases.count
+        return ActivityType.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        cell.textLabel?.text = typeActivity[indexPath.row]
+        cell.textLabel?.text = ActivityType.allCases[indexPath.row].name()
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+         tableView.cellForRow(at: indexPath)?.accessoryType = .none
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let activity = ActivityType.allCases[indexPath.row]
+        delegate?.didSelectCategory(type: activity)
+        }
 }

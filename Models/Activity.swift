@@ -9,26 +9,11 @@
 import Foundation
 import UIKit
 
-enum typeActivityEnum : CaseIterable {
+enum ActivityType : CaseIterable {
     case Sports, Gastronomy, Cultural, Entertainement, Exploration, Freaky, NightLife
-}
-
-struct Activity {
     
-    let idActivity: Int
-    var idUser : Int
-    var nameActivity: String
-    var descriptionActivity: String
-    var typeActivity: typeActivityEnum
-    var adresse: String
-    var country: String
-    var gpsx: Double
-    var gpsy: Double
-    var showActivity: Bool
-    var imageDesc: [UIImage]
-    
-    func translateCategory()->String{
-        switch (typeActivity){
+    func name() -> String {
+        switch (self){
         case .Sports:
             return "Sport"
         case .Gastronomy:
@@ -45,5 +30,19 @@ struct Activity {
             return "Nightlife"
         }
     }
+}
+
+struct Activity {
     
+    let idActivity: Int
+    var idUser : Int
+    var nameActivity: String
+    var descriptionActivity: String
+    var typeActivity: ActivityType
+    var adresse: String
+    var country: String
+    var gpsx: Double
+    var gpsy: Double
+    var showActivity: Bool
+    var imageDesc: [UIImage]
 }
