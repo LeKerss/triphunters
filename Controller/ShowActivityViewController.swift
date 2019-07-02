@@ -10,11 +10,12 @@ import UIKit
 import MapKit
 
 class CommentTableViewCell: UITableViewCell {
-    @IBOutlet weak var commentImage: UIImageView!
+    @IBOutlet weak var commentImageUser: UIImageView!
     @IBOutlet weak var commentPeudo: UILabel!
     @IBOutlet weak var commentDate: UILabel!
     @IBOutlet weak var commentComment: UILabel!
     @IBOutlet weak var commentDeleteButton: UIButton!
+    @IBOutlet weak var commentImageFlag: UIImageView!
     
 }
 
@@ -37,7 +38,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var commentTextNb: UILabel!
+    @IBOutlet weak var commentTextNb: UIButton!
     @IBOutlet weak var labelNbImage: UILabel!
     
     var currentUser = User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil)
@@ -65,7 +66,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     var like = 28
     var inInscirption = false
 
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +85,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         favoriteText.layer.shadowRadius = 2.0
         favoriteText.layer.shadowOpacity = 0.5
 
-        commentTextNb.text = "\(commentOnActivity.count) Commentaires"
+        self.commentTextNb.setTitle("\(commentOnActivity.count) Commentaires", for: .normal)
         likeButton.setTitle("🖤",for: .normal)
         likeButton.setTitle("❤️",for: .selected)
         likeButton.isSelected = inLike
@@ -143,7 +144,29 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             xImage = xImage + 1
         }
         // Refresh control add in tableview.
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "⛔️", style: .done, target: self, action: #selector(self.report(sender:)))
+
        
+    }
+    
+    @objc func report(sender: UIBarButtonItem) {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Reportez cette activité", message: self.currentActivity.nameActivity, preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.placeholder = "Optionnel"
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Envoyez", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            _ = Report(idActivity: self.currentActivity.idActivity, idUser: self.currentUser.idUser, dateReport: Date(), description: textField?.text ?? "")
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
     }
     
 
@@ -179,7 +202,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         switch activity.typeActivity {
             
         case .Sports:
-           return "Sport"
+            return "Sport"
         case .Gastronomy:
             return "Gastronomie"
         case .NightLife:
@@ -267,7 +290,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.tableView.reloadData()
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: UITableView.ScrollPosition.none)
-            commentTextNb.text = "\(commentOnActivity.count) Commentaires"
+            self.commentTextNb.setTitle("\(commentOnActivity.count) Commentaires", for: .normal)
             self.view.endEditing(true)
         }
     }
@@ -290,6 +313,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
+    
     @IBAction func openMaps(_ sender: Any) {
         
     }
@@ -307,7 +331,8 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         cell.commentPeudo?.text = commentOnActivity[indexPath.row].pseudo
         cell.commentDate?.text = dateFormateur.string(from: commentOnActivity[indexPath.row].dateComment)
         cell.commentComment?.text = commentOnActivity[indexPath.row].comment
-        cell.commentImage?.image = UIImage(named: commentOnActivity[indexPath.row].country)
+        cell.commentImageUser?.image = UIImage(named: "IMG_default_user")
+        cell.commentImageFlag?.image = UIImage(named: commentOnActivity[indexPath.row].country)
         if (cell.commentPeudo?.text == currentUser.pseudo) {
             cell.commentDeleteButton.isHidden = false
         }else{
@@ -331,7 +356,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
                 if (editingStyle == .delete){
                     self.commentOnActivity.remove(at: indexPath.row)
                     self.tableView.reloadData()
-                    self.commentTextNb.text = "\(self.commentOnActivity.count) Commentaires"
+                    self.commentTextNb.setTitle("\(self.commentOnActivity.count) Commentaires", for: .normal)
                 }
             })
             let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)
@@ -340,7 +365,18 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.present(optionMenu, animated: true )
         }
     }
+    
+    
+    @IBAction func showAllComments(_ sender: Any) {
+        performSegue(withIdentifier: "showComments", sender: self)
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as? ShowCommentsTableViewController
+        destinationViewController?.commentOnActivity = commentOnActivity
+    }
+    
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
