@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DecouvrirViewController: UIViewController {
     
@@ -17,8 +18,11 @@ class DecouvrirViewController: UIViewController {
     var sliderViewController: SliderViewController!
     var visualEffectView: UIVisualEffectView!
     
-    let sliderHeight: CGFloat = 800
-    let sliderHandleAreaHeight: CGFloat = 180
+    let screenSize: CGRect = UIScreen.main.bounds
+    var sliderRatio: CGFloat = 0.9
+    var sliderHandleAreaRatio: CGFloat = 0.2
+    var sliderHeight: CGFloat = 500
+    var sliderHandleAreaHeight: CGFloat = 120
     
     var sliderVisible = false
     var nextState:SliderState {
@@ -28,11 +32,17 @@ class DecouvrirViewController: UIViewController {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted:CGFloat = 0
     
+    // Map elements
+    
+    @IBOutlet weak var mapView: MKMapView!
+    fileprivate let locationManager: CLLocationManager = CLLocationManager()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSlider()
-        
-        // Do any additional setup after loading the view.
+        setupLocation()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +53,12 @@ class DecouvrirViewController: UIViewController {
     }
     
     func setupSlider() {
+        sliderHeight = screenSize.height * sliderRatio
+        sliderHandleAreaHeight = screenSize.height * sliderHandleAreaRatio
+        
         visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
+        self.visualEffectView.frame = self.mapView.frame
+        
         sliderViewController = SliderViewController(nibName: "SliderViewController", bundle:nil)
         self.addChild(sliderViewController)
         self.view.addSubview(sliderViewController.view)
@@ -82,7 +95,7 @@ class DecouvrirViewController: UIViewController {
             startInteractiveTransition(state: nextState, duration: 0.5)
         case .changed:
             let translation = recognizer.translation(in: self.sliderViewController.handleArea)
-            var fractionCompleted = translation.y / sliderHeight
+            let fractionCompleted = translation.y / sliderHeight
             updateInteractiveTransition(fractionCompleted: sliderVisible ? fractionCompleted : -fractionCompleted)
         case .ended:
             continueInteractiveTransition()
@@ -126,11 +139,21 @@ class DecouvrirViewController: UIViewController {
             let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
                 switch state {
                 case .expanded:
+                    self.mapView.addSubview(self.visualEffectView)
                     self.visualEffectView.effect = UIBlurEffect(style: .dark)
                 case .collapsed:
                     self.visualEffectView.effect = nil
                 }
             }
+            blurAnimator.addCompletion {_ in
+                switch state {
+                case .expanded:
+                    break
+                case .collapsed:
+                    self.visualEffectView.removeFromSuperview()
+                }
+            }
+            
             
             blurAnimator.startAnimation()
             runningAnimations.append(blurAnimator)
@@ -157,5 +180,15 @@ class DecouvrirViewController: UIViewController {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
+    }
+    
+    func setupLocation() {
+    locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.startUpdatingLocation()
+        
+        mapView.showsUserLocation = true
+        
     }
 }
