@@ -478,8 +478,8 @@
                                     <gestureRecognizers/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2e-wf-box">
-                                    <rect key="frame" x="108.5" y="91.5" width="197" height="50"/>
-                                    <state key="normal" title="Ajouter une image" image="addActivityImage">
+                                    <rect key="frame" x="109.5" y="91.5" width="195" height="50"/>
+                                    <state key="normal" title="Ajouter une photo" image="addActivityImage">
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
                                     <connections>
@@ -560,6 +560,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Nok-KQ-bYL" kind="show" identifier="showCategoryVC" id="003-iy-SHH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -572,14 +575,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="227.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W2p-Dx-qSw">
-                                                    <rect key="frame" x="33" y="11" width="361" height="206"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="W2p-Dx-qSw">
+                                                    <rect key="frame" x="20" y="14" width="374" height="206"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="W2p-Dx-qSw" firstAttribute="leading" secondItem="a8K-Ct-nkw" secondAttribute="leading" constant="20" id="4Y8-uu-PGc"/>
+                                                <constraint firstAttribute="trailing" secondItem="W2p-Dx-qSw" secondAttribute="trailing" constant="20" id="OMS-Ec-0DL"/>
+                                                <constraint firstItem="W2p-Dx-qSw" firstAttribute="bottom" secondItem="a8K-Ct-nkw" secondAttribute="bottomMargin" constant="3" id="R0c-c1-OOH"/>
+                                                <constraint firstItem="W2p-Dx-qSw" firstAttribute="top" secondItem="a8K-Ct-nkw" secondAttribute="topMargin" constant="3" id="tVi-9k-p7t"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -592,9 +600,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Nouvelle activité" id="wIS-Zd-DOq">
-                        <barButtonItem key="leftBarButtonItem" title="Annuler" id="p8w-GY-SS5">
+                        <barButtonItem key="leftBarButtonItem" title="Réinitialiser" id="HiU-aU-e0L">
                             <connections>
-                                <action selector="cancelButton:" destination="tmO-fD-yu3" id="nGj-TP-fGe"/>
+                                <action selector="clearAll:" destination="tmO-fD-yu3" id="gfR-8O-6Ze"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Créer" id="VKn-9n-vnY">
@@ -608,6 +616,8 @@
                         <outlet property="activityImageView" destination="aR5-r2-UqX" id="iS0-2B-v9V"/>
                         <outlet property="addImageButton" destination="T2e-wf-box" id="LAh-bY-DZs"/>
                         <outlet property="adresseTextField" destination="VeB-kP-SmW" id="cWt-ah-ewR"/>
+                        <outlet property="descriptionTextView" destination="W2p-Dx-qSw" id="1Fr-ve-qRa"/>
+                        <outlet property="tapGesture" destination="9mi-0N-ZCJ" id="7jv-7i-SgW"/>
                         <outlet property="titleTextField" destination="0fh-fa-BhJ" id="hbg-Ff-WW1"/>
                     </connections>
                 </tableViewController>
@@ -618,7 +628,35 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5199" y="631"/>
+            <point key="canvasLocation" x="5051" y="631"/>
+        </scene>
+        <!--Type Activity Table View Controller-->
+        <scene sceneID="PRs-IK-a8b">
+            <objects>
+                <tableViewController id="Nok-KQ-bYL" customClass="TypeActivityTableViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pcd-Bs-R5y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="cTP-qQ-oha">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cTP-qQ-oha" id="Cy5-RC-a5w">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nok-KQ-bYL" id="7Qw-5X-P0Z"/>
+                            <outlet property="delegate" destination="Nok-KQ-bYL" id="w1A-bL-cVC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ibz-ao-foU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5814" y="631"/>
         </scene>
         <!--Profil-->
         <scene sceneID="XBG-gi-J7B">

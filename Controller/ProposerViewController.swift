@@ -10,31 +10,53 @@ import UIKit
 
 class ProposerViewController: UITableViewController {
     
+    //MARK:- Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var adresseTextField: UITextField!
     @IBOutlet weak var activityImageView: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        longPressGestureRecognizer()
-    }
-    
-    @IBAction func cancelButton(_ sender: Any) {
-        
-    }
-    
+    //MARK:- Actions
     @IBAction func addImage(_ sender: Any) {
         pickAnImage()
     }
     
+    @IBAction func clearAll(_ sender: Any) {
+        titleTextField.text = nil
+        adresseTextField.text = nil
+        activityImageView.image = nil
+        descriptionTextView.text = nil
+    }
+    
     @IBAction func createButton(_ sender: Any) {
-        
+        createActivity()
     }
     
     @IBAction func dismissKeyboard(_ sender: Any) {
         titleTextField.resignFirstResponder()
         adresseTextField.resignFirstResponder()
+        descriptionTextView.resignFirstResponder()
+        tapGesture.isEnabled = false
+    }
+    
+    //MARK:- Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        longPressGestureRecognizer()
+        titleTextField.delegate = self
+        adresseTextField.delegate = self
+    }
+    
+    func createActivity() {
+        guard let image = activityImageView.image else { return }
+        guard let description = descriptionTextView.text else { return }
+        guard let activityName = titleTextField.text else { return }
+        guard let adresse = adresseTextField.text else { return }
+        
+        let activity = Activity(idActivity: 0, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: .Cultural, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
+        print(activity)
     }
     
     /**
@@ -78,5 +100,18 @@ extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationC
             addImageButton.isHidden = true
         }
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProposerViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        tapGesture.isEnabled = true
+    }
+}
+
+extension ProposerViewController: UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
