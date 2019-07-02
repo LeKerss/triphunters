@@ -26,10 +26,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36N-jO-pwL" userLabel="Handle Area">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QN-Jo-eyb">
-                                    <rect key="frame" x="140" y="17" width="134" height="6"/>
+                                    <rect key="frame" x="140" y="13" width="134" height="6"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="134" id="H2h-ow-8Wg"/>
@@ -44,13 +44,13 @@
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-ai-8Fk">
-                            <rect key="frame" x="0.0" y="40" width="414" height="760"/>
+                            <rect key="frame" x="0.0" y="32" width="414" height="768"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sl7-Qc-WiH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choisis ton activité" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-8B-mIv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                         </scrollView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="36N-jO-pwL" firstAttribute="height" secondItem="Mp6-He-THy" secondAttribute="height" multiplier="0.05" id="Yby-R9-kbT"/>
+                        <constraint firstItem="36N-jO-pwL" firstAttribute="height" secondItem="Mp6-He-THy" secondAttribute="height" multiplier="0.04" id="Yby-R9-kbT"/>
                         <constraint firstItem="BsL-ai-8Fk" firstAttribute="width" secondItem="Mp6-He-THy" secondAttribute="width" id="m5G-rd-3bq"/>
                     </constraints>
                 </stackView>
@@ -79,6 +79,7 @@
                 <constraint firstItem="Mp6-He-THy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="H3W-JV-EDA"/>
                 <constraint firstItem="Mp6-He-THy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h0m-je-3dw"/>
                 <constraint firstItem="Mp6-He-THy" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="jme-1h-BrX"/>
+                <constraint firstItem="Lu5-8B-mIv" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.06" id="mt6-yr-99I"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
