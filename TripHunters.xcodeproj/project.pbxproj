@@ -21,6 +21,8 @@
 		FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398722C61547005E8209 /* InscriptionActivity.swift */; };
 		FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398922C6158E005E8209 /* FavoritesActivity.swift */; };
 		FC50398D22C63B17005E8209 /* ShowActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */; };
+		FC50399122CB82EF005E8209 /* report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399022CB82EF005E8209 /* report.swift */; };
+		FC50399522CB91E0005E8209 /* ShowCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */; };
 		FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */; };
 		FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */; };
 		FC5C77B022C5FD8800712C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C77AE22C5FD8800712C32 /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 		FC50398722C61547005E8209 /* InscriptionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionActivity.swift; sourceTree = "<group>"; };
 		FC50398922C6158E005E8209 /* FavoritesActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesActivity.swift; sourceTree = "<group>"; };
 		FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivityViewController.swift; sourceTree = "<group>"; };
+		FC50399022CB82EF005E8209 /* report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = report.swift; sourceTree = "<group>"; };
+		FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentsTableViewController.swift; sourceTree = "<group>"; };
 		FC5C77A722C5FD8800712C32 /* TripHunters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHunters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				FC50398922C6158E005E8209 /* FavoritesActivity.swift */,
 				FC772E1622C84684008C67D6 /* Comment.swift */,
 				FC772E1822C8BAA2008C67D6 /* Like.swift */,
+				FC50399022CB82EF005E8209 /* report.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */,
 				FC5C77E022C6059000712C32 /* ProposerViewController.swift */,
 				FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */,
+				FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */,
 				E91EFC3622CB4BF20046C094 /* TypeActivityTableViewController.swift */,
 			);
 			path = Controller;
@@ -354,11 +360,13 @@
 				9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */,
 				E91EFC3722CB4BF30046C094 /* TypeActivityTableViewController.swift in Sources */,
 				FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */,
+				FC50399522CB91E0005E8209 /* ShowCommentsTableViewController.swift in Sources */,
 				C74F174122CA14130009F809 /* SliderViewController.swift in Sources */,
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */,
 				9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */,
+				FC50399122CB82EF005E8209 /* report.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
