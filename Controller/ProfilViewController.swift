@@ -16,10 +16,19 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var imgNationality: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var joinedActivityCollection: UICollectionView!
     @IBOutlet weak var proposedActivityCollection: UICollectionView!
     @IBOutlet weak var favoriteActivityCollection: UICollectionView!
     @IBOutlet weak var likedActivityCollection: UICollectionView!
+    
+    @IBOutlet weak var myStackView: UIStackView!
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var joinedView: UIView!
+    @IBOutlet weak var proposedView: UIView!
+    @IBOutlet weak var favoriteView: UIView!
+    @IBOutlet weak var likedView: UIView!
+    
     
     var activitySelected : Activity? = nil
     
@@ -48,6 +57,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         likedActivityCollection.dataSource = self
         initProfilInformations()
         initListForCollections()
+        manageView()
         // Do any additional setup after loading the view.
     }
     
@@ -65,12 +75,20 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-        listActivityLiked.append(Activity1)
+//        listActivityLiked.append(Activity1)
         listActivityJoined.append(Activity2)
         listActivityJoined.append(Activity1)
         listActivityProposed.append(Activity2)
         listActivityFavorites.append(Activity1)
         listActivityFavorites.append(Activity2)
+    }
+    
+    func manageView(){
+        if (listActivityLiked.count == 0){
+            var height = likedView.frame.height
+            print(height)
+//            likedView.isHidden = true
+        }
     }
     
     
@@ -120,6 +138,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityJoined[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -129,6 +149,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -138,6 +160,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -147,6 +171,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
+                cell.categoryActivity.text = listActivityJoined[indexPath.row].translateCategory()
+                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -154,6 +180,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             return UICollectionViewCell()
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch (collectionView){
@@ -175,6 +202,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         let destinationViewController = segue.destination as? ShowActivityViewController
         destinationViewController?.currentActivity = activitySelected!
     }
+
+//     self.tabBarController?.selectedIndex = 0
     
 }
 
