@@ -28,13 +28,20 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36N-jO-pwL" userLabel="Handle Area">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                             <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4QN-Jo-eyb">
-                                    <rect key="frame" x="140" y="15" width="134" height="6"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QN-Jo-eyb">
+                                    <rect key="frame" x="140" y="17" width="134" height="6"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="134" id="H2h-ow-8Wg"/>
+                                        <constraint firstAttribute="height" constant="6" id="ihf-bc-dvv"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="4QN-Jo-eyb" firstAttribute="centerX" secondItem="36N-jO-pwL" secondAttribute="centerX" id="pJ7-Up-bAB"/>
+                                <constraint firstItem="4QN-Jo-eyb" firstAttribute="centerY" secondItem="36N-jO-pwL" secondAttribute="centerY" id="s4X-wf-ySC"/>
+                            </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-ai-8Fk">
                             <rect key="frame" x="0.0" y="40" width="414" height="760"/>
