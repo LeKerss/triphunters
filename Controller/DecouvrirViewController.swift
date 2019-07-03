@@ -9,7 +9,13 @@
 import UIKit
 import MapKit
 
-class DecouvrirViewController: UIViewController {
+var activity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: .NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!])
+
+var activity2 = Activity(idActivity: 2, idUser: 2, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: .Cultural, adresse: "99, rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!])
+
+var activityList = [ActivityPin(activity: activity1), ActivityPin(activity: activity2)]
+
+class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     enum SliderState {
         case expanded, collapsed
@@ -35,8 +41,20 @@ class DecouvrirViewController: UIViewController {
     // Map elements
     
     @IBOutlet weak var mapView: MKMapView!
-    fileprivate let locationManager: CLLocationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
+    var firstLocation = false
     
+    var currentActivity: Activity!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch(segue.identifier) {
+        case "goToActivity":
+            let destinationViewController = segue.destination as? ShowActivityViewController
+            destinationViewController?.currentActivity = self.currentActivity
+        default:
+            break
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,12 +201,92 @@ class DecouvrirViewController: UIViewController {
     }
     
     func setupLocation() {
-    locationManager.requestWhenInUseAuthorization()
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.startUpdatingLocation()
+        mapView.delegate = self
         
-        mapView.showsUserLocation = true
+        // Check for Location Services
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+        }
         
+        self.locationManager = locationManager
+        self.locationManager.startUpdatingLocation()
+        
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if(!firstLocation) {
+            centerLocation()
+            firstLocation = true
+        }
+    }
+    
+    func centerLocation() {
+        //Zoom to user location
+        if let userLocation = self.locationManager.location?.coordinate {
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let viewRegion = MKCoordinateRegion(center: userLocation, span: span)
+            mapView.setRegion(viewRegion, animated: true)
+        }
+        
+        mapView.addAnnotations(activityList)
+        
+    }
+    
+    func addPoint(_ currentActivity: Activity) {
+        let mapActivityPoint = MKPointAnnotation()
+        mapActivityPoint.title = currentActivity.nameActivity
+        mapActivityPoint.coordinate = CLLocationCoordinate2D(latitude: currentActivity.gpsx, longitude: currentActivity.gpsy)
+        
+        mapView.addAnnotation(mapActivityPoint)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        // 2
+        guard let annotation = annotation as? ActivityPin else { return nil }
+        // 3
+        let identifier = String(annotation.activity.idActivity)
+        var view: MKMarkerAnnotationView
+        // 4
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            // 5
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            switch annotation.activity.typeActivity {
+                case .Sports:
+                    view.markerTintColor = UIColor.red
+                case .Gastronomy:
+                    view.markerTintColor = UIColor.cyan
+                case .NightLife:
+                    view.markerTintColor = UIColor.blue
+                case .Cultural:
+                    view.markerTintColor = UIColor.purple
+                case .Entertainement:
+                    view.markerTintColor = UIColor.green
+                case .Exploration:
+                    view.markerTintColor = UIColor.yellow
+                case .Freaky:
+                    view.markerTintColor = UIColor.brown
+                }
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let activity = view.annotation as! ActivityPin
+        self.currentActivity = activity.activity
+        performSegue(withIdentifier: "goToActivity", sender: self)
     }
 }

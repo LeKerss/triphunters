@@ -50,6 +50,7 @@
                     <navigationItem key="navigationItem" id="yrX-GU-yVK"/>
                     <connections>
                         <outlet property="mapView" destination="9DE-GP-ln6" id="a4H-dY-t9v"/>
+                        <segue destination="k2F-At-7Xd" kind="show" identifier="goToActivity" id="8Z0-GP-ZVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewd-zb-a4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1342,6 +1343,6 @@
         <image name="addActivityImage" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G9G-5v-qaw"/>
+        <segue reference="8Z0-GP-ZVv"/>
     </inferredMetricsTieBreakers>
 </document>
