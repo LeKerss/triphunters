@@ -225,11 +225,18 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             let destinationViewController = segue.destination as? myActivityTableViewController
             destinationViewController?.name = nameForMore
             destinationViewController?.listActivty = listSelectedForMore
+        case "editProfile" :
+            let destinationViewController = segue.destination as? EditProfileViewController
+            destinationViewController?.myUser = myUser
         default:
             break
         }
-        
     }
+    
+    @IBAction func buttonEditProfile(_ sender: Any) {
+        performSegue(withIdentifier: "editProfile", sender: self)
+    }
+    
     @IBAction func joinedShowMore(_ sender: Any) {
         nameForMore = "✔︎ Mes activités rejoints"
         listSelectedForMore = listActivityJoined

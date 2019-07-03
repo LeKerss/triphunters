@@ -13,6 +13,7 @@
 		9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */; };
 		9544CFE022CA39ED003D1676 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9544CFDF22CA39ED003D1676 /* SliderViewController.xib */; };
 		9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */; };
+		95DCCEA322CCE489007F3FC9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCCEA222CCE489007F3FC9 /* EditProfileViewController.swift */; };
 		996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */; };
 		996B362E22CD0122003241C7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B362D22CD011F003241C7 /* Data.swift */; };
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
@@ -65,6 +66,7 @@
 		9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		9544CFDF22CA39ED003D1676 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 		9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderForView.swift; sourceTree = "<group>"; };
+		95DCCEA222CCE489007F3FC9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionTableViewController.swift; sourceTree = "<group>"; };
 		996B362D22CD011F003241C7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Models/Data.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		FC5C77DA22C5FDB400712C32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95DCCEA222CCE489007F3FC9 /* EditProfileViewController.swift */,
 				C785212F22CCB43D00D4381B /* MapViewController.swift */,
 				C74F174022CA14130009F809 /* SliderViewController.swift */,
 				9544CFDF22CA39ED003D1676 /* SliderViewController.xib */,
@@ -390,6 +393,7 @@
 				9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */,
 				9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */,
 				FC50399122CB82EF005E8209 /* report.swift in Sources */,
+				95DCCEA322CCE489007F3FC9 /* EditProfileViewController.swift in Sources */,
 				FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */,
