@@ -831,7 +831,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TSI-oy-M2h">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1069"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1211"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tT6-gq-OrB">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
@@ -928,8 +928,14 @@
                                                     <action selector="openMaps:" destination="k2F-At-7Xd" eventType="touchUpInside" id="97k-Ek-brM"/>
                                                 </connections>
                                             </button>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VZq-YI-Sos">
+                                                <rect key="frame" x="20" y="541.5" width="374" height="130"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="130" id="sSl-1W-fBe"/>
+                                                </constraints>
+                                            </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oG-PP-HZt">
-                                                <rect key="frame" x="20" y="541.5" width="374" height="33"/>
+                                                <rect key="frame" x="20" y="683.5" width="374" height="33"/>
                                                 <color key="backgroundColor" red="0.20396438241004944" green="0.47004097700119019" blue="0.96479231119155884" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="      Rejoindre      ">
@@ -940,7 +946,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa2-oC-rQ8">
-                                                <rect key="frame" x="20" y="580.5" width="374" height="0.0"/>
+                                                <rect key="frame" x="20" y="722.5" width="374" height="0.0"/>
                                                 <color key="backgroundColor" red="0.85163554352552151" green="0.23916670725201897" blue="0.14316816949447744" alpha="0.73999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="      Quitter      ">
@@ -951,7 +957,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0T-IP-Mxm">
-                                                <rect key="frame" x="20" y="580.5" width="374" height="0.0"/>
+                                                <rect key="frame" x="20" y="722.5" width="374" height="0.0"/>
                                                 <color key="backgroundColor" red="0.85163554350000004" green="0.2391667073" blue="0.1431681695" alpha="0.73999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Supprimer votre activité">
@@ -962,19 +968,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9W-bg-Jji">
-                                                <rect key="frame" x="20" y="586.5" width="374" height="20.5"/>
+                                                <rect key="frame" x="20" y="728.5" width="374" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAG-49-Th1">
-                                                <rect key="frame" x="0.0" y="619" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="761" width="414" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d9-8a-TFk">
-                                                <rect key="frame" x="0.0" y="681" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="823" width="414" height="30"/>
                                                 <state key="normal" title="Commentaires">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -983,7 +989,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="008-Te-xNB" userLabel="CommentsView">
-                                                <rect key="frame" x="0.0" y="723" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="865" width="414" height="200"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D42-3G-Xgs">
                                                         <rect key="frame" x="20" y="20" width="374" height="30"/>
@@ -1093,13 +1099,13 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ajouter un commentaire" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1jq-Pw-1wS">
-                                                <rect key="frame" x="20" y="935" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="1077" width="374" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-u4-hFa">
-                                                <rect key="frame" x="20" y="977" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="1119" width="374" height="30"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Envoyer ">
                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1109,7 +1115,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YY-rS-DKG">
-                                                <rect key="frame" x="20" y="1019" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="1161" width="374" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1127,7 +1133,9 @@
                                             <constraint firstAttribute="trailing" secondItem="9d9-8a-TFk" secondAttribute="trailing" id="aCu-ZU-TTW"/>
                                             <constraint firstItem="n9W-bg-Jji" firstAttribute="leading" secondItem="TSI-oy-M2h" secondAttribute="leading" constant="20" id="b3d-gc-jpZ"/>
                                             <constraint firstAttribute="trailing" secondItem="tT6-gq-OrB" secondAttribute="trailing" id="bdU-ub-Cb9"/>
+                                            <constraint firstItem="VZq-YI-Sos" firstAttribute="leading" secondItem="TSI-oy-M2h" secondAttribute="leading" constant="20" id="ezK-Bi-6Zl"/>
                                             <constraint firstItem="tT6-gq-OrB" firstAttribute="leading" secondItem="TSI-oy-M2h" secondAttribute="leading" id="kyJ-We-BfI"/>
+                                            <constraint firstAttribute="trailing" secondItem="VZq-YI-Sos" secondAttribute="trailing" constant="20" id="mBj-0P-ygG"/>
                                             <constraint firstItem="eAG-49-Th1" firstAttribute="leading" secondItem="TSI-oy-M2h" secondAttribute="leading" id="mhe-72-0Qg"/>
                                             <constraint firstAttribute="trailing" secondItem="8YY-rS-DKG" secondAttribute="trailing" constant="20" id="mi3-wI-k3B"/>
                                             <constraint firstAttribute="trailing" secondItem="5oG-PP-HZt" secondAttribute="trailing" constant="20" id="nE3-KK-Q5N"/>
@@ -1175,6 +1183,7 @@
                         <outlet property="favoriteText" destination="1Qb-WN-cgc" id="3dk-0D-t73"/>
                         <outlet property="imageActivity" destination="UaW-Ng-Dg5" id="eQV-48-MHt"/>
                         <outlet property="labelNbImage" destination="npF-KV-j3Q" id="JsV-6w-lvt"/>
+                        <outlet property="map" destination="VZq-YI-Sos" id="fnz-GT-Thw"/>
                         <outlet property="nameActivity" destination="EzT-zd-pTY" id="ffK-bO-fJM"/>
                         <outlet property="quitActivity" destination="oa2-oC-rQ8" id="Vk9-0O-qOo"/>
                         <outlet property="scrollView" destination="nz6-6R-SyV" id="NFs-Dy-eO9"/>

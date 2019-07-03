@@ -19,7 +19,7 @@ class CommentTableViewCell: UITableViewCell {
     
 }
 
-class ShowActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ShowActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MKMapViewDelegate {
     
 
     @IBOutlet weak var imageActivity: UIImageView!
@@ -38,6 +38,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentTextNb: UIButton!
     @IBOutlet weak var labelNbImage: UILabel!
+    @IBOutlet weak var map: MKMapView!
     
     var currentUser = User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil)
     
@@ -132,8 +133,45 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         // Refresh control add in tableview.
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Signaler", style: .done, target: self, action: #selector(self.report(sender:)))
-
+        
        
+        // show activity on map
+        map.delegate = self
+        let mapActivityPoint = MKPointAnnotation()
+        mapActivityPoint.title = currentActivity.nameActivity
+        mapActivityPoint.coordinate = CLLocationCoordinate2D(latitude: currentActivity.gpsx, longitude: currentActivity.gpsy)
+        map.setRegion(MKCoordinateRegion(center: mapActivityPoint.coordinate, latitudinalMeters: 100, longitudinalMeters: 100), animated: false)
+
+        map.addAnnotation(mapActivityPoint)
+        
+        
+    }
+    
+
+    //mapView
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        
+        switch currentActivity.typeActivity {
+        case .Sports:
+            annotationView.pinTintColor = UIColor.red
+        case .Gastronomy:
+            annotationView.pinTintColor = UIColor.cyan
+        case .NightLife:
+            annotationView.pinTintColor = UIColor.blue
+        case .Cultural:
+            annotationView.pinTintColor = UIColor.purple
+        case .Entertainement:
+            annotationView.pinTintColor = UIColor.green
+        case .Exploration:
+            annotationView.pinTintColor = UIColor.yellow
+        case .Freaky:
+            annotationView.pinTintColor = UIColor.brown
+        }
+                
+        
+        return annotationView
     }
     
     @objc func report(sender: UIBarButtonItem) {
