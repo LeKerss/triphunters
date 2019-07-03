@@ -13,7 +13,7 @@ var activity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pi
 
 var activity2 = Activity(idActivity: 2, idUser: 2, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: .Cultural, adresse: "99, rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!])
 
-var activityList = [activity1, activity2]
+var activityList = [ActivityPin(activity: activity1), ActivityPin(activity: activity2)]
 
 class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -207,7 +207,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
+        mapView.delegate = self
         
         // Check for Location Services
         if (CLLocationManager.locationServicesEnabled()) {
@@ -236,9 +236,8 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             mapView.setRegion(viewRegion, animated: true)
         }
         
-        for a in activityList {
-            currentActivity = a
-            addPoint(a)
+        for activity in activityList {
+            mapView.addAnnotation(activity)
         }
         
         
@@ -254,28 +253,45 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        
-        
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-        
-        switch currentActivity.typeActivity {
-        case .Sports:
-            annotationView.pinTintColor = UIColor.red
-        case .Gastronomy:
-            annotationView.pinTintColor = UIColor.cyan
-        case .NightLife:
-            annotationView.pinTintColor = UIColor.blue
-        case .Cultural:
-            annotationView.pinTintColor = UIColor.purple
-        case .Entertainement:
-            annotationView.pinTintColor = UIColor.green
-        case .Exploration:
-            annotationView.pinTintColor = UIColor.yellow
-        case .Freaky:
-            annotationView.pinTintColor = UIColor.brown
+        // 2
+        guard let annotation = annotation as? ActivityPin else { return nil }
+        // 3
+        let identifier = String(annotation.activity.idActivity)
+        var view: MKMarkerAnnotationView
+        // 4
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            // 5
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
-        
-        
-        return annotationView
+        return view
     }
+        
+//        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+//
+//        switch currentActivity.typeActivity {
+//        case .Sports:
+//            annotationView.pinTintColor = UIColor.red
+//        case .Gastronomy:
+//            annotationView.pinTintColor = UIColor.cyan
+//        case .NightLife:
+//            annotationView.pinTintColor = UIColor.blue
+//        case .Cultural:
+//            annotationView.pinTintColor = UIColor.purple
+//        case .Entertainement:
+//            annotationView.pinTintColor = UIColor.green
+//        case .Exploration:
+//            annotationView.pinTintColor = UIColor.yellow
+//        case .Freaky:
+//            annotationView.pinTintColor = UIColor.brown
+//        }
+//
+//
+//        return annotationView
 }

@@ -49,11 +49,16 @@ struct Activity {
 }
 
 class ActivityPin : NSObject, MKAnnotation {
-    var activity: Activity
-    var coordinate: CLLocationCoordinate2D
+    let activity: Activity
+    let coordinate: CLLocationCoordinate2D
+    let title: String?
+    let subtitle: String?
     
     init(activity act: Activity) {
         self.activity = act
         self.coordinate = CLLocationCoordinate2D(latitude: act.gpsx, longitude: act.gpsy)
+        self.title = act.nameActivity
+        self.subtitle = String(act.descriptionActivity.prefix(58))
+        super.init()
     }
 }
