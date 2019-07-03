@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct User{
+struct User : Equatable{
     
     let idUser : Int
     var pseudo: String
