@@ -9,6 +9,16 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var mdpTextfield: UITextField!
+    @IBOutlet weak var pseudoTextfield: UITextField!
+    @IBAction func retourToLoginViewController(_ segue: UIStoryboardSegue) {
+    }
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        pseudoTextfield.resignFirstResponder()
+        mdpTextfield.resignFirstResponder()
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */; };
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionTableViewController.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C74F16E922C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */,
 				FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */,
 				FC5C77E022C6059000712C32 /* ProposerViewController.swift */,
+				996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
+				996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
 				FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */,
@@ -514,7 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5UY9F94P6V;
+				DEVELOPMENT_TEAM = XWWH9F4CMQ;
 				INFOPLIST_FILE = TripHunters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,7 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5UY9F94P6V;
+				DEVELOPMENT_TEAM = XWWH9F4CMQ;
 				INFOPLIST_FILE = TripHunters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
