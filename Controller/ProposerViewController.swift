@@ -16,7 +16,6 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     @IBOutlet weak var activityImageView: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     //MARK:- Actions
     @IBAction func addImage(_ sender: Any) {
@@ -34,13 +33,6 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     
     @IBAction func createButton(_ sender: Any) {
         createActivity()
-    }
-    
-    @IBAction func dismissKeyboard(_ sender: Any) {
-        titleTextField.resignFirstResponder()
-        adresseTextField.resignFirstResponder()
-        descriptionTextView.resignFirstResponder()
-        tapGesture.isEnabled = false
     }
     
     //MARK:- Methods
@@ -115,12 +107,6 @@ extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationC
 }
 
 extension ProposerViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        tapGesture.isEnabled = true
-    }
-}
-
-extension ProposerViewController: UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

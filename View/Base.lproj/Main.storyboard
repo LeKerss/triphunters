@@ -610,7 +610,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aR5-r2-UqX">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aR5-r2-UqX">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <gestureRecognizers/>
@@ -656,7 +656,7 @@
                                                     <rect key="frame" x="20" y="3" width="374" height="53.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="continue"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -678,7 +678,7 @@
                                                     <rect key="frame" x="20" y="3" width="374" height="53.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="continue"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -745,7 +745,6 @@
                         <connections>
                             <outlet property="dataSource" destination="tmO-fD-yu3" id="IPY-JZ-qtG"/>
                             <outlet property="delegate" destination="tmO-fD-yu3" id="SaY-Ih-Hct"/>
-                            <outletCollection property="gestureRecognizers" destination="9mi-0N-ZCJ" appends="YES" id="J3j-Mq-8hK"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Nouvelle activité" id="wIS-Zd-DOq">
@@ -766,16 +765,10 @@
                         <outlet property="addImageButton" destination="T2e-wf-box" id="LAh-bY-DZs"/>
                         <outlet property="adresseTextField" destination="VeB-kP-SmW" id="cWt-ah-ewR"/>
                         <outlet property="descriptionTextView" destination="W2p-Dx-qSw" id="1Fr-ve-qRa"/>
-                        <outlet property="tapGesture" destination="9mi-0N-ZCJ" id="7jv-7i-SgW"/>
                         <outlet property="titleTextField" destination="0fh-fa-BhJ" id="hbg-Ff-WW1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZf-ju-Bbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9mi-0N-ZCJ">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="tmO-fD-yu3" id="Ymv-nc-nzo"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5051" y="631"/>
         </scene>
