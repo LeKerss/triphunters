@@ -8,9 +8,29 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-enum typeActivityEnum {
+enum ActivityType : CaseIterable {
     case Sports, Gastronomy, Cultural, Entertainement, Exploration, Freaky, NightLife
+    
+    func name() -> String {
+        switch (self){
+        case .Sports:
+            return "Sport"
+        case .Gastronomy:
+            return "Gastronomie"
+        case .Cultural:
+            return "Culturel"
+        case .Entertainement:
+            return "Divertissement"
+        case .Exploration:
+            return "Exploration"
+        case .Freaky:
+            return "Insolite"
+        case .NightLife:
+            return "Nightlife"
+        }
+    }
 }
 
 struct Activity {
@@ -19,12 +39,26 @@ struct Activity {
     var idUser : Int
     var nameActivity: String
     var descriptionActivity: String
-    var typeActivity: typeActivityEnum
+    var typeActivity: ActivityType
     var adresse: String
     var country: String
     var gpsx: Double
     var gpsy: Double
     var showActivity: Bool
     var imageDesc: [UIImage]
+}
+
+class ActivityPin : NSObject, MKAnnotation {
+    let activity: Activity
+    let coordinate: CLLocationCoordinate2D
+    let title: String?
+    let subtitle: String?
     
+    init(activity act: Activity) {
+        self.activity = act
+        self.coordinate = CLLocationCoordinate2D(latitude: act.gpsx, longitude: act.gpsy)
+        self.title = act.nameActivity
+        self.subtitle = String(act.descriptionActivity.prefix(58))
+        super.init()
+    }
 }

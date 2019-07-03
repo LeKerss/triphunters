@@ -8,11 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */; };
+		9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD522CA0238003D1676 /* profileJoinedCollectionViewCell.swift */; };
+		9544CFD822CA02F9003D1676 /* profileProposedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */; };
+		9544CFDA22CA0403003D1676 /* profileFavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */; };
+		9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */; };
+		9544CFE022CA39ED003D1676 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9544CFDF22CA39ED003D1676 /* SliderViewController.xib */; };
+		9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */; };
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
+		C74F174122CA14130009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F174022CA14130009F809 /* SliderViewController.swift */; };
+		C785213022CCB43D00D4381B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785212F22CCB43D00D4381B /* MapViewController.swift */; };
+		E91EFC3722CB4BF30046C094 /* TypeActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EFC3622CB4BF20046C094 /* TypeActivityTableViewController.swift */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
 		FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398722C61547005E8209 /* InscriptionActivity.swift */; };
 		FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398922C6158E005E8209 /* FavoritesActivity.swift */; };
+		FC50398D22C63B17005E8209 /* ShowActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */; };
+		FC50399122CB82EF005E8209 /* report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399022CB82EF005E8209 /* report.swift */; };
+		FC50399522CB91E0005E8209 /* ShowCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */; };
+		FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399622CCA591005E8209 /* myActivityTableViewController.swift */; };
 		FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */; };
 		FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */; };
 		FC5C77B022C5FD8800712C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C77AE22C5FD8800712C32 /* Main.storyboard */; };
@@ -23,6 +36,8 @@
 		FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */; };
 		FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */; };
 		FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77E022C6059000712C32 /* ProposerViewController.swift */; };
+		FC772E1722C84684008C67D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC772E1622C84684008C67D6 /* Comment.swift */; };
+		FC772E1922C8BAA2008C67D6 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC772E1822C8BAA2008C67D6 /* Like.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,14 +59,28 @@
 
 /* Begin PBXFileReference section */
 		996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionTableViewController.swift; sourceTree = "<group>"; };
+		9544CFD522CA0238003D1676 /* profileJoinedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileJoinedCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileProposedCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileFavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
+		9544CFDF22CA39ED003D1676 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
+		9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderForView.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C74F16E922C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C74F16EE22C61D210009F809 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C74F16F022C61D250009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C74F174022CA14130009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		C785212822CCAE0B00D4381B /* paris.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = paris.gpx; sourceTree = "<group>"; };
+		C785212F22CCB43D00D4381B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E91EFC3622CB4BF20046C094 /* TypeActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeActivityTableViewController.swift; sourceTree = "<group>"; };
 		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC50398722C61547005E8209 /* InscriptionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionActivity.swift; sourceTree = "<group>"; };
 		FC50398922C6158E005E8209 /* FavoritesActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesActivity.swift; sourceTree = "<group>"; };
+		FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivityViewController.swift; sourceTree = "<group>"; };
+		FC50399022CB82EF005E8209 /* report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = report.swift; sourceTree = "<group>"; };
+		FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentsTableViewController.swift; sourceTree = "<group>"; };
+		FC50399622CCA591005E8209 /* myActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myActivityTableViewController.swift; sourceTree = "<group>"; };
 		FC5C77A722C5FD8800712C32 /* TripHunters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHunters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -65,9 +94,11 @@
 		FC5C77C622C5FD8800712C32 /* TripHuntersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripHuntersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77CA22C5FD8800712C32 /* TripHuntersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHuntersUITests.swift; sourceTree = "<group>"; };
 		FC5C77CC22C5FD8800712C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecouvrirViewController.swift; sourceTree = "<group>"; };
+		FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DecouvrirViewController.swift; path = Controller/DecouvrirViewController.swift; sourceTree = SOURCE_ROOT; };
 		FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		FC5C77E022C6059000712C32 /* ProposerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposerViewController.swift; sourceTree = "<group>"; };
+		FC772E1622C84684008C67D6 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		FC772E1822C8BAA2008C67D6 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C785212722CCADD800D4381B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C785212822CCAE0B00D4381B /* paris.gpx */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		FC50398422C61213005E8209 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +141,9 @@
 				C74F16DD22C612E70009F809 /* User.swift */,
 				FC50398722C61547005E8209 /* InscriptionActivity.swift */,
 				FC50398922C6158E005E8209 /* FavoritesActivity.swift */,
+				FC772E1622C84684008C67D6 /* Comment.swift */,
+				FC772E1822C8BAA2008C67D6 /* Like.swift */,
+				FC50399022CB82EF005E8209 /* report.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +151,7 @@
 		FC5C779E22C5FD8800712C32 = {
 			isa = PBXGroup;
 			children = (
+				C785212722CCADD800D4381B /* Settings */,
 				C74F16EF22C61D210009F809 /* Localizable.strings */,
 				FC50398422C61213005E8209 /* Models */,
 				FC5C77DB22C5FDC100712C32 /* Assets */,
@@ -134,8 +177,8 @@
 		FC5C77A922C5FD8800712C32 /* TripHunters */ = {
 			isa = PBXGroup;
 			children = (
-				FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */,
 				FC5C77B322C5FD8800712C32 /* LaunchScreen.storyboard */,
+				FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */,
 				FC5C77B622C5FD8800712C32 /* Info.plist */,
 			);
 			path = TripHunters;
@@ -163,6 +206,10 @@
 			isa = PBXGroup;
 			children = (
 				FC5C77AE22C5FD8800712C32 /* Main.storyboard */,
+				9544CFD722CA02F9003D1676 /* profileProposedCollectionViewCell.swift */,
+				9544CFD522CA0238003D1676 /* profileJoinedCollectionViewCell.swift */,
+				9544CFD922CA0403003D1676 /* profileFavoriteCollectionViewCell.swift */,
+				9544CFDB22CA049C003D1676 /* profileLikedCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,11 +217,18 @@
 		FC5C77DA22C5FDB400712C32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C785212F22CCB43D00D4381B /* MapViewController.swift */,
+				C74F174022CA14130009F809 /* SliderViewController.swift */,
+				9544CFDF22CA39ED003D1676 /* SliderViewController.xib */,
 				FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */,
 				FC5C77DC22C6056F00712C32 /* DecouvrirViewController.swift */,
 				FC5C77DE22C6057F00712C32 /* ProfilViewController.swift */,
 				FC5C77E022C6059000712C32 /* ProposerViewController.swift */,
 				996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */,
+				FC50398C22C63B17005E8209 /* ShowActivityViewController.swift */,
+				FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */,
+				E91EFC3622CB4BF20046C094 /* TypeActivityTableViewController.swift */,
+				FC50399622CCA591005E8209 /* myActivityTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +236,7 @@
 		FC5C77DB22C5FDC100712C32 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */,
 				FC5C77B122C5FD8800712C32 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -292,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9544CFE022CA39ED003D1676 /* SliderViewController.xib in Resources */,
 				FC5C77B522C5FD8800712C32 /* LaunchScreen.storyboard in Resources */,
 				C74F16ED22C61D210009F809 /* Localizable.strings in Resources */,
 				FC5C77B222C5FD8800712C32 /* Assets.xcassets in Resources */,
@@ -320,15 +376,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */,
+				E91EFC3722CB4BF30046C094 /* TypeActivityTableViewController.swift in Sources */,
 				FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */,
+				FC50399522CB91E0005E8209 /* ShowCommentsTableViewController.swift in Sources */,
+				C74F174122CA14130009F809 /* SliderViewController.swift in Sources */,
 				FC50398622C6122B005E8209 /* Activity.swift in Sources */,
 				FC5C77E122C6059000712C32 /* ProposerViewController.swift in Sources */,
+				9544CFD622CA0238003D1676 /* profileJoinedCollectionViewCell.swift in Sources */,
+				9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */,
+				FC50399122CB82EF005E8209 /* report.swift in Sources */,
+				FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */,
+				C785213022CCB43D00D4381B /* MapViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
+				FC772E1922C8BAA2008C67D6 /* Like.swift in Sources */,
 				FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */,
 				FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */,
+				9544CFD822CA02F9003D1676 /* profileProposedCollectionViewCell.swift in Sources */,
+				9544CFDA22CA0403003D1676 /* profileFavoriteCollectionViewCell.swift in Sources */,
+				FC50398D22C63B17005E8209 /* ShowActivityViewController.swift in Sources */,
+				FC772E1722C84684008C67D6 /* Comment.swift in Sources */,
 				C74F16DE22C612E70009F809 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,10 +6,10 @@
   Copyright © 2019 oscar Amzalag. All rights reserved.
 */
 
-"Sports" = "Sport";
-"Gastronomy" = "Gastronomie";
-"Cultural" = "Culturel";
-"Entertainement" = "Divertissement";
+"Sports" = "Sports";
+"Gastronomy" = "Gastronomy";
+"Cultural" = "Cultural";
+"Entertainement" = "Entertainement";
 "Exploration" = "Exploration";
-"Freaky" = "Insolite";
-"NightLife" = "Vie Nocturne";
+"Freaky" = "Freaky";
+"NightLife" = "NightLife";

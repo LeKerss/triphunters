@@ -12,5 +12,5 @@ struct FavoritesActivity {
     
     let idActivity : Int
     let idUser: Int
-    let dateInscription: Date
+    let dateFav: Date
 }
