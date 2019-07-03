@@ -16,6 +16,7 @@
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
 		C74F174122CA14130009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F174022CA14130009F809 /* SliderViewController.swift */; };
+		C785213022CCB43D00D4381B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785212F22CCB43D00D4381B /* MapViewController.swift */; };
 		E91EFC3722CB4BF30046C094 /* TypeActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EFC3622CB4BF20046C094 /* TypeActivityTableViewController.swift */; };
 		FC50398622C6122B005E8209 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398522C6122B005E8209 /* Activity.swift */; };
 		FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50398722C61547005E8209 /* InscriptionActivity.swift */; };
@@ -69,6 +70,8 @@
 		C74F16EE22C61D210009F809 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C74F16F022C61D250009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C74F174022CA14130009F809 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		C785212822CCAE0B00D4381B /* paris.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = paris.gpx; sourceTree = "<group>"; };
+		C785212F22CCB43D00D4381B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E91EFC3622CB4BF20046C094 /* TypeActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeActivityTableViewController.swift; sourceTree = "<group>"; };
 		FC50398522C6122B005E8209 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FC50398722C61547005E8209 /* InscriptionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionActivity.swift; sourceTree = "<group>"; };
@@ -123,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C785212722CCADD800D4381B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C785212822CCAE0B00D4381B /* paris.gpx */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		FC50398422C61213005E8209 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +152,7 @@
 		FC5C779E22C5FD8800712C32 = {
 			isa = PBXGroup;
 			children = (
+				C785212722CCADD800D4381B /* Settings */,
 				C74F16EF22C61D210009F809 /* Localizable.strings */,
 				FC50398422C61213005E8209 /* Models */,
 				FC5C77DB22C5FDC100712C32 /* Assets */,
@@ -206,6 +218,7 @@
 		FC5C77DA22C5FDB400712C32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C785212F22CCB43D00D4381B /* MapViewController.swift */,
 				C74F174022CA14130009F809 /* SliderViewController.swift */,
 				9544CFDF22CA39ED003D1676 /* SliderViewController.xib */,
 				FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */,
@@ -376,6 +389,7 @@
 				FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */,
 				FC50399922CCE0C9005E8209 /* Data.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
+				C785213022CCB43D00D4381B /* MapViewController.swift in Sources */,
 				FC50398822C61547005E8209 /* InscriptionActivity.swift in Sources */,
 				FC5C77DD22C6056F00712C32 /* DecouvrirViewController.swift in Sources */,
 				FC772E1922C8BAA2008C67D6 /* Like.swift in Sources */,

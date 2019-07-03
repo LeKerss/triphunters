@@ -50,6 +50,7 @@
                     <navigationItem key="navigationItem" id="yrX-GU-yVK"/>
                     <connections>
                         <outlet property="mapView" destination="9DE-GP-ln6" id="a4H-dY-t9v"/>
+                        <segue destination="k2F-At-7Xd" kind="show" identifier="goToActivity" id="8Z0-GP-ZVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewd-zb-a4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -763,6 +764,7 @@
                         <outlet property="activityImageView" destination="aR5-r2-UqX" id="iS0-2B-v9V"/>
                         <outlet property="addImageButton" destination="T2e-wf-box" id="LAh-bY-DZs"/>
                         <outlet property="adresseTextField" destination="VeB-kP-SmW" id="cWt-ah-ewR"/>
+                        <outlet property="categoryLabel" destination="HRs-p3-uA1" id="FkG-Sy-vuT"/>
                         <outlet property="descriptionTextView" destination="W2p-Dx-qSw" id="1Fr-ve-qRa"/>
                         <outlet property="titleTextField" destination="0fh-fa-BhJ" id="hbg-Ff-WW1"/>
                     </connections>
@@ -1342,6 +1344,6 @@
         <image name="addActivityImage" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G9G-5v-qaw"/>
+        <segue reference="8Z0-GP-ZVv"/>
     </inferredMetricsTieBreakers>
 </document>
