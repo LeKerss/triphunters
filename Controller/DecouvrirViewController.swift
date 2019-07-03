@@ -46,6 +46,16 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     var currentActivity: Activity!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch(segue.identifier) {
+        case "goToActivity":
+            let destinationViewController = segue.destination as? ShowActivityViewController
+            destinationViewController?.currentActivity = self.currentActivity
+        default:
+            break
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSlider()
@@ -191,19 +201,6 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     }
     
     func setupLocation() {
-//    locationManager.requestWhenInUseAuthorization()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.distanceFilter = kCLDistanceFilterNone
-//        locationManager.startUpdatingLocation()
-//
-//
-//        if let loc = locationManager.location  {
-//            mapView.setRegion(MKCoordinateRegion(center:loc.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)), animated: true)
-//            mapView.setCenter(loc.coordinate, animated: false)
-//            mapView.showsUserLocation = true
-//
-//
-//        }
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -236,10 +233,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             mapView.setRegion(viewRegion, animated: true)
         }
         
-        for activity in activityList {
-            mapView.addAnnotation(activity)
-        }
-        
+        mapView.addAnnotations(activityList)
         
     }
     
@@ -269,29 +263,30 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            switch annotation.activity.typeActivity {
+                case .Sports:
+                    view.markerTintColor = UIColor.red
+                case .Gastronomy:
+                    view.markerTintColor = UIColor.cyan
+                case .NightLife:
+                    view.markerTintColor = UIColor.blue
+                case .Cultural:
+                    view.markerTintColor = UIColor.purple
+                case .Entertainement:
+                    view.markerTintColor = UIColor.green
+                case .Exploration:
+                    view.markerTintColor = UIColor.yellow
+                case .Freaky:
+                    view.markerTintColor = UIColor.brown
+                }
         }
         return view
     }
-        
-//        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-//
-//        switch currentActivity.typeActivity {
-//        case .Sports:
-//            annotationView.pinTintColor = UIColor.red
-//        case .Gastronomy:
-//            annotationView.pinTintColor = UIColor.cyan
-//        case .NightLife:
-//            annotationView.pinTintColor = UIColor.blue
-//        case .Cultural:
-//            annotationView.pinTintColor = UIColor.purple
-//        case .Entertainement:
-//            annotationView.pinTintColor = UIColor.green
-//        case .Exploration:
-//            annotationView.pinTintColor = UIColor.yellow
-//        case .Freaky:
-//            annotationView.pinTintColor = UIColor.brown
-//        }
-//
-//
-//        return annotationView
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let activity = view.annotation as! ActivityPin
+        self.currentActivity = activity.activity
+        performSegue(withIdentifier: "goToActivity", sender: self)
+    }
 }
