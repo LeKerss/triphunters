@@ -707,7 +707,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Editer le profil" id="yMQ-OF-1Gv">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cdk-kC-YUh">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WNL-nh-YbK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WNL-nh-YbK">
                                 <rect key="frame" x="302" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -927,7 +927,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Nouvelle activité" id="wIS-Zd-DOq">
-                        <barButtonItem key="leftBarButtonItem" title="Reset" id="HiU-aU-e0L">
+                        <barButtonItem key="leftBarButtonItem" title="Effacer" id="HiU-aU-e0L">
                             <connections>
                                 <action selector="clearAll:" destination="tmO-fD-yu3" id="gfR-8O-6Ze"/>
                             </connections>
@@ -1366,7 +1366,7 @@
                         <outlet property="map" destination="VZq-YI-Sos" id="fnz-GT-Thw"/>
                         <outlet property="nameActivity" destination="EzT-zd-pTY" id="ffK-bO-fJM"/>
                         <outlet property="quitActivity" destination="oa2-oC-rQ8" id="Vk9-0O-qOo"/>
-                        <outlet property="scrollView" destination="nz6-6R-SyV" id="NFs-Dy-eO9"/>
+                        <outlet property="scrollView" destination="nz6-6R-SyV" id="I9A-rz-xE3"/>
                         <outlet property="sentCommentButton" destination="KTh-u4-hFa" id="05B-8F-u90"/>
                         <outlet property="suppdeleteActivity" destination="u0T-IP-Mxm" id="y6T-QN-GG9"/>
                         <outlet property="tableView" destination="1H3-en-mi6" id="v9V-rb-x5B"/>

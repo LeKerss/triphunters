@@ -55,10 +55,68 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     var inFav = false
     var inInscirption = false
 
+    @objc private func refreshOptions(sender: UIRefreshControl) {
+        // Perform actions to refresh the content
+        self.commentOnActivity = []
+        for comment in allComments {
+            if comment.idActivity == currentActivity.idActivity {
+                commentOnActivity.append(comment)
+            }
+        }
+        self.commentText.text = "\(commentOnActivity.count) Commentaires"
+        self.tableView.reloadData()
 
+        inFav = false
+        for fav in allFavories {
+            if fav.idUser == currentUser.idUser && fav.idActivity == currentActivity.idActivity {
+                inFav = true
+            }
+        }
+        favoriteText.isSelected = inFav
+        
+        inInscirption = false
+        for inscription in allInscription {
+            if inscription.idUser == currentUser.idUser && inscription.idActivity == currentActivity.idActivity {
+                inInscirption = true
+                if (currentUser.idUser == currentActivity.idUser){
+                    suppdeleteActivity.isHidden = false
+                    enterActivityButton.isHidden = true
+                    quitActivity.isHidden = true
+                    
+                }else{
+                    if inInscirption == false {
+                        enterActivityButton.isHidden = false
+                        quitActivity.isHidden = true
+                    }else{
+                        enterActivityButton.isHidden = true
+                        quitActivity.isHidden = false
+                    }
+                    suppdeleteActivity.isHidden = true
+                }
+            }
+        }
+        favoriteText.isSelected = inInscirption
+        
+        // and then dismiss the control
+        sender.endRefreshing()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //scrollView.refreshControl = UIRefreshControl()
+        
+        
+        if #available(iOS 10.0, *) {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self,
+                                     action: #selector(refreshOptions(sender:)),
+                                     for: .valueChanged)
+            scrollView.refreshControl = refreshControl
+        }
+        
+        
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -71,10 +129,15 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        favoriteText.setTitle("☆",for: .normal)
         for fav in allFavories {
             if fav.idUser == currentUser.idUser && fav.idActivity == currentActivity.idActivity {
                 inFav = true
+            }
+        }
+        
+        for inscription in allInscription {
+            if inscription.idUser == currentUser.idUser && inscription.idActivity == currentActivity.idActivity {
+                inInscirption = true
             }
         }
     
@@ -139,7 +202,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
         // Refresh control add in tableview.
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Signaler", style: .done, target: self, action: #selector(self.report(sender:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Signaler", style: .plain, target: self, action: #selector(self.report(sender:)))
         
        
         // show activity on map
@@ -189,13 +252,26 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
 
     
     @IBAction func favoriteAction(_ sender: Any) {
-        if favoriteText.isSelected == false {
-            //let favAdd = FavoritesActivity(idActivity: currentActivity.idActivity, idUser: currentUser.idUser, dateFav: Date())
-            favoriteText.isSelected.toggle()
-        }else{
-            //delete favAdd
-            favoriteText.isSelected.toggle()
+
+            var favExist = false
+            var i = 0
+            var favWillDeleteIndex = -1
+            for fav in allFavories {
+                if fav.idUser == self.currentUser.idUser && fav.idActivity == self.currentActivity.idActivity {
+                    favExist = true
+                    favWillDeleteIndex = i
+                }
+                i += 1
+            }
+            if favExist == false {
+                let newFav = FavoritesActivity(idActivity: self.currentActivity.idActivity, idUser: self.currentUser.idUser, dateFav: Date())
+                allFavories.append(newFav)
+            }else{
+                if favWillDeleteIndex > -1 {
+                    allFavories.remove(at: favWillDeleteIndex)
+                }
         }
+            favoriteText.isSelected.toggle()
        
     }
     
@@ -249,23 +325,40 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func enterActivityAction(_ sender: Any) {
-        let optionMenuEnterActivityAction = UIAlertController(title: nil, message: "Voulez vous ajouter cet activité à vos activités ?", preferredStyle: .actionSheet)
+        let optionMenuEnterActivityAction = UIAlertController(title: nil, message: "Voulez vous ajouter cette activité à vos activités ?", preferredStyle: .actionSheet)
         let deleteActionEnterActivityAction = UIAlertAction(title: "Oui", style: .default, handler: { action in
             self.enterActivityButton.isHidden = true
             self.quitActivity.isHidden = false
+            var inscriptionExist = false
+            for inscription in allInscription {
+                if inscription.idUser == self.currentUser.idUser && inscription.idActivity == self.currentActivity.idActivity {
+                    inscriptionExist = true
+                }
+            }
+            if inscriptionExist == false {
+                let newInscription = InscriptionActivity(idActivity: self.currentActivity.idActivity, idUser: self.currentUser.idUser, dateInscription: Date())
+                allInscription.append(newInscription)
+            }
         })
         let cancelActionEnterActivityAction = UIAlertAction(title: "Annuler", style: .cancel)
         optionMenuEnterActivityAction.addAction(deleteActionEnterActivityAction)
         optionMenuEnterActivityAction.addAction(cancelActionEnterActivityAction)
         self.present(optionMenuEnterActivityAction, animated: true )
+        
     }
     
     @IBAction func quitActivityAction(_ sender: Any) {
-        let optionMenuQuitActivityAction = UIAlertController(title: nil, message: "Voulez vous supprimer cet activité de vos activités ?", preferredStyle: .actionSheet)
+        let optionMenuQuitActivityAction = UIAlertController(title: nil, message: "Voulez vous supprimer cette activité de vos activités ?", preferredStyle: .actionSheet)
         let deleteActionQuitActivityAction = UIAlertAction(title: "Oui", style: .default, handler: { action in
             self.enterActivityButton.isHidden = false
             self.quitActivity.isHidden = true
-             print("la")
+            var i = 0
+            for inscription in allInscription {
+                if inscription.idUser == self.currentUser.idUser && inscription.idActivity == self.currentActivity.idActivity {
+                    allInscription.remove(at: i)
+                }
+                i+=1
+            }
         })
         let cancelActionQuitActivityAction = UIAlertAction(title: "Annuler", style: .cancel)
         optionMenuQuitActivityAction.addAction(deleteActionQuitActivityAction)
@@ -274,9 +367,15 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func suppDeleteActivityAction(_ sender: Any) {
-        let optionMenuQuitActivityAction = UIAlertController(title: nil, message: "Voulez vous supprimer cet activité définitivement ?", preferredStyle: .actionSheet)
+        let optionMenuQuitActivityAction = UIAlertController(title: nil, message: "Voulez vous supprimer cette activité définitivement ?", preferredStyle: .actionSheet)
         let deleteActionQuitActivityAction = UIAlertAction(title: "Oui", style: .default, handler: { action in
-
+            var i = 0
+            for activity in allActivities {
+                if activity.idUser == self.currentUser.idUser && activity.idActivity == self.currentActivity.idActivity {
+                    allActivities.remove(at: i)
+                }
+                i+=1
+            }
             
         })
         let cancelActionQuitActivityAction = UIAlertAction(title: "Annuler", style: .cancel)
@@ -430,8 +529,21 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.view.frame.origin.y = 0
         }
     }
+    
+    
 
-
+//    override func viewWillAppear(_ animated: Bool) {
+//        print("hello")
+//        commentOnActivity = []
+//        for comment in allComments {
+//            if comment.idActivity == currentActivity.idActivity {
+//                commentOnActivity.append(comment)
+//            }
+//        }
+//
+//        super.viewWillAppear(animated)
+//
+//    }
 
 
 }
