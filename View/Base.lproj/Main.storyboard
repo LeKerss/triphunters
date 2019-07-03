@@ -927,7 +927,7 @@
                                                     <action selector="openMaps:" destination="k2F-At-7Xd" eventType="touchUpInside" id="97k-Ek-brM"/>
                                                 </connections>
                                             </button>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VZq-YI-Sos">
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZq-YI-Sos">
                                                 <rect key="frame" x="20" y="541.5" width="374" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="sSl-1W-fBe"/>
