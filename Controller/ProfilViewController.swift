@@ -88,9 +88,9 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-        listActivityJoined.append(Activity2)
-        listActivityJoined.append(Activity1)
-        listActivityProposed.append(Activity2)
+//        listActivityJoined.append(Activity2)
+//        listActivityJoined.append(Activity1)
+//        listActivityProposed.append(Activity2)
         listActivityFavorites.append(Activity1)
         listActivityFavorites.append(Activity2)
     }
@@ -103,7 +103,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         }
         else{
             joinedActivityCollection.isHidden = false
-            joinedActivityCollection.isHidden = true
+            joinedViewEmpty.isHidden = true
         }
         if (listActivityProposed.count == 0){
             proposedActivityCollection.isHidden = true
