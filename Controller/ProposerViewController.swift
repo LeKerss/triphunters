@@ -36,7 +36,11 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     }
     
     @IBAction func createButton(_ sender: Any) {
-        createActivity()
+        if titleTextField.text != nil && adresseTextField.text != nil && activityImageView.image != nil && descriptionTextView != nil && categoryLabel.text != "Categorie" {
+            createActivity()
+        } else {
+            presentAlert()
+        }
     }
     
     //MARK:- Methods
@@ -115,5 +119,14 @@ extension ProposerViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// UIAlertController
+extension ProposerViewController {
+    func presentAlert() {
+        let alertVC = UIAlertController(title: "Merci de remplir tous les champs", message: nil, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
 }
