@@ -33,6 +33,8 @@ class ShowCommentsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
+        navigationItem.title = "\(commentOnActivity.count) Commentaires"
     }
 
     // MARK: - Table view data source
@@ -85,7 +87,7 @@ class ShowCommentsTableViewController: UITableViewController {
                 if (editingStyle == .delete){
                     self.commentOnActivity.remove(at: indexPath.row)
                     self.tableView.reloadData()
-                    
+                    self.navigationItem.title = "\(self.commentOnActivity.count) Commentaires"
                 }
             })
             let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)

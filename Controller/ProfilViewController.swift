@@ -11,31 +11,44 @@ import UIKit
 class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
 
-    // Outlets
+    // Outlets View Header Profile
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var imgNationality: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    // Outlet Collections
     @IBOutlet weak var joinedActivityCollection: UICollectionView!
     @IBOutlet weak var proposedActivityCollection: UICollectionView!
     @IBOutlet weak var favoriteActivityCollection: UICollectionView!
-    @IBOutlet weak var likedActivityCollection: UICollectionView!
+    @IBOutlet weak var buttonJoinedShowMore: UIButton!
+    @IBOutlet weak var buttonProposedShowMore: UIButton!
+    @IBOutlet weak var buttonFavoriteShowMore: UIButton!
     
+    // Outlet Views in stackview
     @IBOutlet weak var myStackView: UIStackView!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var joinedView: UIView!
     @IBOutlet weak var proposedView: UIView!
     @IBOutlet weak var favoriteView: UIView!
-    @IBOutlet weak var likedView: UIView!
+    @IBOutlet weak var joinedViewEmpty: UIView!
+    @IBOutlet weak var proposedViewEmpty: UIView!
+    
+    // Outlet Countraints in stackview
+    @IBOutlet weak var heightMyStackView: NSLayoutConstraint!
+    @IBOutlet weak var heightProfileHeader: NSLayoutConstraint!
+    @IBOutlet weak var proposedViewTop: NSLayoutConstraint!
+    @IBOutlet weak var favoriteViewTop: NSLayoutConstraint!
+    
     
     
     var activitySelected : Activity? = nil
+    var listSelectedForMore  : [Activity] = []
+    var nameForMore : String = ""
     
     var listActivityJoined : [Activity] = []
     var listActivityProposed : [Activity] = []
     var listActivityFavorites : [Activity] = []
-    var listActivityLiked : [Activity] = []
     
     // Création d'une variable myUser
     var myUser : User = User(idUser: 1, pseudo: "NqbraL", firstName: "Simon", lastName: "Chevalier", description: nil, email: "sim.chevalier@gmail.com", password: "testpw", nationality: "france", imageProfil: nil)
@@ -53,14 +66,18 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         proposedActivityCollection.dataSource = self
         favoriteActivityCollection.delegate = self
         favoriteActivityCollection.dataSource = self
-        likedActivityCollection.delegate = self
-        likedActivityCollection.dataSource = self
         initProfilInformations()
         initListForCollections()
         manageView()
         
         // Do any additional setup after loading the view.
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        initProfilInformations()
+//        initListForCollections()
+//        manageView()
+//    }
     
     // Fonction d'initialisation des libellés du Profil et les images de profil et de nationalité
     func initProfilInformations() {
@@ -76,7 +93,6 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-//        listActivityLiked.append(Activity1)
         listActivityJoined.append(Activity2)
         listActivityJoined.append(Activity1)
         listActivityProposed.append(Activity2)
@@ -85,11 +101,32 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
     
     func manageView(){
-        if (listActivityLiked.count == 0){
-            var height = likedView.frame.height
-            print(height)
-//            likedView.isHidden = true
+        let heightFavorite = favoriteView.frame.height
+        if (listActivityJoined.count == 0){
+            joinedActivityCollection.isHidden = true
+            joinedViewEmpty.isHidden = false
+            buttonJoinedShowMore.isHidden = true
         }
+        else{
+            joinedActivityCollection.isHidden = false
+            joinedViewEmpty.isHidden = true
+            buttonJoinedShowMore.isHidden = false
+        }
+        if (listActivityProposed.count == 0){
+            proposedActivityCollection.isHidden = true
+            proposedViewEmpty.isHidden = false
+            buttonProposedShowMore.isHidden = true
+        }
+        else{
+            proposedActivityCollection.isHidden = false
+            proposedViewEmpty.isHidden = true
+            buttonProposedShowMore.isHidden = false
+        }
+        if (listActivityFavorites.count == 0){
+            favoriteView.isHidden = true
+            heightMyStackView.constant -= heightFavorite
+        }
+
     }
     
     
@@ -113,13 +150,6 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         case self.favoriteActivityCollection:
             if (listActivityFavorites.count < 10){
                 return listActivityFavorites.count
-            }
-            else{
-                return 10
-            }
-        case self.likedActivityCollection:
-            if (listActivityLiked.count < 10){
-                return listActivityLiked.count
             }
             else{
                 return 10
@@ -150,8 +180,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
-                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
+                cell.categoryActivity.text = listActivityProposed[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityProposed[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -161,19 +191,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
-                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
-                return cell
-            }
-            return UICollectionViewCell()
-        case self.likedActivityCollection:
-            if let cell: profileLikedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "likedCell", for: indexPath) as? profileLikedCollectionViewCell
-            {
-                cell.imageActivity
-                    .image = listActivityFavorites[indexPath.row].imageDesc[0]
-                cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
-                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
+                cell.categoryActivity.text = listActivityFavorites[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityFavorites[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -191,8 +210,6 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             activitySelected = listActivityProposed[indexPath.row]
         case self.favoriteActivityCollection:
             activitySelected = listActivityFavorites[indexPath.row]
-        case self.likedActivityCollection:
-            activitySelected = listActivityLiked[indexPath.row]
         default:
             break
         }
@@ -200,25 +217,44 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as? ShowActivityViewController
-        destinationViewController?.currentActivity = activitySelected!
-    }
-    
-    //annimation
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        print("test")
-        
-        switch collectionView.indexPathsForSelectedItems?.first {
-        case .some(indexPath):
-            return CGSize() // your selected height
+        switch (segue.identifier){
+        case "showDetail" :
+            let destinationViewController = segue.destination as? ShowActivityViewController
+            destinationViewController?.currentActivity = activitySelected!
+        case "showMore" :
+            let destinationViewController = segue.destination as? myActivityTableViewController
+            destinationViewController?.name = nameForMore
+            destinationViewController?.listActivty = listSelectedForMore
         default:
-            let height = (view.frame.width) * 9 / 16
-            return CGSize(width: view.frame.width, height: height + 50 + 50)
+            break
         }
+        
     }
-
-//     self.tabBarController?.selectedIndex = 0
+    @IBAction func joinedShowMore(_ sender: Any) {
+        nameForMore = "✔︎ Mes activités rejoints"
+        listSelectedForMore = listActivityJoined
+        performSegue(withIdentifier: "showMore", sender: self)
+    }
     
+    @IBAction func proposedShowMore(_ sender: Any) {
+        nameForMore = "+ Mes activités proposées"
+        listSelectedForMore = listActivityProposed
+        performSegue(withIdentifier: "showMore", sender: self)
+    }
+    
+    @IBAction func favoriteShowMore(_ sender: Any) {
+        nameForMore = " ★ Mes activités favorites"
+        listSelectedForMore = listActivityFavorites
+        performSegue(withIdentifier: "showMore", sender: self)
+    }
+    
+    
+    @IBAction func discoverButton(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 0
+    }
+    
+    @IBAction func proposedButton(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+    }
 }
 

@@ -19,7 +19,7 @@ class CommentTableViewCell: UITableViewCell {
     
 }
 
-class ShowActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ShowActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MKMapViewDelegate {
     
 
     @IBOutlet weak var imageActivity: UIImageView!
@@ -29,17 +29,16 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var favoriteText: UIButton!
     @IBOutlet weak var enterActivityButton: UIButton!
     @IBOutlet weak var countryFlag: UIImageView!
-    @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var typeActivity: UILabel!
     @IBOutlet weak var quitActivity: UIButton!
     @IBOutlet weak var suppdeleteActivity: UIButton!
-    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var sentCommentButton: UIButton!
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentTextNb: UIButton!
     @IBOutlet weak var labelNbImage: UILabel!
+    @IBOutlet weak var map: MKMapView!
     
     var currentUser = User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil)
     
@@ -60,10 +59,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     var currentImageNumber = 0
     
-    //function recuperation like
     var inFav = false
-    var inLike = false
-    var like = 28
     var inInscirption = false
 
 
@@ -86,15 +82,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         favoriteText.layer.shadowOpacity = 0.5
 
         self.commentTextNb.setTitle("\(commentOnActivity.count) Commentaires", for: .normal)
-        likeButton.setTitle("🖤",for: .normal)
-        likeButton.setTitle("❤️",for: .selected)
-        likeButton.isSelected = inLike
-        likeButton.layer.cornerRadius = 25
-        likeButton.layer.shadowColor = UIColor.black.cgColor
-        likeButton.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        likeButton.layer.masksToBounds = false
-        likeButton.layer.shadowRadius = 2.0
-        likeButton.layer.shadowOpacity = 0.5
+
         
         if (currentUser.idUser == currentActivity.idUser){
             suppdeleteActivity.isHidden = false
@@ -129,7 +117,6 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         //countryFlag
         countryFlag.image = UIImage(named: currentActivity.country)
         
-        likeLabel.text = " \(like) Like"
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 6000
@@ -145,14 +132,51 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
         // Refresh control add in tableview.
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "⛔️", style: .done, target: self, action: #selector(self.report(sender:)))
-
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Signaler", style: .done, target: self, action: #selector(self.report(sender:)))
+        
        
+        // show activity on map
+        map.delegate = self
+        let mapActivityPoint = MKPointAnnotation()
+        mapActivityPoint.title = currentActivity.nameActivity
+        mapActivityPoint.coordinate = CLLocationCoordinate2D(latitude: currentActivity.gpsx, longitude: currentActivity.gpsy)
+        map.setRegion(MKCoordinateRegion(center: mapActivityPoint.coordinate, latitudinalMeters: 100, longitudinalMeters: 100), animated: false)
+
+        map.addAnnotation(mapActivityPoint)
+        
+        
+    }
+    
+
+    //mapView
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        
+        switch currentActivity.typeActivity {
+        case .Sports:
+            annotationView.pinTintColor = UIColor.red
+        case .Gastronomy:
+            annotationView.pinTintColor = UIColor.cyan
+        case .NightLife:
+            annotationView.pinTintColor = UIColor.blue
+        case .Cultural:
+            annotationView.pinTintColor = UIColor.purple
+        case .Entertainement:
+            annotationView.pinTintColor = UIColor.green
+        case .Exploration:
+            annotationView.pinTintColor = UIColor.yellow
+        case .Freaky:
+            annotationView.pinTintColor = UIColor.brown
+        }
+                
+        
+        return annotationView
     }
     
     @objc func report(sender: UIBarButtonItem) {
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "Reportez cette activité", message: self.currentActivity.nameActivity, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Signaler cette activité", message: self.currentActivity.nameActivity, preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
@@ -160,6 +184,8 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler:nil ))
+        
         alert.addAction(UIAlertAction(title: "Envoyez", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             _ = Report(idActivity: self.currentActivity.idActivity, idUser: self.currentUser.idUser, dateReport: Date(), description: textField?.text ?? "")
@@ -170,7 +196,6 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
 
-    //Fonction recuperation like
     
     @IBAction func favoriteAction(_ sender: Any) {
         if favoriteText.isSelected == false {
@@ -182,19 +207,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
        
     }
-    @IBAction func likeAction(_ sender: Any) {
-        if likeButton.isSelected == false {
-            //let likeAdd = Like(idActivity: currentActivity.idActivity, idUser: currentUser.idUser, dateLike: Date())
-            likeButton.isSelected.toggle()
-            like = like + 1
-            likeLabel.text = " \(like) Like"
-        }else{
-            //delete likeAdd
-            likeButton.isSelected.toggle()
-            like = like - 1
-            likeLabel.text = " \(like) Like"
-        }
-    }
+    
     
     //showTypeActivity
     func showTypeActivity(activity: Activity) -> String {
@@ -426,8 +439,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.view.frame.origin.y = 0
         }
     }
-    
-    
+
 
 
 
