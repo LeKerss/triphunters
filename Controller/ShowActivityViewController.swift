@@ -152,23 +152,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-        
-        switch currentActivity.typeActivity {
-        case .Sports:
-            annotationView.pinTintColor = UIColor.red
-        case .Gastronomy:
-            annotationView.pinTintColor = UIColor.cyan
-        case .NightLife:
-            annotationView.pinTintColor = UIColor.blue
-        case .Cultural:
-            annotationView.pinTintColor = UIColor.purple
-        case .Entertainement:
-            annotationView.pinTintColor = UIColor.green
-        case .Exploration:
-            annotationView.pinTintColor = UIColor.yellow
-        case .Freaky:
-            annotationView.pinTintColor = UIColor.brown
-        }
+        annotationView.pinTintColor = currentActivity.typeActivity.color
                 
         
         return annotationView

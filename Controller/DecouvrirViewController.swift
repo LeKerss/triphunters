@@ -267,22 +267,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            switch annotation.activity.typeActivity {
-                case .Sports:
-                    view.markerTintColor = UIColor.red
-                case .Gastronomy:
-                    view.markerTintColor = UIColor.cyan
-                case .NightLife:
-                    view.markerTintColor = UIColor.blue
-                case .Cultural:
-                    view.markerTintColor = UIColor.purple
-                case .Entertainement:
-                    view.markerTintColor = UIColor.green
-                case .Exploration:
-                    view.markerTintColor = UIColor.yellow
-                case .Freaky:
-                    view.markerTintColor = UIColor.brown
-                }
+            view.markerTintColor = annotation.activity.typeActivity.color
         }
         return view
     }
