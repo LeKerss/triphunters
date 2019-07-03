@@ -90,7 +90,7 @@ var allComments = [
     
 ]
 
-var allFavories = [
+var allFavorites = [
     FavoritesActivity(idActivity : 2, idUser: 1, dateFav: Date()),
     FavoritesActivity(idActivity : 3, idUser: 1, dateFav: Date()),
     FavoritesActivity(idActivity : 4, idUser: 1, dateFav: Date()),
@@ -118,7 +118,7 @@ var allFavories = [
     FavoritesActivity(idActivity : 7, idUser: 6, dateFav: Date())
 ]
 
-var allInscription = [
+var allInscriptions = [
     
     InscriptionActivity(idActivity : 4, idUser: 1, dateInscription: Date()),
     InscriptionActivity(idActivity : 5, idUser: 1, dateInscription: Date()),

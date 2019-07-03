@@ -67,7 +67,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.reloadData()
 
         inFav = false
-        for fav in allFavories {
+        for fav in allFavorites{
             if fav.idUser == currentUser.idUser && fav.idActivity == currentActivity.idActivity {
                 inFav = true
             }
@@ -75,7 +75,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         favoriteText.isSelected = inFav
         
         inInscirption = false
-        for inscription in allInscription {
+        for inscription in allInscriptions {
             if inscription.idUser == currentUser.idUser && inscription.idActivity == currentActivity.idActivity {
                 inInscirption = true
                 if (currentUser.idUser == currentActivity.idUser){
@@ -129,13 +129,13 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        for fav in allFavories {
+        for fav in allFavorites {
             if fav.idUser == currentUser.idUser && fav.idActivity == currentActivity.idActivity {
                 inFav = true
             }
         }
         
-        for inscription in allInscription {
+        for inscription in allInscriptions {
             if inscription.idUser == currentUser.idUser && inscription.idActivity == currentActivity.idActivity {
                 inInscirption = true
             }
@@ -256,7 +256,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             var favExist = false
             var i = 0
             var favWillDeleteIndex = -1
-            for fav in allFavories {
+            for fav in allFavorites {
                 if fav.idUser == self.currentUser.idUser && fav.idActivity == self.currentActivity.idActivity {
                     favExist = true
                     favWillDeleteIndex = i
@@ -265,10 +265,10 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             }
             if favExist == false {
                 let newFav = FavoritesActivity(idActivity: self.currentActivity.idActivity, idUser: self.currentUser.idUser, dateFav: Date())
-                allFavories.append(newFav)
+                allFavorites.append(newFav)
             }else{
                 if favWillDeleteIndex > -1 {
-                    allFavories.remove(at: favWillDeleteIndex)
+                    allFavorites.remove(at: favWillDeleteIndex)
                 }
         }
             favoriteText.isSelected.toggle()
@@ -330,14 +330,14 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.enterActivityButton.isHidden = true
             self.quitActivity.isHidden = false
             var inscriptionExist = false
-            for inscription in allInscription {
+            for inscription in allInscriptions {
                 if inscription.idUser == self.currentUser.idUser && inscription.idActivity == self.currentActivity.idActivity {
                     inscriptionExist = true
                 }
             }
             if inscriptionExist == false {
                 let newInscription = InscriptionActivity(idActivity: self.currentActivity.idActivity, idUser: self.currentUser.idUser, dateInscription: Date())
-                allInscription.append(newInscription)
+                allInscriptions.append(newInscription)
             }
         })
         let cancelActionEnterActivityAction = UIAlertAction(title: "Annuler", style: .cancel)
@@ -353,9 +353,9 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.enterActivityButton.isHidden = false
             self.quitActivity.isHidden = true
             var i = 0
-            for inscription in allInscription {
+            for inscription in allInscriptions {
                 if inscription.idUser == self.currentUser.idUser && inscription.idActivity == self.currentActivity.idActivity {
-                    allInscription.remove(at: i)
+                    allInscriptions.remove(at: i)
                 }
                 i+=1
             }

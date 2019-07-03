@@ -70,11 +70,10 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         // Do any additional setup after loading the view.
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        initProfilInformations()
-//        initListForCollections()
-//        manageView()
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        myUser = allUsers[0]
+        initProfilInformations()
+    }
     
     // Fonction d'initialisation des libellés du Profil et les images de profil et de nationalité
     func initProfilInformations() {
@@ -95,14 +94,14 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             if activity.idUser == self.myUser.idUser {
                 listActivityProposed.append(activity)
             }
-            for fav in allFavories {
+            for fav in allFavorites {
                 if fav.idUser == self.myUser.idUser {
                     if activity.idActivity == fav.idActivity {
                         listActivityFavorites.append(activity)
                     }
                 }
             }
-            for joined in allInscription {
+            for joined in allInscriptions {
                 if joined.idUser == self.myUser.idUser {
                     if activity.idActivity == joined.idActivity {
                         listActivityJoined.append(activity)
@@ -182,6 +181,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityJoined[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
+                cell.categoryActivity.textColor = listActivityJoined[indexPath.row].typeActivity.color
                 cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
@@ -193,6 +193,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityProposed[indexPath.row].typeActivity.name()
+                cell.categoryActivity.textColor = listActivityProposed[indexPath.row].typeActivity.color
                 cell.imageCountry.image = UIImage(named:listActivityProposed[indexPath.row].country)
                 return cell
             }
@@ -204,6 +205,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityFavorites[indexPath.row].typeActivity.name()
+                cell.categoryActivity.textColor = listActivityFavorites[indexPath.row].typeActivity.color
                 cell.imageCountry.image = UIImage(named:listActivityFavorites[indexPath.row].country)
                 return cell
             }
