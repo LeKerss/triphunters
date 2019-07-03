@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 enum ActivityType : CaseIterable {
     case Sports, Gastronomy, Cultural, Entertainement, Exploration, Freaky, NightLife
@@ -45,4 +46,14 @@ struct Activity {
     var gpsy: Double
     var showActivity: Bool
     var imageDesc: [UIImage]
+}
+
+class ActivityPin : NSObject, MKAnnotation {
+    var activity: Activity
+    var coordinate: CLLocationCoordinate2D
+    
+    init(activity act: Activity) {
+        self.activity = act
+        self.coordinate = CLLocationCoordinate2D(latitude: act.gpsx, longitude: act.gpsy)
+    }
 }
