@@ -84,7 +84,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         } else{
             imgProfile.image = UIImage(named: "IMG_default_user")
         }
-        imgNationality.image = UIImage(named: "france")
+        imgNationality.image = UIImage(named: myUser.nationality)
     }
     
     // Fonction d'initialisation des listes pour préparer les collectionView
