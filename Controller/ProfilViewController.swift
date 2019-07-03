@@ -11,23 +11,31 @@ import UIKit
 class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
 
-    // Outlets
+    // Outlets View Header Profile
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var imgNationality: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    // Outlet Collections
     @IBOutlet weak var joinedActivityCollection: UICollectionView!
     @IBOutlet weak var proposedActivityCollection: UICollectionView!
     @IBOutlet weak var favoriteActivityCollection: UICollectionView!
-    @IBOutlet weak var likedActivityCollection: UICollectionView!
     
+    // Outlet Views in stackview
     @IBOutlet weak var myStackView: UIStackView!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var joinedView: UIView!
     @IBOutlet weak var proposedView: UIView!
     @IBOutlet weak var favoriteView: UIView!
-    @IBOutlet weak var likedView: UIView!
+    @IBOutlet weak var joinedViewEmpty: UIView!
+    @IBOutlet weak var proposedViewEmpty: UIView!
+    
+    // Outlet Countraints in stackview
+    @IBOutlet weak var heightMyStackView: NSLayoutConstraint!
+    @IBOutlet weak var heightProfileHeader: NSLayoutConstraint!
+    @IBOutlet weak var proposedViewTop: NSLayoutConstraint!
+    @IBOutlet weak var favoriteViewTop: NSLayoutConstraint!
     
     
     var activitySelected : Activity? = nil
@@ -53,13 +61,17 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         proposedActivityCollection.dataSource = self
         favoriteActivityCollection.delegate = self
         favoriteActivityCollection.dataSource = self
-        likedActivityCollection.delegate = self
-        likedActivityCollection.dataSource = self
         initProfilInformations()
         initListForCollections()
         manageView()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        initProfilInformations()
+        initListForCollections()
+        manageView()
     }
     
     // Fonction d'initialisation des libellés du Profil et les images de profil et de nationalité
@@ -76,7 +88,6 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-//        listActivityLiked.append(Activity1)
         listActivityJoined.append(Activity2)
         listActivityJoined.append(Activity1)
         listActivityProposed.append(Activity2)
@@ -85,11 +96,28 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
     
     func manageView(){
-        if (listActivityLiked.count == 0){
-            var height = likedView.frame.height
-            print(height)
-//            likedView.isHidden = true
+        let heightFavorite = favoriteView.frame.height
+        if (listActivityJoined.count == 0){
+            joinedActivityCollection.isHidden = true
+            joinedViewEmpty.isHidden = false
         }
+        else{
+            joinedActivityCollection.isHidden = false
+            joinedActivityCollection.isHidden = true
+        }
+        if (listActivityProposed.count == 0){
+            proposedActivityCollection.isHidden = true
+            proposedViewEmpty.isHidden = false
+        }
+        else{
+            proposedActivityCollection.isHidden = false
+            proposedViewEmpty.isHidden = true
+        }
+        if (listActivityFavorites.count == 0){
+            favoriteView.isHidden = true
+            heightMyStackView.constant -= heightFavorite
+        }
+
     }
     
     
@@ -113,13 +141,6 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         case self.favoriteActivityCollection:
             if (listActivityFavorites.count < 10){
                 return listActivityFavorites.count
-            }
-            else{
-                return 10
-            }
-        case self.likedActivityCollection:
-            if (listActivityLiked.count < 10){
-                return listActivityLiked.count
             }
             else{
                 return 10
@@ -150,8 +171,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
-                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
+                cell.categoryActivity.text = listActivityProposed[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityProposed[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -161,19 +182,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
-                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
-                return cell
-            }
-            return UICollectionViewCell()
-        case self.likedActivityCollection:
-            if let cell: profileLikedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "likedCell", for: indexPath) as? profileLikedCollectionViewCell
-            {
-                cell.imageActivity
-                    .image = listActivityFavorites[indexPath.row].imageDesc[0]
-                cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
-                cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
-                cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
+                cell.categoryActivity.text = listActivityFavorites[indexPath.row].typeActivity.name()
+                cell.imageCountry.image = UIImage(named:listActivityFavorites[indexPath.row].country)
                 return cell
             }
             return UICollectionViewCell()
@@ -191,8 +201,6 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             activitySelected = listActivityProposed[indexPath.row]
         case self.favoriteActivityCollection:
             activitySelected = listActivityFavorites[indexPath.row]
-        case self.likedActivityCollection:
-            activitySelected = listActivityLiked[indexPath.row]
         default:
             break
         }
@@ -204,21 +212,12 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         destinationViewController?.currentActivity = activitySelected!
     }
     
-    //annimation
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        print("test")
-        
-        switch collectionView.indexPathsForSelectedItems?.first {
-        case .some(indexPath):
-            return CGSize() // your selected height
-        default:
-            let height = (view.frame.width) * 9 / 16
-            return CGSize(width: view.frame.width, height: height + 50 + 50)
-        }
+    @IBAction func discoverButton(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 0
     }
-
-//     self.tabBarController?.selectedIndex = 0
     
+    @IBAction func proposedButton(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+    }
 }
 
