@@ -71,6 +71,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        myUser = allUsers[0]
         initProfilInformations()
     }
     

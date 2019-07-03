@@ -47,10 +47,18 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
     }
     
     func saveUserEdition(){
-        myUser.pseudo = pseudoTextField.text!
-        myUser.firstName = firstNameTextField.text!
-        myUser.lastName = lastNameTextField.text!
-        myUser.email = emailTextField.text!
+        var i = 0
+        var isEdited : Bool = false
+        while (i < allUsers.count || isEdited == false){
+            if (allUsers[i].idUser == myUser.idUser){
+                allUsers[i].pseudo = pseudoTextField.text!
+                allUsers[i].firstName = firstNameTextField.text!
+                allUsers[i].lastName = lastNameTextField.text!
+                allUsers[i].email = emailTextField.text!
+                isEdited = true
+            }
+            i += 1
+        }
     }
     
     @IBAction func validateEdition(_ sender: Any) {
