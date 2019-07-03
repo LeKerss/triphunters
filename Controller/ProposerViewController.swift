@@ -9,6 +9,8 @@
 import UIKit
 
 class ProposerViewController: UITableViewController, CategoryPickerDelegate {
+    //MARK:- Properties
+    var activityCategory: ActivityType = .Cultural
     
     //MARK:- Outlets
     @IBOutlet weak var titleTextField: UITextField!
@@ -16,6 +18,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     @IBOutlet weak var activityImageView: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     //MARK:- Actions
     @IBAction func addImage(_ sender: Any) {
@@ -29,6 +32,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         activityImageView.isHidden = false
         addImageButton.isHidden = false
         descriptionTextView.text = nil
+        categoryLabel.text = "Categorie"
     }
     
     @IBAction func createButton(_ sender: Any) {
@@ -49,7 +53,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         guard let activityName = titleTextField.text else { return }
         guard let adresse = adresseTextField.text else { return }
         
-        let activity = Activity(idActivity: 0, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: .Cultural, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
+        let activity = Activity(idActivity: 0, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: activityCategory, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
         print(activity)
     }
     
@@ -59,7 +63,8 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     }
 
     func didSelectCategory(type: ActivityType) {
-        print()
+        activityCategory = type
+        categoryLabel.text = type.name()
     }
     
     /**
