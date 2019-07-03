@@ -21,6 +21,9 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var joinedActivityCollection: UICollectionView!
     @IBOutlet weak var proposedActivityCollection: UICollectionView!
     @IBOutlet weak var favoriteActivityCollection: UICollectionView!
+    @IBOutlet weak var buttonJoinedShowMore: UIButton!
+    @IBOutlet weak var buttonProposedShowMore: UIButton!
+    @IBOutlet weak var buttonFavoriteShowMore: UIButton!
     
     // Outlet Views in stackview
     @IBOutlet weak var myStackView: UIStackView!
@@ -38,12 +41,14 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var favoriteViewTop: NSLayoutConstraint!
     
     
+    
     var activitySelected : Activity? = nil
+    var listSelectedForMore  : [Activity] = []
+    var nameForMore : String = ""
     
     var listActivityJoined : [Activity] = []
     var listActivityProposed : [Activity] = []
     var listActivityFavorites : [Activity] = []
-    var listActivityLiked : [Activity] = []
     
     // Création d'une variable myUser
     var myUser : User = User(idUser: 1, pseudo: "NqbraL", firstName: "Simon", lastName: "Chevalier", description: nil, email: "sim.chevalier@gmail.com", password: "testpw", nationality: "france", imageProfil: nil)
@@ -68,11 +73,11 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        initProfilInformations()
-        initListForCollections()
-        manageView()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        initProfilInformations()
+//        initListForCollections()
+//        manageView()
+//    }
     
     // Fonction d'initialisation des libellés du Profil et les images de profil et de nationalité
     func initProfilInformations() {
@@ -88,9 +93,9 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-//        listActivityJoined.append(Activity2)
-//        listActivityJoined.append(Activity1)
-//        listActivityProposed.append(Activity2)
+        listActivityJoined.append(Activity2)
+        listActivityJoined.append(Activity1)
+        listActivityProposed.append(Activity2)
         listActivityFavorites.append(Activity1)
         listActivityFavorites.append(Activity2)
     }
@@ -100,18 +105,22 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         if (listActivityJoined.count == 0){
             joinedActivityCollection.isHidden = true
             joinedViewEmpty.isHidden = false
+            buttonJoinedShowMore.isHidden = true
         }
         else{
             joinedActivityCollection.isHidden = false
             joinedViewEmpty.isHidden = true
+            buttonJoinedShowMore.isHidden = false
         }
         if (listActivityProposed.count == 0){
             proposedActivityCollection.isHidden = true
             proposedViewEmpty.isHidden = false
+            buttonProposedShowMore.isHidden = true
         }
         else{
             proposedActivityCollection.isHidden = false
             proposedViewEmpty.isHidden = true
+            buttonProposedShowMore.isHidden = false
         }
         if (listActivityFavorites.count == 0){
             favoriteView.isHidden = true
@@ -208,9 +217,37 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as? ShowActivityViewController
-        destinationViewController?.currentActivity = activitySelected!
+        switch (segue.identifier){
+        case "showDetail" :
+            let destinationViewController = segue.destination as? ShowActivityViewController
+            destinationViewController?.currentActivity = activitySelected!
+        case "showMore" :
+            let destinationViewController = segue.destination as? myActivityTableViewController
+            destinationViewController?.name = nameForMore
+            destinationViewController?.listActivty = listSelectedForMore
+        default:
+            break
+        }
+        
     }
+    @IBAction func joinedShowMore(_ sender: Any) {
+        nameForMore = "✔︎ Mes activités rejoints"
+        listSelectedForMore = listActivityJoined
+        performSegue(withIdentifier: "showMore", sender: self)
+    }
+    
+    @IBAction func proposedShowMore(_ sender: Any) {
+        nameForMore = "+ Mes activités proposées"
+        listSelectedForMore = listActivityProposed
+        performSegue(withIdentifier: "showMore", sender: self)
+    }
+    
+    @IBAction func favoriteShowMore(_ sender: Any) {
+        nameForMore = " ★ Mes activités favorites"
+        listSelectedForMore = listActivityFavorites
+        performSegue(withIdentifier: "showMore", sender: self)
+    }
+    
     
     @IBAction func discoverButton(_ sender: Any) {
         self.tabBarController?.selectedIndex = 0

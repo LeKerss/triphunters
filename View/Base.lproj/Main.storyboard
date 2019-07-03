@@ -241,10 +241,21 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-25-qgB">
+                                                        <rect key="frame" x="346" y="17" width="60" height="30"/>
+                                                        <state key="normal" title="Voir plus">
+                                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="joinedShowMore:" destination="Tif-Uy-e1l" eventType="touchUpInside" id="PCr-Of-Ydb"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="IJv-25-qgB" secondAttribute="trailing" constant="8" id="1WA-iu-U1H"/>
                                                     <constraint firstItem="enn-j1-W1C" firstAttribute="top" secondItem="bb2-xr-fBq" secondAttribute="top" constant="19" id="5m5-gt-69U"/>
+                                                    <constraint firstItem="IJv-25-qgB" firstAttribute="top" secondItem="bb2-xr-fBq" secondAttribute="top" constant="17" id="7Ms-3Z-o4f"/>
                                                     <constraint firstItem="enn-j1-W1C" firstAttribute="leading" secondItem="bb2-xr-fBq" secondAttribute="leading" constant="8" id="hZX-vT-SuV"/>
                                                     <constraint firstAttribute="trailing" secondItem="enn-j1-W1C" secondAttribute="trailing" constant="8" id="rxF-80-i86"/>
                                                 </constraints>
@@ -348,12 +359,23 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUO-K1-xMI">
+                                                        <rect key="frame" x="346" y="16" width="60" height="30"/>
+                                                        <state key="normal" title="Voir plus">
+                                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="proposedShowMore:" destination="Tif-Uy-e1l" eventType="touchUpInside" id="FeI-RR-qTj"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="gKE-R5-Tfz" firstAttribute="top" secondItem="gFT-cy-rMK" secondAttribute="top" constant="19" id="Cpn-Wv-Zw9"/>
+                                                    <constraint firstItem="OUO-K1-xMI" firstAttribute="top" secondItem="gFT-cy-rMK" secondAttribute="top" constant="16" id="O2h-Ca-ck5"/>
                                                     <constraint firstAttribute="trailing" secondItem="gKE-R5-Tfz" secondAttribute="trailing" constant="8" id="mVx-v8-e8d"/>
                                                     <constraint firstItem="gKE-R5-Tfz" firstAttribute="leading" secondItem="gFT-cy-rMK" secondAttribute="leading" constant="8" id="utF-a9-maK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OUO-K1-xMI" secondAttribute="trailing" constant="8" id="vab-Fu-Gsg"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -433,12 +455,23 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0q-cV-dPf">
+                                                        <rect key="frame" x="346" y="16" width="60" height="30"/>
+                                                        <state key="normal" title="Voir plus">
+                                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="favoriteShowMore:" destination="Tif-Uy-e1l" eventType="touchUpInside" id="LqR-KK-eOQ"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Oxj-PO-pIz" firstAttribute="top" secondItem="BKI-pC-Mxk" secondAttribute="top" constant="19" id="4Pk-wM-i30"/>
                                                     <constraint firstAttribute="trailing" secondItem="Oxj-PO-pIz" secondAttribute="trailing" constant="8" id="CYd-y2-Cj0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="b0q-cV-dPf" secondAttribute="trailing" constant="8" id="Cb5-Ky-EJD"/>
                                                     <constraint firstItem="Oxj-PO-pIz" firstAttribute="leading" secondItem="BKI-pC-Mxk" secondAttribute="leading" constant="8" id="MbT-aF-mN6"/>
+                                                    <constraint firstItem="b0q-cV-dPf" firstAttribute="top" secondItem="BKI-pC-Mxk" secondAttribute="top" constant="16" id="Yj2-Zn-T79"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -487,6 +520,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profil" id="XiE-Ae-9rj"/>
                     <connections>
+                        <outlet property="buttonFavoriteShowMore" destination="b0q-cV-dPf" id="I39-5d-PEP"/>
+                        <outlet property="buttonJoinedShowMore" destination="IJv-25-qgB" id="nmn-4s-cr3"/>
+                        <outlet property="buttonProposedShowMore" destination="OUO-K1-xMI" id="UG6-88-NQA"/>
                         <outlet property="favoriteActivityCollection" destination="hYl-Wo-2Mj" id="TYN-gg-Hda"/>
                         <outlet property="favoriteView" destination="BKI-pC-Mxk" id="peW-iw-3ca"/>
                         <outlet property="favoriteViewTop" destination="BbJ-E2-lbu" id="bg3-8c-gyV"/>
@@ -506,6 +542,7 @@
                         <outlet property="proposedViewTop" destination="Sgs-HE-lGh" id="m4b-f0-0so"/>
                         <outlet property="pseudoLabel" destination="4dk-hb-SVH" id="TBL-cO-TiW"/>
                         <segue destination="k2F-At-7Xd" kind="show" identifier="showDetail" id="G9G-5v-qaw"/>
+                        <segue destination="smU-gl-sbQ" kind="show" identifier="showMore" id="Bfq-7n-rzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnG-aN-qCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
