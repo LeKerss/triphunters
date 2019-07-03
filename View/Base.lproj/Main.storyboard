@@ -748,7 +748,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Nouvelle activité" id="wIS-Zd-DOq">
-                        <barButtonItem key="leftBarButtonItem" title="Réinitialiser" id="HiU-aU-e0L">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="HiU-aU-e0L">
                             <connections>
                                 <action selector="clearAll:" destination="tmO-fD-yu3" id="gfR-8O-6Ze"/>
                             </connections>
@@ -1344,6 +1344,6 @@
         <image name="addActivityImage" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Z0-GP-ZVv"/>
+        <segue reference="G9G-5v-qaw"/>
     </inferredMetricsTieBreakers>
 </document>
