@@ -572,7 +572,10 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2e-wf-box">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                    <rect key="frame" x="109.5" y="109.5" width="195" height="195"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="T2e-wf-box" secondAttribute="height" multiplier="1:1" id="RuJ-fx-mPf"/>
+                                    </constraints>
                                     <state key="normal" title="Ajouter une photo" image="addActivityImage">
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
@@ -583,16 +586,11 @@
                             </subviews>
                             <color key="backgroundColor" red="0.93724888563156128" green="0.9369545578956604" blue="0.9568600058555603" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="aR5-r2-UqX" firstAttribute="centerX" secondItem="T2e-wf-box" secondAttribute="centerX" id="8og-qH-NsA"/>
-                                <constraint firstItem="T2e-wf-box" firstAttribute="top" secondItem="Yji-ER-CqU" secondAttribute="top" id="G3d-pg-P5n"/>
+                                <constraint firstItem="T2e-wf-box" firstAttribute="centerY" secondItem="aR5-r2-UqX" secondAttribute="centerY" id="H7Q-3p-LhJ"/>
                                 <constraint firstItem="aR5-r2-UqX" firstAttribute="top" secondItem="Yji-ER-CqU" secondAttribute="top" id="XfL-YX-TJx"/>
                                 <constraint firstItem="aR5-r2-UqX" firstAttribute="leading" secondItem="Yji-ER-CqU" secondAttribute="leading" id="Z0P-NO-YYd"/>
-                                <constraint firstItem="T2e-wf-box" firstAttribute="centerY" secondItem="Yji-ER-CqU" secondAttribute="centerY" id="ag4-GW-HnF"/>
                                 <constraint firstAttribute="width" secondItem="aR5-r2-UqX" secondAttribute="height" multiplier="1:1" id="bzh-e0-pWK"/>
-                                <constraint firstAttribute="bottom" secondItem="T2e-wf-box" secondAttribute="bottom" id="fEp-wh-YAh"/>
-                                <constraint firstItem="T2e-wf-box" firstAttribute="centerX" secondItem="Yji-ER-CqU" secondAttribute="centerX" id="ovp-ui-PWd"/>
-                                <constraint firstAttribute="trailing" secondItem="T2e-wf-box" secondAttribute="trailing" id="wZz-ad-rxm"/>
-                                <constraint firstItem="T2e-wf-box" firstAttribute="leading" secondItem="Yji-ER-CqU" secondAttribute="leading" id="yOB-Je-gNA"/>
+                                <constraint firstItem="T2e-wf-box" firstAttribute="centerX" secondItem="aR5-r2-UqX" secondAttribute="centerX" id="pC2-3j-JAD"/>
                             </constraints>
                         </view>
                         <sections>
@@ -724,7 +722,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZf-ju-Bbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5051" y="631"/>
+            <point key="canvasLocation" x="5050.7246376811599" y="630.80357142857144"/>
         </scene>
         <!--Type Activity Table View Controller-->
         <scene sceneID="PRs-IK-a8b">
@@ -999,13 +997,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="bla - bl" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOc-gm-FWf">
-                                                                            <rect key="frame" x="8" y="54" width="393" height="8.5"/>
+                                                                            <rect key="frame" x="8" y="54" width="354" height="8.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ2-aS-0fd">
-                                                                            <rect key="frame" x="379" y="5" width="30" height="48"/>
+                                                                            <rect key="frame" x="340" y="5" width="30" height="48"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <state key="normal" title="⌫">
                                                                                 <color key="titleColor" red="0.96620899439999997" green="0.223210825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
