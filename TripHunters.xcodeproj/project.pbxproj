@@ -26,6 +26,7 @@
 		FC50399122CB82EF005E8209 /* report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399022CB82EF005E8209 /* report.swift */; };
 		FC50399522CB91E0005E8209 /* ShowCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */; };
 		FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399622CCA591005E8209 /* myActivityTableViewController.swift */; };
+		FC50399922CCE0C9005E8209 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399822CCE0C9005E8209 /* Data.swift */; };
 		FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */; };
 		FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */; };
 		FC5C77B022C5FD8800712C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C77AE22C5FD8800712C32 /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 		FC50399022CB82EF005E8209 /* report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = report.swift; sourceTree = "<group>"; };
 		FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentsTableViewController.swift; sourceTree = "<group>"; };
 		FC50399622CCA591005E8209 /* myActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myActivityTableViewController.swift; sourceTree = "<group>"; };
+		FC50399822CCE0C9005E8209 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FC5C77A722C5FD8800712C32 /* TripHunters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHunters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				FC772E1622C84684008C67D6 /* Comment.swift */,
 				FC772E1822C8BAA2008C67D6 /* Like.swift */,
 				FC50399022CB82EF005E8209 /* report.swift */,
+				FC50399822CCE0C9005E8209 /* Data.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */,
 				FC50399122CB82EF005E8209 /* report.swift in Sources */,
 				FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */,
+				FC50399922CCE0C9005E8209 /* Data.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */,
 				C785213022CCB43D00D4381B /* MapViewController.swift in Sources */,
