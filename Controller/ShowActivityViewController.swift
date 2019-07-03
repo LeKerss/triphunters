@@ -40,7 +40,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var labelNbImage: UILabel!
     @IBOutlet weak var map: MKMapView!
     
-    var currentUser = User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil)
+    var currentUser = allUsers[0]
     
 //    var currentActivity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: typeActivityEnum.NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!])
 //
@@ -48,15 +48,8 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     var currentActivity : Activity!
     
-    var commentOnActivity = [
-        Comment(idActivity: 1, pseudo: "oscaramz",country: "australiaTest", dateComment: Date(), comment: "Bar très atypique. Le système des prix est à découvrir. Petite terrasse pour se poser en été. Très compliqué de se garer, il fait y aller en transport"),
-        Comment(idActivity: 1, pseudo: "seb34",country: "FranceTest", dateComment: Date(), comment: "Il passe la meilleure musique au monde! L’alcool parfait. Réception et literie imbattable"),
-        Comment(idActivity: 1, pseudo: "sounySama",country: "belgiumTest", dateComment: Date(), comment: "Concept intéressant mais les prix les plus bas sont les prix de bases. Donc un peu cher."),
-        Comment(idActivity: 1, pseudo: "modernori",country: "chinaTest", dateComment: Date(), comment: "Le concept est super sympas (prix variant toutes les minutes)"),
-    ]
-    
+    var commentOnActivity : [Comment] = []
 
-    
     var currentImageNumber = 0
     
     var inFav = false
@@ -71,6 +64,20 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         //favoriteText init
+        
+        for comment in allComments {
+            if comment.idActivity == currentActivity.idActivity {
+                commentOnActivity.append(comment)
+            }
+        }
+        
+        favoriteText.setTitle("☆",for: .normal)
+        for fav in allFavories {
+            if fav.idUser == currentUser.idUser && fav.idActivity == currentActivity.idActivity {
+                inFav = true
+            }
+        }
+    
         favoriteText.setTitle("☆",for: .normal)
         favoriteText.setTitle("★",for: .selected)
         favoriteText.isSelected = inFav

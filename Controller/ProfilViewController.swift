@@ -51,11 +51,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     var listActivityFavorites : [Activity] = []
     
     // Création d'une variable myUser
-    var myUser : User = User(idUser: 1, pseudo: "NqbraL", firstName: "Simon", lastName: "Chevalier", description: nil, email: "sim.chevalier@gmail.com", password: "testpw", nationality: "france", imageProfil: nil)
+    var myUser = allUsers[0]
     
-    var Activity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: .NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!])
-    
-    var Activity2 = Activity(idActivity: 2, idUser: 2, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: .Cultural, adresse: "99, rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!])
     
     
     override func viewDidLoad() {
@@ -93,11 +90,26 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
-        listActivityJoined.append(Activity2)
-        listActivityJoined.append(Activity1)
-        listActivityProposed.append(Activity2)
-        listActivityFavorites.append(Activity1)
-        listActivityFavorites.append(Activity2)
+        
+        for activity in allActivities {
+            if activity.idUser == self.myUser.idUser {
+                listActivityProposed.append(activity)
+            }
+            for fav in allFavories {
+                if fav.idUser == self.myUser.idUser {
+                    if activity.idActivity == fav.idActivity {
+                        listActivityFavorites.append(activity)
+                    }
+                }
+            }
+            for joined in allInscription {
+                if joined.idUser == self.myUser.idUser {
+                    if activity.idActivity == joined.idActivity {
+                        listActivityJoined.append(activity)
+                    }
+                }
+            }
+        }
     }
     
     func manageView(){
