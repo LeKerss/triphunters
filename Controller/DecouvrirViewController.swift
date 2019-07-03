@@ -189,6 +189,9 @@ class DecouvrirViewController: UIViewController {
         locationManager.startUpdatingLocation()
         
         mapView.showsUserLocation = true
+        if let loc = locationManager.location  {
+            mapView.setCenter(loc.coordinate, animated: false)
+        }
         
     }
 }
