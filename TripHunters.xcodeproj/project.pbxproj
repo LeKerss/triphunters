@@ -14,6 +14,7 @@
 		9544CFE022CA39ED003D1676 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9544CFDF22CA39ED003D1676 /* SliderViewController.xib */; };
 		9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */; };
 		996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */; };
+		996B362E22CD0122003241C7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B362D22CD011F003241C7 /* Data.swift */; };
 		C74F16DE22C612E70009F809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F16DD22C612E70009F809 /* User.swift */; };
 		C74F16ED22C61D210009F809 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74F16EF22C61D210009F809 /* Localizable.strings */; };
 		C74F174122CA14130009F809 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F174022CA14130009F809 /* SliderViewController.swift */; };
@@ -26,7 +27,6 @@
 		FC50399122CB82EF005E8209 /* report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399022CB82EF005E8209 /* report.swift */; };
 		FC50399522CB91E0005E8209 /* ShowCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */; };
 		FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399622CCA591005E8209 /* myActivityTableViewController.swift */; };
-		FC50399922CCE0C9005E8209 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50399822CCE0C9005E8209 /* Data.swift */; };
 		FC5C77AB22C5FD8800712C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */; };
 		FC5C77AD22C5FD8800712C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */; };
 		FC5C77B022C5FD8800712C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C77AE22C5FD8800712C32 /* Main.storyboard */; };
@@ -66,6 +66,7 @@
 		9544CFDF22CA39ED003D1676 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 		9544CFE522CA4A3D003D1676 /* InterfaceBuilderForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderForView.swift; sourceTree = "<group>"; };
 		996B362B22CCD305003241C7 /* InscriptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionTableViewController.swift; sourceTree = "<group>"; };
+		996B362D22CD011F003241C7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Models/Data.swift; sourceTree = "<group>"; };
 		C74F16DD22C612E70009F809 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C74F16E922C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C74F16EA22C61C690009F809 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		FC50399022CB82EF005E8209 /* report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = report.swift; sourceTree = "<group>"; };
 		FC50399422CB91E0005E8209 /* ShowCommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentsTableViewController.swift; sourceTree = "<group>"; };
 		FC50399622CCA591005E8209 /* myActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myActivityTableViewController.swift; sourceTree = "<group>"; };
-		FC50399822CCE0C9005E8209 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FC5C77A722C5FD8800712C32 /* TripHunters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripHunters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C77AA22C5FD8800712C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C77AC22C5FD8800712C32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,6 @@
 				FC772E1622C84684008C67D6 /* Comment.swift */,
 				FC772E1822C8BAA2008C67D6 /* Like.swift */,
 				FC50399022CB82EF005E8209 /* report.swift */,
-				FC50399822CCE0C9005E8209 /* Data.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +153,7 @@
 		FC5C779E22C5FD8800712C32 = {
 			isa = PBXGroup;
 			children = (
+				996B362D22CD011F003241C7 /* Data.swift */,
 				C785212722CCADD800D4381B /* Settings */,
 				C74F16EF22C61D210009F809 /* Localizable.strings */,
 				FC50398422C61213005E8209 /* Models */,
@@ -379,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				996B362E22CD0122003241C7 /* Data.swift in Sources */,
 				9544CFDC22CA049C003D1676 /* profileLikedCollectionViewCell.swift in Sources */,
 				E91EFC3722CB4BF30046C094 /* TypeActivityTableViewController.swift in Sources */,
 				FC50398A22C6158E005E8209 /* FavoritesActivity.swift in Sources */,
@@ -390,7 +391,6 @@
 				9544CFE622CA4A3D003D1676 /* InterfaceBuilderForView.swift in Sources */,
 				FC50399122CB82EF005E8209 /* report.swift in Sources */,
 				FC50399722CCA591005E8209 /* myActivityTableViewController.swift in Sources */,
-				FC50399922CCE0C9005E8209 /* Data.swift in Sources */,
 				FC5C77DF22C6057F00712C32 /* ProfilViewController.swift in Sources */,
 				996B362C22CCD305003241C7 /* InscriptionTableViewController.swift in Sources */,
 				C785213022CCB43D00D4381B /* MapViewController.swift in Sources */,

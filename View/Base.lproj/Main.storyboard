@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ejh-V0-QVJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ioR-gT-NzI">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -59,7 +59,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQ7-r6-daB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3312" y="-86"/>
+            <point key="canvasLocation" x="3312" y="-25"/>
         </scene>
         <!--Profil-->
         <scene sceneID="N1k-bG-G0C">
@@ -1350,6 +1350,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQJ-TS-sC4">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="30"/>
                                         <state key="normal" title="Connexion"/>
+                                        <connections>
+                                            <segue destination="pAN-wW-2YW" kind="presentation" id="dBQ-Jc-FMq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTg-se-UYs">
                                         <rect key="frame" x="0.0" y="45" width="254" height="30"/>
@@ -1408,7 +1411,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2711.25" y="-87.676056338028175"/>
+            <point key="canvasLocation" x="3355" y="-775"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RHu-BI-2TZ">
@@ -1426,7 +1429,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7n-aJ-WLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713.75" y="-87.676056338028175"/>
+            <point key="canvasLocation" x="2077" y="-543"/>
         </scene>
         <!--Inscription-->
         <scene sceneID="3pM-rt-cJi">
