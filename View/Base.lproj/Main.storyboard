@@ -1228,6 +1228,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Nouvelle activité" id="wIS-Zd-DOq">
+                        <barButtonItem key="backBarButtonItem" title="Retour" id="cJj-wO-u78"/>
                         <barButtonItem key="leftBarButtonItem" title="Effacer" id="HiU-aU-e0L">
                             <connections>
                                 <action selector="clearAll:" destination="tmO-fD-yu3" id="gfR-8O-6Ze"/>
@@ -1255,7 +1256,7 @@
             </objects>
             <point key="canvasLocation" x="5051" y="631"/>
         </scene>
-        <!--Type Activity Table View Controller-->
+        <!--Catégories-->
         <scene sceneID="PRs-IK-a8b">
             <objects>
                 <tableViewController id="Nok-KQ-bYL" customClass="TypeActivityTableViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
@@ -1278,6 +1279,7 @@
                             <outlet property="delegate" destination="Nok-KQ-bYL" id="w1A-bL-cVC"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Catégories" id="KZR-PY-cA1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibz-ao-foU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

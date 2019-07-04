@@ -29,6 +29,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     
     @IBAction func textDidChangeuserTypedText(_ sender: Any) {
         displayCreateButton()
+        displayClearButton()
     }
     
     @IBAction func clearAll(_ sender: Any) {
@@ -67,6 +68,14 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         
         let activity = Activity(idActivity: 0, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: activityCategory, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
         print(activity)
+    }
+    
+    func displayClearButton() {
+        if !titleTextField.text!.isEmpty || !adresseTextField.text!.isEmpty || !descriptionTextView.text.isEmpty {
+            clearButton.isEnabled = true
+        } else {
+            clearButton.isEnabled = false
+        }
     }
     
     func displayCreateButton() {
@@ -137,7 +146,7 @@ extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationC
         }
         dismiss(animated: true, completion: nil)
         displayCreateButton()
-        clearButton.isEnabled = true
+        displayClearButton()
     }
 }
 
@@ -154,10 +163,8 @@ extension ProposerViewController: UITextViewDelegate {
     
     
     func textViewDidChange(_ textView: UITextView) {
-        print("tv change")
-
         displayCreateButton()
-        clearButton.isEnabled = true
+        displayClearButton()
     }
 }
 
