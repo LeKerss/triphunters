@@ -26,6 +26,23 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func forgetPswword(_ sender: Any) {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Reinitialisation du mot de passe", message: "veuillez renseigner votre email", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.placeholder = "email"
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler:nil ))
+        
+        alert.addAction(UIAlertAction(title: "Envoyez", style: .default, handler: nil))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 

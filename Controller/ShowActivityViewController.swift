@@ -63,7 +63,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
                 commentOnActivity.append(comment)
             }
         }
-        self.commentText.text = "\(commentOnActivity.count) Commentaires"
+        self.commentTextNb.setTitle("\(commentOnActivity.count) Commentaires", for: .normal)
         self.tableView.reloadData()
 
         inFav = false
@@ -95,7 +95,6 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
                 }
             }
         }
-        favoriteText.isSelected = inInscirption
         
         // and then dismiss the control
         sender.endRefreshing()
@@ -174,6 +173,8 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         commentText.addTarget(self, action: #selector(textFieldEditingDidChange(_:)), for: UIControl.Event.editingChanged)
         sentCommentButton.backgroundColor = UIColor.gray
         typeActivity.text = showTypeActivity(activity: currentActivity)
+        typeActivity.textColor = currentActivity.typeActivity.color
+        typeActivity.font = UIFont.boldSystemFont(ofSize: 15)
         enterActivityButton.layer.cornerRadius = 10
         quitActivity.layer.cornerRadius = 10
         suppdeleteActivity.layer.cornerRadius = 10
@@ -390,6 +391,16 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             let comment = Comment(idActivity: currentActivity.idActivity, pseudo: currentUser.pseudo, country: currentUser.nationality, dateComment: Date(), comment: commentText.text!)
             commentOnActivity = [comment] + commentOnActivity
             commentText.text = ""
+            
+            allComments.insert(comment, at: 0)
+            
+            self.commentOnActivity = []
+            for comment in allComments {
+                if comment.idActivity == currentActivity.idActivity {
+                    commentOnActivity.append(comment)
+                }
+            }
+            
             self.tableView.reloadData()
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: UITableView.ScrollPosition.none)
@@ -457,7 +468,22 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             let optionMenu = UIAlertController(title: nil, message: "Voulez vous vraiment supprimer votre commentaire ?", preferredStyle: .actionSheet)
             let deleteAction = UIAlertAction(title: "Oui", style: .default, handler: { action in
                 if (editingStyle == .delete){
-                    self.commentOnActivity.remove(at: indexPath.row)
+                    let remove = self.commentOnActivity[indexPath.row]
+                    var i = 0
+                    var indexx = -1
+                    for comment in self.commentOnActivity {
+                        if comment.comment == remove.comment && comment.idActivity == remove.idActivity && comment.pseudo == remove.pseudo {
+                            indexx = i
+                        }
+                        i += 1
+                    }
+                    allComments.remove(at: indexx)
+                    self.commentOnActivity = []
+                    for comment in allComments {
+                        if comment.idActivity == self.currentActivity.idActivity {
+                            self.commentOnActivity.append(comment)
+                        }
+                    }
                     self.tableView.reloadData()
                     self.commentTextNb.setTitle("\(self.commentOnActivity.count) Commentaires", for: .normal)
                 }

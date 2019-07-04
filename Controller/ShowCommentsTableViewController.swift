@@ -86,6 +86,16 @@ class ShowCommentsTableViewController: UITableViewController {
             let deleteAction = UIAlertAction(title: "Oui", style: .default, handler: { action in
                 if (editingStyle == .delete){
                     self.commentOnActivity.remove(at: indexPath.row)
+                    let remove = self.commentOnActivity[indexPath.row]
+                    var i = 0
+                    var indexx = -1
+                    for comment in self.commentOnActivity {
+                        if comment.comment == remove.comment && comment.idActivity == remove.idActivity && comment.pseudo == remove.pseudo {
+                            indexx = i
+                        }
+                        i += 1
+                    }
+                    allComments.remove(at: indexx)
                     self.tableView.reloadData()
                     self.navigationItem.title = "\(self.commentOnActivity.count) Commentaires"
                 }

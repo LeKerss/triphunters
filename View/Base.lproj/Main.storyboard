@@ -1551,7 +1551,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTg-se-UYs">
                                         <rect key="frame" x="0.0" y="45" width="254" height="30"/>
-                                        <state key="normal" title="Mot de passe oubliée ?"/>
+                                        <state key="normal" title="Mot de passe oublié"/>
+                                        <connections>
+                                            <action selector="forgetPswword:" destination="Ejh-V0-QVJ" eventType="touchUpInside" id="lIp-mO-a7v"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
