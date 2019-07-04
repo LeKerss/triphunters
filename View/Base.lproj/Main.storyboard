@@ -574,6 +574,7 @@
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
                                     <connections>
+                                        <action selector="addImage:" destination="aye-dY-Zuk" eventType="touchUpInside" id="BrO-eN-vxO"/>
                                         <action selector="addImage:" destination="tmO-fD-yu3" eventType="touchUpInside" id="icf-12-ZaQ"/>
                                     </connections>
                                 </button>
@@ -707,7 +708,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Editer le profil" id="yMQ-OF-1Gv">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cdk-kC-YUh">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WNL-nh-YbK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WNL-nh-YbK">
                                 <rect key="frame" x="302" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -719,8 +720,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addImageButton" destination="ywY-kv-eFM" id="ypw-Di-ACM"/>
                         <outlet property="emailTextField" destination="5dt-QO-Hsc" id="T0W-D7-EFU"/>
                         <outlet property="firstNameTextField" destination="Yey-jD-LX4" id="joe-bV-4WY"/>
+                        <outlet property="imgProfile" destination="KTU-sG-ZbU" id="Agw-Ia-2s4"/>
                         <outlet property="lastNameTextField" destination="m05-gy-dwy" id="NGI-Dc-ZrD"/>
                         <outlet property="pseudoTextField" destination="zPU-47-0G0" id="kfL-9a-Xes"/>
                     </connections>

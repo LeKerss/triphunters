@@ -14,6 +14,8 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var addImageButton: UIButton!
     
     var myUser : User!
     var userAtStart : User!
@@ -32,8 +34,16 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
         emailTextField.text = myUser.email
     }
     
+    private func pickAnImage() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = false
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     func checkIfDifference() -> Bool{
-        if (pseudoTextField.text != userAtStart.pseudo || lastNameTextField.text != userAtStart.lastName || firstNameTextField.text != userAtStart.firstName || emailTextField.text != userAtStart.email){
+        if (pseudoTextField.text != userAtStart.pseudo || lastNameTextField.text != userAtStart.lastName || firstNameTextField.text != userAtStart.firstName || emailTextField.text != userAtStart.email || imgProfile.image != userAtStart.imageProfil){
             return true
         }
         return false
@@ -55,10 +65,15 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
                 allUsers[i].firstName = firstNameTextField.text!
                 allUsers[i].lastName = lastNameTextField.text!
                 allUsers[i].email = emailTextField.text!
+                allUsers[i].imageProfil = imgProfile.image
                 isEdited = true
             }
             i += 1
         }
+    }
+    
+    @IBAction func addImage(_ sender: Any) {
+        pickAnImage()
     }
     
     @IBAction func validateEdition(_ sender: Any) {
@@ -68,16 +83,26 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            if (checkIfDifference()){
-                let alert = UIAlertController(title: "Edition Profil", message: "Vous êtes sur le point de modifier votre profil, confirmer ?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Confirmer", style: .default, handler: { action in
-                    self.saveUserEdition()
-                    self.navigationController?.popViewController(animated: true)
-                }))
-                alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+            let alert = UIAlertController(title: "Edition Profil", message: "Vous êtes sur le point de modifier votre profil, confirmer ?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirmer", style: .default, handler: { action in
+                self.saveUserEdition()
+                self.navigationController?.popViewController(animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
+}
+
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imgProfile.image = image
+            addImageButton.isHidden = true
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
