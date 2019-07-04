@@ -12,6 +12,9 @@ class SliderViewController: UIViewController {
 
     @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var handleLine: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         handleLine.layer.cornerRadius = 3
