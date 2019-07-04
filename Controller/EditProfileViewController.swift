@@ -33,7 +33,9 @@ class EditProfileViewController: UITableViewController, UINavigationControllerDe
         lastNameTextField.text = myUser.lastName
         firstNameTextField.text = myUser.firstName
         emailTextField.text = myUser.email
-        imgProfile.image = myUser.imageProfil
+        if let image = myUser.imageProfil{
+            imgProfile.image = image
+        }
     }
     
     private func pickAnImage() {

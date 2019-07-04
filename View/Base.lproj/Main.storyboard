@@ -1017,6 +1017,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="5dt-QO-Hsc" id="T0W-D7-EFU"/>
                         <outlet property="firstNameTextField" destination="Yey-jD-LX4" id="joe-bV-4WY"/>
+                        <outlet property="imgProfile" destination="KTU-sG-ZbU" id="S3c-P4-5Ka"/>
                         <outlet property="lastNameTextField" destination="m05-gy-dwy" id="NGI-Dc-ZrD"/>
                         <outlet property="pseudoTextField" destination="zPU-47-0G0" id="kfL-9a-Xes"/>
                     </connections>
@@ -1094,7 +1095,7 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2e-wf-box">
-                                    <rect key="frame" x="126.5" y="126.5" width="161" height="161"/>
+                                    <rect key="frame" x="109.5" y="109.5" width="195" height="195"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="T2e-wf-box" secondAttribute="height" multiplier="1:1" id="CAn-Rq-HSQ"/>
                                     </constraints>
@@ -1510,13 +1511,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="bla - bl" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOc-gm-FWf">
-                                                                            <rect key="frame" x="8" y="54" width="354" height="8.5"/>
+                                                                            <rect key="frame" x="8" y="54" width="393" height="8.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ2-aS-0fd">
-                                                                            <rect key="frame" x="340" y="5" width="30" height="48"/>
+                                                                            <rect key="frame" x="379" y="5" width="30" height="48"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <state key="normal" title="⌫">
                                                                                 <color key="titleColor" red="0.96620899439999997" green="0.223210825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1825,16 +1826,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="cec-Th-mq8">
-                                <rect key="frame" x="30" y="154" width="354" height="588"/>
+                                <rect key="frame" x="30" y="412.5" width="354" height="71"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pseudo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Xn-jRw">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="547"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pseudo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9a-Xn-jRw">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-uu-xcd">
-                                        <rect key="frame" x="0.0" y="558" width="354" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-uu-xcd">
+                                        <rect key="frame" x="0.0" y="41" width="354" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1842,7 +1843,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="s1Y-gy-RX4">
-                                <rect key="frame" x="80" y="782" width="254" height="75"/>
+                                <rect key="frame" x="80" y="523.5" width="254" height="75"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQJ-TS-sC4">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="30"/>
@@ -1868,10 +1869,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dF4-gT-SZe">
-                                <rect key="frame" x="30" y="108" width="354" height="16"/>
+                                <rect key="frame" x="30" y="108" width="354" height="274.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hr3-6S-tid">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="16"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="274.5"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
