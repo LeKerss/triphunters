@@ -182,6 +182,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.nameActivity.text = listActivityJoined[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
                 cell.categoryActivity.textColor = listActivityJoined[indexPath.row].typeActivity.color
+                cell.categoryActivity.font = UIFont.boldSystemFont(ofSize: 12)
                 cell.imageCountry.image = UIImage(named:listActivityJoined[indexPath.row].country)
                 return cell
             }
@@ -194,6 +195,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityProposed[indexPath.row].typeActivity.name()
                 cell.categoryActivity.textColor = listActivityProposed[indexPath.row].typeActivity.color
+                cell.categoryActivity.font = UIFont.boldSystemFont(ofSize: 12)
                 cell.imageCountry.image = UIImage(named:listActivityProposed[indexPath.row].country)
                 return cell
             }
@@ -206,6 +208,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityFavorites[indexPath.row].typeActivity.name()
                 cell.categoryActivity.textColor = listActivityFavorites[indexPath.row].typeActivity.color
+                cell.categoryActivity.font = UIFont.boldSystemFont(ofSize: 12)
                 cell.imageCountry.image = UIImage(named:listActivityFavorites[indexPath.row].country)
                 return cell
             }
