@@ -471,7 +471,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
                     let remove = self.commentOnActivity[indexPath.row]
                     var i = 0
                     var indexx = -1
-                    for comment in self.commentOnActivity {
+                    for comment in allComments {
                         if comment.comment == remove.comment && comment.idActivity == remove.idActivity && comment.pseudo == remove.pseudo {
                             indexx = i
                         }

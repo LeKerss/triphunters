@@ -85,11 +85,11 @@ class ShowCommentsTableViewController: UITableViewController {
             let optionMenu = UIAlertController(title: nil, message: "Voulez vous vraiment supprimer votre commentaire ?", preferredStyle: .actionSheet)
             let deleteAction = UIAlertAction(title: "Oui", style: .default, handler: { action in
                 if (editingStyle == .delete){
-                    self.commentOnActivity.remove(at: indexPath.row)
                     let remove = self.commentOnActivity[indexPath.row]
+                    self.commentOnActivity.remove(at: indexPath.row)
                     var i = 0
                     var indexx = -1
-                    for comment in self.commentOnActivity {
+                    for comment in allComments {
                         if comment.comment == remove.comment && comment.idActivity == remove.idActivity && comment.pseudo == remove.pseudo {
                             indexx = i
                         }
