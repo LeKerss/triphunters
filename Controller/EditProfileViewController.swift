@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
+class EditProfileViewController: UITableViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var pseudoTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -16,6 +16,7 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     var myUser : User!
     var userAtStart : User!
@@ -32,6 +33,7 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
         lastNameTextField.text = myUser.lastName
         firstNameTextField.text = myUser.firstName
         emailTextField.text = myUser.email
+        imgProfile.image = myUser.imageProfil
     }
     
     private func pickAnImage() {
@@ -76,6 +78,19 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
         pickAnImage()
     }
     
+    @IBAction func backToProfile(_ sender: Any) {
+        if (checkIfDifference()){
+            let alert = UIAlertController(title: "Edition Profil", message: "Vous avez modifié des informations. \n Souhaitez vous annuler vos modifications ?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else{
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     @IBAction func validateEdition(_ sender: Any) {
         if (checkIfEmpty()){
             let alert = UIAlertController(title: "Edition Profil", message: "Vous n'avez pas rempli tous les champs nécessaires.", preferredStyle: .alert)
@@ -96,7 +111,7 @@ class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
 }
 
 
-extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension EditProfileViewController: UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -106,3 +121,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+
