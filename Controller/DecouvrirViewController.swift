@@ -208,6 +208,14 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     }
     
     func setupLocation() {
+        let button = MKUserTrackingButton(mapView: self.mapView)
+        button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(button)
+        
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
