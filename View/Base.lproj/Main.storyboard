@@ -707,6 +707,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Editer le profil" id="yMQ-OF-1Gv">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="pwd-oi-yC7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RYZ-R7-rDa">
+                                <rect key="frame" x="20" y="2" width="78" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title=" Profil" image="backImg">
+                                    <color key="titleColor" red="0.19072315096855164" green="0.42912602424621582" blue="0.87063151597976685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToProfile:" destination="aye-dY-Zuk" eventType="touchUpInside" id="QkS-Ux-pq7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cdk-kC-YUh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WNL-nh-YbK">
                                 <rect key="frame" x="302" y="5.5" width="92" height="33"/>
@@ -725,6 +738,7 @@
                         <outlet property="firstNameTextField" destination="Yey-jD-LX4" id="joe-bV-4WY"/>
                         <outlet property="imgProfile" destination="KTU-sG-ZbU" id="Agw-Ia-2s4"/>
                         <outlet property="lastNameTextField" destination="m05-gy-dwy" id="NGI-Dc-ZrD"/>
+                        <outlet property="navItem" destination="yMQ-OF-1Gv" id="hdl-Uy-Qm1"/>
                         <outlet property="pseudoTextField" destination="zPU-47-0G0" id="kfL-9a-Xes"/>
                     </connections>
                 </tableViewController>
@@ -1846,6 +1860,7 @@
         <image name="ProposerTabBar" width="30" height="30"/>
         <image name="UserTabBar" width="30" height="30"/>
         <image name="addActivityImage" width="50" height="50"/>
+        <image name="backImg" width="12" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Z0-GP-ZVv"/>
