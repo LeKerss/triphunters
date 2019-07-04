@@ -37,17 +37,17 @@ enum ActivityType : CaseIterable {
         case .Sports:
             return UIColor(#colorLiteral(red: 0.9972489476, green: 0.4262111187, blue: 0, alpha: 1))
         case .Gastronomy:
-            return UIColor(#colorLiteral(red: 0.8078431373, green: 0.9333333333, blue: 0.3529411765, alpha: 1))
+            return UIColor(#colorLiteral(red: 0.8351348459, green: 0, blue: 0, alpha: 1))
         case .NightLife:
-            return UIColor(#colorLiteral(red: 0.5638859868, green: 0, blue: 1, alpha: 1))
+            return UIColor(#colorLiteral(red: 0.5647058824, green: 0, blue: 1, alpha: 1))
         case .Cultural:
-            return UIColor(#colorLiteral(red: 0, green: 0.6255976558, blue: 0.8522614837, alpha: 1))
+            return UIColor(#colorLiteral(red: 0, green: 0.6274509804, blue: 0.8509803922, alpha: 1))
         case .Entertainement:
-            return UIColor(#colorLiteral(red: 1, green: 0.7857245207, blue: 0.1914336383, alpha: 1))
+            return UIColor(#colorLiteral(red: 1, green: 0.7843137255, blue: 0.1921568627, alpha: 1))
         case .Exploration:
-            return UIColor(#colorLiteral(red: 0, green: 0.7032225132, blue: 0, alpha: 1))
+            return UIColor(#colorLiteral(red: 0, green: 0.7019607843, blue: 0, alpha: 1))
         case .Freaky:
-            return UIColor(#colorLiteral(red: 1, green: 0, blue: 0.952041924, alpha: 1))
+            return UIColor(#colorLiteral(red: 0.8980392157, green: 0, blue: 0.4980392157, alpha: 1))
         }
     }
     
