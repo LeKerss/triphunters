@@ -19,10 +19,16 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var createButton: UIBarButtonItem!
+    @IBOutlet weak var clearButton: UIBarButtonItem!
     
     //MARK:- Actions
     @IBAction func addImage(_ sender: Any) {
         pickAnImage()
+    }
+    
+    @IBAction func textDidChangeuserTypedText(_ sender: Any) {
+        displayCreateButton()
     }
     
     @IBAction func clearAll(_ sender: Any) {
@@ -32,15 +38,14 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         activityImageView.isHidden = false
         addImageButton.isHidden = false
         descriptionTextView.text = nil
-        categoryLabel.text = "Categorie"
+        categoryLabel.text = "Catégories"
+        createButton.isEnabled = false
+        clearButton.isEnabled = false
     }
     
     @IBAction func createButton(_ sender: Any) {
-        if titleTextField.text != nil && adresseTextField.text != nil && activityImageView.image != nil && descriptionTextView != nil && categoryLabel.text != "Categorie" {
             createActivity()
-        } else {
-            presentAlert()
-        }
+            presentAlert(title: "Activité ajoutée", message: "Retrouvez la dans votre profil")
     }
     
     //MARK:- Methods
@@ -49,6 +54,9 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         longPressGestureRecognizer()
         titleTextField.delegate = self
         adresseTextField.delegate = self
+        descriptionTextView.delegate = self
+        createButton.isEnabled = false
+        clearButton.isEnabled = false
     }
     
     func createActivity() {
@@ -61,14 +69,29 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         print(activity)
     }
     
+    func displayCreateButton() {
+        if titleTextField.text != nil && titleTextField.text != ""
+            && adresseTextField.text != nil && adresseTextField.text != ""
+            && descriptionTextView.text != nil && descriptionTextView.text.count >= 3
+            && activityImageView.image != nil
+            && categoryLabel.text != "Catégories"
+        {
+            createButton.isEnabled = true
+        } else {
+            createButton.isEnabled = false
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationViewController = segue.destination as? TypeActivityTableViewController
         destinationViewController?.delegate = self
     }
-
+    
     func didSelectCategory(type: ActivityType) {
         activityCategory = type
         categoryLabel.text = type.name()
+        displayCreateButton()
+        clearButton.isEnabled = true
     }
     
     /**
@@ -104,6 +127,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     }
 }
 
+
 extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -112,9 +136,12 @@ extension ProposerViewController: UIImagePickerControllerDelegate, UINavigationC
             addImageButton.isHidden = true
         }
         dismiss(animated: true, completion: nil)
+        displayCreateButton()
+        clearButton.isEnabled = true
     }
 }
 
+// Dismiss Keyboard
 extension ProposerViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -122,11 +149,23 @@ extension ProposerViewController: UITextFieldDelegate {
     }
 }
 
+
+extension ProposerViewController: UITextViewDelegate {
+    
+    
+    func textViewDidChange(_ textView: UITextView) {
+        print("tv change")
+
+        displayCreateButton()
+        clearButton.isEnabled = true
+    }
+}
+
 // UIAlertController
 extension ProposerViewController {
-    func presentAlert() {
-        let alertVC = UIAlertController(title: "Merci de remplir tous les champs", message: nil, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+    func presentAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
 }
