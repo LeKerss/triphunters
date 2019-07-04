@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UITableViewController{
+class EditProfileViewController: UITableViewController, UINavigationBarDelegate{
     
     @IBOutlet weak var pseudoTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -32,8 +32,52 @@ class EditProfileViewController: UITableViewController{
         emailTextField.text = myUser.email
     }
     
+    func checkIfDifference() -> Bool{
+        if (pseudoTextField.text != userAtStart.pseudo || lastNameTextField.text != userAtStart.lastName || firstNameTextField.text != userAtStart.firstName || emailTextField.text != userAtStart.email){
+            return true
+        }
+        return false
+    }
+    
+    func checkIfEmpty() -> Bool{
+        if (pseudoTextField.text == "" || firstNameTextField.text == "" || lastNameTextField.text == "" || emailTextField.text == ""){
+            return true
+        }
+        return false
+    }
+    
+    func saveUserEdition(){
+        var i = 0
+        var isEdited : Bool = false
+        while (i < allUsers.count || isEdited == false){
+            if (allUsers[i].idUser == myUser.idUser){
+                allUsers[i].pseudo = pseudoTextField.text!
+                allUsers[i].firstName = firstNameTextField.text!
+                allUsers[i].lastName = lastNameTextField.text!
+                allUsers[i].email = emailTextField.text!
+                isEdited = true
+            }
+            i += 1
+        }
+    }
+    
     @IBAction func validateEdition(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if (checkIfEmpty()){
+            let alert = UIAlertController(title: "Edition Profil", message: "Vous n'avez pas rempli tous les champs nécessaires.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            if (checkIfDifference()){
+                let alert = UIAlertController(title: "Edition Profil", message: "Vous êtes sur le point de modifier votre profil, confirmer ?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Confirmer", style: .default, handler: { action in
+                    self.saveUserEdition()
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
 }
