@@ -38,7 +38,6 @@ class TypeActivityTableViewController: UITableViewController, UINavigationContro
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        self.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
