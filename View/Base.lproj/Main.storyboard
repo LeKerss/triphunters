@@ -871,6 +871,7 @@
                                     </state>
                                     <connections>
                                         <action selector="addImage:" destination="tmO-fD-yu3" eventType="touchUpInside" id="icf-12-ZaQ"/>
+                                        <action selector="addImage:" destination="aye-dY-Zuk" eventType="touchUpInside" id="kRi-7q-8CO"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1002,6 +1003,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Editer le profil" id="yMQ-OF-1Gv">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="5CA-81-9DR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fMu-fs-iBB">
+                                <rect key="frame" x="20" y="11" width="63" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" Profil" image="backImg">
+                                    <color key="titleColor" red="0.19072315100000001" green="0.42912602420000001" blue="0.87063151599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToProfile:" destination="aye-dY-Zuk" eventType="touchUpInside" id="WKE-TB-6X5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cdk-kC-YUh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WNL-nh-YbK">
                                 <rect key="frame" x="302" y="5.5" width="92" height="33"/>
@@ -1015,6 +1028,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addImageButton" destination="ywY-kv-eFM" id="f4n-KC-AHl"/>
                         <outlet property="emailTextField" destination="5dt-QO-Hsc" id="T0W-D7-EFU"/>
                         <outlet property="firstNameTextField" destination="Yey-jD-LX4" id="joe-bV-4WY"/>
                         <outlet property="imgProfile" destination="KTU-sG-ZbU" id="S3c-P4-5Ka"/>
@@ -2133,6 +2147,7 @@
         <image name="UserTabBar" width="30" height="30"/>
         <image name="addActivityImage" width="50" height="50"/>
         <image name="art" width="30" height="30"/>
+        <image name="backImg" width="12" height="20"/>
         <image name="entertainement" width="50" height="50"/>
         <image name="exploration" width="50" height="50"/>
         <image name="freaky" width="50" height="50"/>
@@ -2142,6 +2157,6 @@
         <image name="sports" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Z0-GP-ZVv"/>
+        <segue reference="G9G-5v-qaw"/>
     </inferredMetricsTieBreakers>
 </document>
