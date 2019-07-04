@@ -26,7 +26,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     @IBOutlet weak var relocateBtn: UIButton!
     let screenSize: CGRect = UIScreen.main.bounds
     var sliderRatio: CGFloat = 0.9
-    var sliderHandleAreaRatio: CGFloat = 0.2
+    var sliderHandleAreaRatio: CGFloat = 0.3
     var sliderHeight: CGFloat = 500
     var sliderHandleAreaHeight: CGFloat = 120
     
@@ -43,6 +43,9 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var firstLocation = false
+    
+//    Table view
+    
     
     var currentActivity: Activity!
     
