@@ -33,17 +33,17 @@ var allActivities = [
 ]
 
 var allUsers = [
-    User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil),
+    User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 2, pseudo: "OscarAmz", firstName: "Oscar", lastName: "Amzalag", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "australiaTest", imageProfil: nil),
+    User(idUser: 2, pseudo: "OscarAmz", firstName: "Oscar", lastName: "Amzalag", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "australiaTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 3, pseudo: "Annanas", firstName: "Annas", lastName: "Kers", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil),
+    User(idUser: 3, pseudo: "Annanas", firstName: "Annas", lastName: "Kers", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 4, pseudo: "Janin", firstName: "Janin", lastName: "Ninja", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "chinaTest", imageProfil: nil),
+    User(idUser: 4, pseudo: "Janin", firstName: "Janin", lastName: "Ninja", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "chinaTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 5, pseudo: "SimonChe", firstName: "Simon", lastName: "Chevalier", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil),
+    User(idUser: 5, pseudo: "SimonChe", firstName: "Simon", lastName: "Chevalier", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 6, pseudo: "Bryan", firstName: "Bryan", lastName: "Boo", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil)
+    User(idUser: 6, pseudo: "Bryan", firstName: "Bryan", lastName: "Boo", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user"))
 ]
 
 var allComments = [
