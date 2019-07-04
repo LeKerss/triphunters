@@ -37,6 +37,33 @@ class ShowCommentsTableViewController: UITableViewController {
         navigationItem.title = "\(commentOnActivity.count) Commentaires"
     }
 
+    @IBAction func goProfilPseudo(_ sender: Any) {
+        var superview = (sender as AnyObject).superview
+        while let view = superview, !(view is UITableViewCell) {
+            superview = view?.superview
+        }
+        guard let cell = superview as? UITableViewCell else {
+            let optionMenu = UIAlertController(title: nil, message: "button is not contained in a table view cell", preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)
+            optionMenu.addAction(cancelAction)
+            self.present(optionMenu, animated: true )
+            return
+        }
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            let optionMenu = UIAlertController(title: nil, message: "button is not contained in a table view cell", preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)
+            optionMenu.addAction(cancelAction)
+            self.present(optionMenu, animated: true )
+            print("failed to get index path for cell containing button")
+            return
+        }
+        // We've got the index path for the cell that contains the button, now do something with it.
+        let optionMenu = UIAlertController(title: nil, message: commentOnActivity[indexPath.row].pseudo, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true )
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
