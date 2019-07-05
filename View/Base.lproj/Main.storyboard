@@ -652,7 +652,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bb2-xr-fBq">
                                                 <rect key="frame" x="0.0" y="151" width="414" height="249"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔︎ ACTIVITÉS REJOINTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enn-j1-W1C">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔︎ ACTIVITÉS REJOINTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enn-j1-W1C">
                                                         <rect key="frame" x="8" y="19" width="398" height="24"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2363,6 +2363,6 @@
         <image name="sportsBlack" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lgV-WA-LrF"/>
+        <segue reference="G9G-5v-qaw"/>
     </inferredMetricsTieBreakers>
 </document>
