@@ -2232,7 +2232,7 @@
                                                     <rect key="frame" x="20" y="0.0" width="394" height="59.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="password"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -2254,7 +2254,7 @@
                                                     <rect key="frame" x="20" y="0.0" width="394" height="59.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="email"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -2306,8 +2306,20 @@
                                 <segue destination="rVm-vx-xQC" kind="unwind" unwindAction="retourToLoginViewController:" id="zjc-MH-0Ba"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Créer" id="eDp-45-0lb"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Créer" id="eDp-45-0lb">
+                            <connections>
+                                <action selector="creerUser:" destination="iJP-PA-gUS" id="PRH-g4-dOC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mailInscription" destination="CMO-Kj-8VH" id="jNu-j5-L41"/>
+                        <outlet property="mdpInscription" destination="ik1-SD-Xc0" id="rFE-4z-ufy"/>
+                        <outlet property="nationInscription" destination="aeK-qg-hz5" id="Whc-aP-duC"/>
+                        <outlet property="nomInscription" destination="Uyk-v8-jec" id="xBr-5f-OPQ"/>
+                        <outlet property="prenomInscription" destination="ag9-iy-7Nv" id="Om0-DM-TfU"/>
+                        <outlet property="pseudoInscription" destination="bRh-m7-I1L" id="m0W-GF-J2w"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbY-Wc-haT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rVm-vx-xQC" userLabel="Exit" sceneMemberID="exit"/>
@@ -2351,6 +2363,6 @@
         <image name="sportsBlack" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G9G-5v-qaw"/>
+        <segue reference="lgV-WA-LrF"/>
     </inferredMetricsTieBreakers>
 </document>

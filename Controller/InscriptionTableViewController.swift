@@ -10,21 +10,25 @@ import UIKit
 
 class InscriptionTableViewController: UITableViewController {
     
-   /* @IBOutlet weak var nomInscription: UITextField!
+    @IBOutlet weak var nomInscription: UITextField!
     //MARK: Navigation
     @IBOutlet weak var prenomInscription: UITextField!
     @IBOutlet weak var pseudoInscription: UITextField!
-    @IBOutlet weak var mdpInscription: UITableViewCell!
+    @IBOutlet weak var mdpInscription: UITextField!
     @IBOutlet weak var mailInscription: UITextField!
     @IBOutlet weak var nationInscription: UITextField!
     
     
     @IBAction func creerUser(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Merci de remplir tous les champs.", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alert, animated:true, completion: nil)
+        if nomInscription.text != "" && prenomInscription.text != "" && pseudoInscription.text != "" && mdpInscription.text != "" && mailInscription.text != "" {
+            //let newUser = User(idUser: <#T##Int#>, pseudo: <#T##String#>, firstName: <#T##String#>, lastName: <#T##String#>, description: <#T##String?#>, email: <#T##String#>, password: <#T##String#>, nationality: <#T##String#>, imageProfil: <#T##UIImage?#>)
+        }else {
+            let alert = UIAlertController(title: "Merci de remplir tous les champs.", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated:true, completion: nil)
+        }
         
-    }*/
+    }
     
     
 
