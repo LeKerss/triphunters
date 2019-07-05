@@ -66,7 +66,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         guard let activityName = titleTextField.text else { return }
         guard let adresse = adresseTextField.text else { return }
         
-        let activity = Activity(idActivity: 0, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: activityCategory, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
+        let activity = Activity(idActivity: allActivities.count+1, idUser: 0, nameActivity: activityName, descriptionActivity: description, typeActivity: activityCategory, adresse: adresse, country: "FR", gpsx: 0, gpsy: 0, showActivity: true, imageDesc: [image])
         print(activity)
     }
     
