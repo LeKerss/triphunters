@@ -14,7 +14,12 @@ var activityList = allActivities.map { (Activity) -> ActivityPin in
     return ActivityPin(activity: Activity)
 }
 
-class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+let lm = CLLocationManager()
+
+class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate {
+    
+    
+    // Slider settings
     
     enum SliderState {
         case expanded, collapsed
@@ -44,10 +49,11 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     var locationManager = CLLocationManager()
     var firstLocation = false
     
-//    Table view
-    
+    // Table view
     
     var currentActivity: Activity!
+    
+    // Segue to activity page
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch(segue.identifier) {
@@ -67,6 +73,10 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     }
     
+    func setupTableView() {
+        
+    }
+    
     @IBAction func relocate(_ sender: Any) {
         centerLocation()
     }
@@ -84,7 +94,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         visualEffectView = UIVisualEffectView()
         self.visualEffectView.frame = self.mapView.frame
         
-        sliderViewController = self.storyboard?.instantiateViewController(withIdentifier: "slider") as! SliderViewController
+        sliderViewController = (self.storyboard?.instantiateViewController(withIdentifier: "slider") as! SliderViewController)
         self.addChild(sliderViewController)
         self.view.addSubview(sliderViewController.view)
         
@@ -216,18 +226,17 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         button.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button)
         
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        lm.delegate = self
+        lm.desiredAccuracy = kCLLocationAccuracyBest
         mapView.delegate = self
         
         // Check for Location Services
         if (CLLocationManager.locationServicesEnabled()) {
-            locationManager.requestAlwaysAuthorization()
-            locationManager.requestWhenInUseAuthorization()
+            lm.requestAlwaysAuthorization()
+            lm.requestWhenInUseAuthorization()
         }
         
-        self.locationManager = locationManager
+        self.locationManager = lm
         self.locationManager.startUpdatingLocation()
         
         
@@ -242,7 +251,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     func centerLocation() {
         //Zoom to user location
-        if let userLocation = self.locationManager.location?.coordinate {
+        if let userLocation = locationManager.location?.coordinate {
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let viewRegion = MKCoordinateRegion(center: userLocation, span: span)
             mapView.setRegion(viewRegion, animated: true)
