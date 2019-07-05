@@ -7,26 +7,25 @@
 //
 
 import UIKit
+import MapKit
 
 struct FilterStruct {
     var type: ActivityType
     var filter: UIView
+    var active: Bool
 }
 
-class SliderViewController: UIViewController {
+class SliderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var handleLine: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    
     @IBOutlet weak var sportsFilter: UIView!
-    
     @IBOutlet weak var explorationFilter: UIView!
-    
     @IBOutlet weak var cultureFilter: UIView!
-    
     @IBOutlet weak var nightFilter: UIView!
-    
     @IBOutlet weak var gastronomyFilter: UIView!
     @IBOutlet weak var entertainementFilter: UIView!
     @IBOutlet weak var freakyFilter: UIView!
@@ -36,34 +35,60 @@ class SliderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleLine.layer.cornerRadius = 3
-        // Do any additional setup after loading the view.
+        
+        // Initialisation des filtres
         initFilters()
+        colorFilterButtons()
+
     }
     
     func initFilters() {
         self.filters = [
-            FilterStruct(type: .Sports, filter: sportsFilter),
-        FilterStruct(type: .Cultural, filter: cultureFilter),
-        FilterStruct(type: .Entertainement, filter: entertainementFilter),
-        FilterStruct(type: .Exploration, filter: explorationFilter),
-        FilterStruct(type: .Freaky, filter: freakyFilter),
-        FilterStruct(type: .Gastronomy, filter: gastronomyFilter),
-        FilterStruct(type: .NightLife, filter: nightFilter)]
+            FilterStruct(type: .Sports, filter: sportsFilter, active: true),
+            FilterStruct(type: .Cultural, filter: cultureFilter, active: true),
+            FilterStruct(type: .Entertainement, filter: entertainementFilter, active: true),
+            FilterStruct(type: .Exploration, filter: explorationFilter, active: true),
+            FilterStruct(type: .Freaky, filter: freakyFilter, active: true),
+            FilterStruct(type: .Gastronomy, filter: gastronomyFilter, active: true),
+            FilterStruct(type: .NightLife, filter: nightFilter, active: true)
+        ]
+    }
     
+    func colorFilterButtons() {
         for f in filters {
-        f.filter.layer.cornerRadius = 25
-            f.filter.layer.backgroundColor = f.type.color.cgColor
+            f.filter.layer.cornerRadius = 25
+            if f.active {
+                f.filter.layer.backgroundColor = f.type.color.cgColor
+            }
+            else {
+                f.filter.layer.backgroundColor =  UIColor.lightGray.cgColor
+            }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allActivities.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityTableViewCell
+        let pin = ActivityPin(activity: allActivities[indexPath.row])
+        
+        cell.activityName.text = pin.activity.nameActivity
+        cell.activityDescription.text = pin.activity.descriptionActivity
+        if let userLocation = lm.location {
+            let dist = userLocation.distance(from: CLLocation(latitude:pin.coordinate.latitude, longitude: pin.coordinate.longitude))
+            cell.distanceFromUser.text = String(Int(dist)) + "m"
+        }
+        return cell
+    }
 
+}
+
+class ActivityTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var activityName: UILabel!
+    @IBOutlet weak var distanceFromUser: UILabel!
+    @IBOutlet weak var activityDescription: UILabel!
+    
 }
