@@ -28,7 +28,6 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     var sliderViewController: SliderViewController!
     var visualEffectView: UIVisualEffectView!
     
-    @IBOutlet weak var relocateBtn: UIButton!
     let screenSize: CGRect = UIScreen.main.bounds
     var sliderRatio: CGFloat = 0.9
     var sliderHandleAreaRatio: CGFloat = 0.35
@@ -48,6 +47,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var firstLocation = false
+    @IBOutlet weak var relocateView: UIView!
     
     // Table view
     
@@ -69,7 +69,6 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         super.viewDidLoad()
         setupSlider()
         setupLocation()
-        self.relocateBtn.layer.cornerRadius = 10
     
     }
     
@@ -224,7 +223,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(button)
+        self.relocateView.addSubview(button)
         
         lm.delegate = self
         lm.desiredAccuracy = kCLLocationAccuracyBest
