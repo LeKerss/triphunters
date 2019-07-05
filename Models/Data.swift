@@ -33,7 +33,7 @@ var allActivities = [
 ]
 
 var allUsers = [
-    User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
+    User(idUser: 1, pseudo: "Manuelele", firstName: "Manuel", lastName: "Costa", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "spain", imageProfil: UIImage(named: "manuel")),
     
     User(idUser: 2, pseudo: "OscarAmz", firstName: "Oscar", lastName: "Amzalag", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "australiaTest", imageProfil: UIImage(named: "IMG_default_user")),
     
