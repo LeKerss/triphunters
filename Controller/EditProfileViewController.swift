@@ -16,7 +16,7 @@ class EditProfileViewController: UITableViewController, UINavigationControllerDe
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
-    @IBOutlet weak var navItem: UINavigationItem!
+
     
     var myUser : User!
     var userAtStart : User!
@@ -34,7 +34,7 @@ class EditProfileViewController: UITableViewController, UINavigationControllerDe
         firstNameTextField.text = myUser.firstName
         emailTextField.text = myUser.email
         if let image = myUser.imageProfil{
-            imgProfile.image = image
+            imgProfile.maskCircle(anyImage: image)
         }
     }
     
@@ -118,11 +118,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imgProfile.image = image
-            addImageButton.isHidden = true
         }
         dismiss(animated: true, completion: nil)
     }
 }
-
-
-
