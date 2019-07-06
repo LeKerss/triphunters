@@ -673,7 +673,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="177"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gb-mH-7Ev">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gb-mH-7Ev">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="132"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
@@ -790,7 +790,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="177"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sNR-Hd-1qe">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sNR-Hd-1qe">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="132"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
@@ -909,7 +909,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="177"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-Q5-n8n">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-Q5-n8n">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="132"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
@@ -1028,6 +1028,7 @@
                         <outlet property="proposedViewEmpty" destination="0V0-cG-i6a" id="aeT-UO-UjR"/>
                         <outlet property="proposedViewTop" destination="Sgs-HE-lGh" id="m4b-f0-0so"/>
                         <outlet property="pseudoLabel" destination="4dk-hb-SVH" id="TBL-cO-TiW"/>
+                        <outlet property="scrollView" destination="pvj-Pd-Znk" id="4nh-An-VFp"/>
                         <segue destination="k2F-At-7Xd" kind="show" identifier="showDetail" id="G9G-5v-qaw"/>
                         <segue destination="smU-gl-sbQ" kind="show" identifier="showMore" id="Bfq-7n-rzN"/>
                         <segue destination="aye-dY-Zuk" kind="show" identifier="editProfile" id="dLC-X1-Zwc"/>
@@ -1229,6 +1230,43 @@
             </objects>
             <point key="canvasLocation" x="8469" y="616"/>
         </scene>
+        <!--Valider l'adresse-->
+        <scene sceneID="0pc-rD-MY2">
+            <objects>
+                <viewController title="Valider l'adresse" id="tLi-KH-bGx" customClass="mapAddActivityViewController" customModule="TripHunters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GOk-xe-lag">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2qf-nT-hol">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2qf-nT-hol" firstAttribute="top" secondItem="5vl-xV-nBf" secondAttribute="top" id="CWL-uF-6ol"/>
+                            <constraint firstItem="2qf-nT-hol" firstAttribute="leading" secondItem="5vl-xV-nBf" secondAttribute="leading" id="GRS-bC-18A"/>
+                            <constraint firstItem="5vl-xV-nBf" firstAttribute="bottom" secondItem="2qf-nT-hol" secondAttribute="bottom" id="LfE-pE-8Bj"/>
+                            <constraint firstItem="5vl-xV-nBf" firstAttribute="trailing" secondItem="2qf-nT-hol" secondAttribute="trailing" id="LfT-nP-S4A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5vl-xV-nBf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Valider l'adresse" id="q0a-rR-EB0">
+                        <barButtonItem key="rightBarButtonItem" title="Oui" id="Crn-Xl-8do">
+                            <connections>
+                                <action selector="create:" destination="tLi-KH-bGx" id="ohb-Wu-Znt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="2qf-nT-hol" id="eQm-Fx-HGF"/>
+                        <segue destination="k2F-At-7Xd" kind="show" identifier="showActivityCreate" id="QUT-wo-xrO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8nL-ur-hH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5006" y="1371"/>
+        </scene>
         <!--My Activity Table View Controller-->
         <scene sceneID="H0Q-zc-bev">
             <objects>
@@ -1358,7 +1396,7 @@
                                                     <rect key="frame" x="20" y="3" width="374" height="53.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="continue" textContentType="street-address"/>
                                                     <connections>
                                                         <action selector="textDidChangeuserTypedText:" destination="tmO-fD-yu3" eventType="editingChanged" id="M1V-55-BhJ"/>
                                                     </connections>
@@ -1437,7 +1475,7 @@
                                 <action selector="clearAll:" destination="tmO-fD-yu3" id="gfR-8O-6Ze"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Créer" id="VKn-9n-vnY">
+                        <barButtonItem key="rightBarButtonItem" title="Valider" id="VKn-9n-vnY">
                             <connections>
                                 <action selector="createButton:" destination="tmO-fD-yu3" id="zhq-8w-mfK"/>
                             </connections>
@@ -1453,6 +1491,7 @@
                         <outlet property="createButton" destination="VKn-9n-vnY" id="qzB-ON-Vdr"/>
                         <outlet property="descriptionTextView" destination="W2p-Dx-qSw" id="1Fr-ve-qRa"/>
                         <outlet property="titleTextField" destination="0fh-fa-BhJ" id="hbg-Ff-WW1"/>
+                        <segue destination="tLi-KH-bGx" kind="show" identifier="showMapAdd" id="ZBB-XW-3nC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZf-ju-Bbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1524,10 +1563,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tT6-gq-OrB">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UaW-Ng-Dg5">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UaW-Ng-Dg5">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="389"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hw-BI-KE0">
+                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hw-BI-KE0">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="364"/>
                                                         <connections>
                                                             <action selector="changeImage:" destination="k2F-At-7Xd" eventType="touchUpInside" id="S9R-9y-gXU"/>
@@ -1724,7 +1763,7 @@
                                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ2-aS-0fd">
                                                                             <rect key="frame" x="379" y="5" width="30" height="48"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                            <state key="normal" title="⌫">
+                                                                            <state key="normal">
                                                                                 <color key="titleColor" red="0.96620899439999997" green="0.223210825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             </state>
                                                                             <connections>
@@ -1940,7 +1979,7 @@
                                                 <constraint firstAttribute="width" constant="51" id="N8N-ih-ZGm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <state key="normal" title="⌫">
+                                            <state key="normal">
                                                 <color key="titleColor" red="0.96620899439999997" green="0.223210825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                         </button>
@@ -2359,6 +2398,6 @@
         <image name="sportsBlack" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Z0-GP-ZVv"/>
+        <segue reference="QUT-wo-xrO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,7 +23,7 @@ class ShowCommentsTableViewController: UITableViewController {
     
     var commentOnActivity : [Comment]!
     
-    var currentUser = User(idUser: 1, pseudo: "TripCodeur", firstName: "Trip", lastName: "Hunters", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: nil)
+    var currentUser = allUsers[0]
 
     override func viewDidLoad() {
         super.viewDidLoad()

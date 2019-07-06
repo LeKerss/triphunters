@@ -99,6 +99,47 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         // and then dismiss the control
         sender.endRefreshing()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.commentOnActivity = []
+        for comment in allComments {
+            if comment.idActivity == currentActivity.idActivity {
+                commentOnActivity.append(comment)
+            }
+        }
+        self.commentTextNb.setTitle("\(commentOnActivity.count) Commentaires", for: .normal)
+        self.tableView.reloadData()
+        
+        inFav = false
+        for fav in allFavorites{
+            if fav.idUser == currentUser.idUser && fav.idActivity == currentActivity.idActivity {
+                inFav = true
+            }
+        }
+        favoriteText.isSelected = inFav
+        
+        inInscirption = false
+        for inscription in allInscriptions {
+            if inscription.idUser == currentUser.idUser && inscription.idActivity == currentActivity.idActivity {
+                inInscirption = true
+                if (currentUser.idUser == currentActivity.idUser){
+                    suppdeleteActivity.isHidden = false
+                    enterActivityButton.isHidden = true
+                    quitActivity.isHidden = true
+                    
+                }else{
+                    if inInscirption == false {
+                        enterActivityButton.isHidden = false
+                        quitActivity.isHidden = true
+                    }else{
+                        enterActivityButton.isHidden = true
+                        quitActivity.isHidden = false
+                    }
+                    suppdeleteActivity.isHidden = true
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

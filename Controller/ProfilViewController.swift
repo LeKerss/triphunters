@@ -40,6 +40,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var proposedViewTop: NSLayoutConstraint!
     @IBOutlet weak var favoriteViewTop: NSLayoutConstraint!
     
+    //Outlet scrollView
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     var activitySelected : Activity? = nil
@@ -54,9 +56,16 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     var myUser = allUsers[0]
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Pull to refresh
+        if #available(iOS 10.0, *) {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self,
+                                     action: #selector(refreshOptions(sender:)),
+                                     for: .valueChanged)
+            scrollView.refreshControl = refreshControl
+        }
         joinedActivityCollection.delegate = self
         joinedActivityCollection.dataSource = self
         proposedActivityCollection.delegate = self
@@ -73,6 +82,8 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     override func viewDidAppear(_ animated: Bool) {
         myUser = allUsers[0]
         initProfilInformations()
+        initListForCollections()
+        manageView()
     }
     
     // Fonction d'initialisation des libellés du Profil et les images de profil et de nationalité
@@ -90,6 +101,9 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     // Fonction d'initialisation des listes pour préparer les collectionView
     func initListForCollections(){
         
+        listActivityProposed = []
+        listActivityFavorites = []
+        listActivityJoined = []
         for activity in allActivities {
             if activity.idUser == self.myUser.idUser {
                 listActivityProposed.append(activity)
@@ -109,6 +123,9 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
                 }
             }
         }
+        self.joinedActivityCollection.reloadData()
+        self.proposedActivityCollection.reloadData()
+        self.favoriteActivityCollection.reloadData()
     }
     
     func manageView(){
@@ -279,6 +296,15 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     @IBAction func proposedButton(_ sender: Any) {
         self.tabBarController?.selectedIndex = 1
+    }
+    
+    @objc private func refreshOptions(sender: UIRefreshControl) {
+        // Perform actions to refresh the content
+        initProfilInformations()
+        initListForCollections()
+        manageView()
+        // and then dismiss the control
+        sender.endRefreshing()
     }
 }
 

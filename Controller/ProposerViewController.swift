@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
 class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     //MARK:- Properties
     var activityCategory: ActivityType = .Cultural
+    var activity: Activity!
     
     //MARK:- Outlets
     @IBOutlet weak var titleTextField: UITextField!
@@ -21,6 +23,8 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var createButton: UIBarButtonItem!
     @IBOutlet weak var clearButton: UIBarButtonItem!
+    
+    var adressPoint = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     //MARK:- Actions
     @IBAction func addImage(_ sender: Any) {
@@ -40,13 +44,35 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
         addImageButton.isHidden = false
         descriptionTextView.text = nil
         categoryLabel.text = "Catégories"
-        createButton.isEnabled = false
+        createButton.isEnabled = true
         clearButton.isEnabled = false
     }
     
     @IBAction func createButton(_ sender: Any) {
-            createActivity()
-            presentAlert(title: "Activité ajoutée", message: "Retrouvez la dans votre profil")
+        let address = adresseTextField.text!
+        CLGeocoder().geocodeAddressString(address, completionHandler: { placemarks, error in
+            if (error != nil) {
+                return
+            }
+            
+            if let placemark = placemarks?[0]  {
+                let lat = String((placemark.location?.coordinate.latitude ?? 0.0)!)
+                let lon = String((placemark.location?.coordinate.longitude ?? 0.0)!)
+                let name = placemark.name!
+                let country = placemark.country!
+                let region = placemark.administrativeArea!
+                print("\(lat),\(lon)\n\(name),\(region) \(country)")
+                var x: Double
+                var y: Double
+                x = (placemark.location?.coordinate.latitude)!
+                y = (placemark.location?.coordinate.longitude)!
+                self.adressPoint = CLLocationCoordinate2D(latitude: x, longitude: y)
+                guard let image = self.activityImageView.image else { return }
+                self.activity = Activity(idActivity: allActivities.count+1, idUser: 1, nameActivity: self.titleTextField.text!, descriptionActivity: self.descriptionTextView.text!, typeActivity: self.activityCategory, adresse: "\(name),\(region)", country: country, gpsx: x, gpsy: y, showActivity: true, imageDesc: [image])
+                self.performSegue(withIdentifier: "showMapAdd", sender: self)
+            }
+        })
+        //presentAlert(title: "Activité ajoutée", message: "Retrouvez la dans votre profil")
     }
     
     //MARK:- Methods
@@ -92,9 +118,20 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as? TypeActivityTableViewController
-        destinationViewController?.delegate = self
+        switch (segue.identifier){
+        case "showCategoryVC" :
+            let destinationViewController = segue.destination as? TypeActivityTableViewController
+            destinationViewController?.delegate = self
+        case "showMapAdd" :
+            let destinationViewController = segue.destination as? mapAddActivityViewController
+            destinationViewController?.adressPoint = adressPoint
+            destinationViewController?.activity = activity
+        
+        default:
+            break
+        }
     }
+    
     
     func didSelectCategory(type: ActivityType) {
         activityCategory = type
