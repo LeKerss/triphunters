@@ -90,11 +90,14 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     func initProfilInformations() {
         pseudoLabel.text = myUser.pseudo
         nameLabel.text = "\(myUser.firstName) \(myUser.lastName)"
+        
         if let image = myUser.imageProfil{
-            imgProfile.image = image
+            imgProfile.maskCircle(anyImage: image)
+   
         } else{
-            imgProfile.image = UIImage(named: "IMG_default_user")
+            imgProfile.maskCircle(anyImage: UIImage(named: "IMG_default_user")!)
         }
+        
         imgNationality.image = UIImage(named: myUser.nationality)
     }
     
@@ -196,6 +199,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             {
                 cell.imageActivity
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
+                cell.imageActivity.layer.cornerRadius = 15
                 cell.nameActivity.text = listActivityJoined[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityJoined[indexPath.row].typeActivity.name()
                 cell.categoryActivity.textColor = listActivityJoined[indexPath.row].typeActivity.color
@@ -209,6 +213,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             {
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
+                cell.imageActivity.layer.cornerRadius = 15
                 cell.nameActivity.text = listActivityProposed[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityProposed[indexPath.row].typeActivity.name()
                 cell.categoryActivity.textColor = listActivityProposed[indexPath.row].typeActivity.color
@@ -222,6 +227,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             {
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
+                cell.imageActivity.layer.cornerRadius = 15
                 cell.nameActivity.text = listActivityFavorites[indexPath.row].nameActivity
                 cell.categoryActivity.text = listActivityFavorites[indexPath.row].typeActivity.name()
                 cell.categoryActivity.textColor = listActivityFavorites[indexPath.row].typeActivity.color
@@ -308,3 +314,12 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
 }
 
+extension UIImageView {
+    public func maskCircle(anyImage: UIImage){
+        self.contentMode = .scaleAspectFill
+        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.masksToBounds = false
+        self.clipsToBounds = true
+        self.image = anyImage
+     }
+}
