@@ -77,7 +77,7 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
     func applyFilters() {
         let filteredActivities = allActivities.filter { (activity) -> Bool in
             return isFilterActive(forType: activity.typeActivity)
-        
+        }
         
         activityList = filteredActivities.map {(activity) -> ActivityPin in
             return ActivityPin(activity: activity)
