@@ -13,6 +13,10 @@ import MapKit
 var activityList = [ActivityPin]()
 var activeFilters = [ActivityType]()
 
+func sortActivityList() {
+    activityList = activityList.sorted(by: { $0.distance < $1.distance })
+}
+
 let lm = CLLocationManager()
 
 class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate {
@@ -149,6 +153,14 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             
             frameAnimator.addCompletion { _ in
                 self.sliderVisible = !self.sliderVisible
+                
+                
+                sortActivityList()
+                if (self.sliderVisible) {
+                    self.sliderViewController.tableView.reloadData()
+                } else {
+                    self.sliderViewController.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+                }
                 self.runningAnimations.removeAll()
             }
             
@@ -243,6 +255,17 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         if(!firstLocation) {
             centerLocation()
             firstLocation = true
+            updateDistance()
+        }
+    }
+    
+    func updateDistance() {
+        if let userLocation = lm.location {
+            for pin in activityList {
+                let dist = userLocation.distance(from: CLLocation(latitude:pin.coordinate.latitude, longitude: pin.coordinate.longitude))
+                pin.distance = Int(dist)
+            }
+            sortActivityList()
         }
     }
     

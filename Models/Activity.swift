@@ -93,6 +93,7 @@ class ActivityPin : NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let title: String?
     let subtitle: String?
+    var distance: Int = -1
     
     init(activity act: Activity) {
         self.activity = act

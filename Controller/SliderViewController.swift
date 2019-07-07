@@ -110,22 +110,27 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allActivities.count
+        return activityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityTableViewCell
-        let pin = ActivityPin(activity: allActivities[indexPath.row])
+        if lm.location != nil {
+            myParent.updateDistance()
+        }
+        let pin = activityList[indexPath.row]
         cell.setImageArray(forActivity: pin)
         cell.activityName.text = pin.activity.nameActivity
         cell.imgCountry.image = UIImage(named: pin.activity.country)
         cell.categoryImg.image = pin.activity.typeActivity.logo
         cell.categoryImg.tintColor = pin.activity.typeActivity.color
         cell.activityDescription.text = pin.activity.descriptionActivity
-        if let userLocation = lm.location {
-            let dist = userLocation.distance(from: CLLocation(latitude:pin.coordinate.latitude, longitude: pin.coordinate.longitude))
-            cell.distanceFromUser.text = String(Int(dist)) + " m"
+        if pin.distance != -1 {
+            cell.distanceFromUser.text = String(pin.distance) + " m"
+        } else {
+            cell.distanceFromUser.text = "Distance inconnue"
         }
+        
 
         cell.activityImages.reloadData()
         return cell
