@@ -31,6 +31,8 @@ class mapAddActivityViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func create(_ sender: Any) {
         allActivities.insert(activity, at: 0)
+        activityList.append(ActivityPin(activity: activity))
+        newActivity = true
         proposerView.clearAll(self)
         navigationController?.popViewController(animated: false)
         proposerView.performSegue(withIdentifier: "showActivityCreate", sender: self)

@@ -12,6 +12,7 @@ import MapKit
 
 var activityList = [ActivityPin]()
 var activeFilters = [ActivityType]()
+var newActivity = false
 
 func sortActivityList() {
     activityList = activityList.sorted(by: { $0.distance < $1.distance })
@@ -74,8 +75,15 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         setupLocation()
     }
     
-    func setupTableView() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        if(newActivity) {
+            let offset = sliderViewController.tableView.contentOffset
+            sliderViewController.applyFilters()
+            sliderViewController.tableView.setContentOffset(offset, animated: false)
+            newActivity = false
+        }
     }
     
     @IBAction func relocate(_ sender: Any) {
