@@ -116,6 +116,7 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityTableViewCell
         let pin = ActivityPin(activity: allActivities[indexPath.row])
+        cell.setImageArray(forActivity: pin)
         
         cell.activityName.text = pin.activity.nameActivity
         cell.activityDescription.text = pin.activity.descriptionActivity
@@ -124,7 +125,7 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
             cell.distanceFromUser.text = String(Int(dist)) + "m"
         }
         
-        cell.setImageArray(forActivity: pin)
+        cell.activityImages.reloadData()
         return cell
     }
 
@@ -146,26 +147,29 @@ class ActivityTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     func setImageArray(forActivity activity: ActivityPin) {
         self.imageArray = activity.activity.imageDesc
-        self.activityImages.reloadData()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print (self.imageArray.count)
         return self.imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.activityImages.dequeueReusableCell(withReuseIdentifier: "sliderActivityCell", for: indexPath) as! ActivityCollectionViewCell
-        cell.ziziLabel.text = "zizi"
-        print("zizi")
-        
+        cell.activityImg.image = self.imageArray[indexPath.row]
         return cell
     }
+    
 }
 
 class ActivityCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet weak var ziziLabel: UILabel!
+    @IBOutlet weak var activityImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
