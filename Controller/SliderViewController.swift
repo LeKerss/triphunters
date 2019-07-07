@@ -117,14 +117,16 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityTableViewCell
         let pin = ActivityPin(activity: allActivities[indexPath.row])
         cell.setImageArray(forActivity: pin)
-        
         cell.activityName.text = pin.activity.nameActivity
+        cell.imgCountry.image = UIImage(named: pin.activity.country)
+        cell.categoryLabel.text = pin.activity.typeActivity.name()
+        cell.categoryLabel.textColor = pin.activity.typeActivity.color
         cell.activityDescription.text = pin.activity.descriptionActivity
         if let userLocation = lm.location {
             let dist = userLocation.distance(from: CLLocation(latitude:pin.coordinate.latitude, longitude: pin.coordinate.longitude))
             cell.distanceFromUser.text = String(Int(dist)) + "m"
         }
-        
+
         cell.activityImages.reloadData()
         return cell
     }
@@ -132,47 +134,49 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
 }
 
 class ActivityTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
+    @IBOutlet weak var activityImages: UICollectionView!
     @IBOutlet weak var activityName: UILabel!
+    @IBOutlet weak var imgCountry: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var distanceFromUser: UILabel!
     @IBOutlet weak var activityDescription: UILabel!
-    @IBOutlet weak var activityImages: UICollectionView!
     
     var imageArray = [UIImage]()
-    
+
     override func awakeFromNib() {
         self.activityImages.delegate = self
         self.activityImages.dataSource = self
     }
-    
+
     func setImageArray(forActivity activity: ActivityPin) {
         self.imageArray = activity.activity.imageDesc
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print (self.imageArray.count)
         return self.imageArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.activityImages.dequeueReusableCell(withReuseIdentifier: "sliderActivityCell", for: indexPath) as! ActivityCollectionViewCell
         cell.activityImg.image = self.imageArray[indexPath.row]
+        cell.activityImg.layer.cornerRadius = 15
         return cell
     }
-    
+
 }
 
 class ActivityCollectionViewCell: UICollectionViewCell {
-    
-    
+
+
     @IBOutlet weak var activityImg: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
 }
