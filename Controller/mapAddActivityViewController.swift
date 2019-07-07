@@ -15,6 +15,7 @@ class mapAddActivityViewController: UIViewController, MKMapViewDelegate {
     
     var adressPoint: CLLocationCoordinate2D!
     var activity: Activity!
+    var proposerView: ProposerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class mapAddActivityViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func create(_ sender: Any) {
         allActivities.insert(activity, at: 0)
+        proposerView.clearAll(self)
         performSegue(withIdentifier: "showActivityCreate", sender: self)
     }
     
