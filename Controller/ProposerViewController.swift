@@ -68,7 +68,7 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
                 y = (placemark.location?.coordinate.longitude)!
                 self.adressPoint = CLLocationCoordinate2D(latitude: x, longitude: y)
                 guard let image = self.activityImageView.image else { return }
-                self.activity = Activity(idActivity: allActivities.count+1, idUser: 1, nameActivity: self.titleTextField.text!, descriptionActivity: self.descriptionTextView.text!, typeActivity: self.activityCategory, adresse: "\(name),\(region)", country: country, gpsx: x, gpsy: y, showActivity: true, imageDesc: [image])
+                self.activity = Activity(idActivity: allActivities.count+1, idUser: 1, nameActivity: self.titleTextField.text!, descriptionActivity: self.descriptionTextView.text!, typeActivity: self.activityCategory, adresse: "\(name),\(region)", country: country.lowercased(), gpsx: x, gpsy: y, showActivity: true, imageDesc: [image])
                 self.performSegue(withIdentifier: "showMapAdd", sender: self)
             }
         })
