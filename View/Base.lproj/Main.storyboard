@@ -437,21 +437,37 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="101.5"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eot-04-tKq">
-                                                                                <size key="itemSize" width="50" height="50"/>
+                                                                                <size key="itemSize" width="136" height="89"/>
                                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                             </collectionViewFlowLayout>
                                                                             <cells>
-                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qyd-Wk-brj">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sliderActivityCell" id="Qyd-Wk-brj" customClass="ActivityCollectionViewCell" customModule="TripHunters" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="89"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="89"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
+                                                                                        <subviews>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPr-Ww-c2b">
+                                                                                                <rect key="frame" x="47" y="34" width="42" height="21"/>
+                                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                                <nil key="textColor"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
                                                                                     </view>
+                                                                                    <connections>
+                                                                                        <outlet property="ziziLabel" destination="xPr-Ww-c2b" id="0a0-we-d3O"/>
+                                                                                    </connections>
                                                                                 </collectionViewCell>
                                                                             </cells>
+                                                                            <connections>
+                                                                                <outlet property="dataSource" destination="WAG-Ei-DEX" id="FSu-D0-Fg4"/>
+                                                                                <outlet property="delegate" destination="WAG-Ei-DEX" id="ALp-7p-4rw"/>
+                                                                            </connections>
                                                                         </collectionView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1IT-hJ-nJv" userLabel="ActivityName">
                                                                             <rect key="frame" x="0.0" y="102.5" width="112.5" height="20"/>
@@ -497,6 +513,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="activityDescription" destination="Vqh-xZ-n77" id="kZv-dx-T6v"/>
+                                                    <outlet property="activityImages" destination="4OO-tP-Yy4" id="lor-cV-udf"/>
                                                     <outlet property="activityName" destination="1IT-hJ-nJv" id="OuP-Zo-oac"/>
                                                     <outlet property="distanceFromUser" destination="zXX-f4-PLi" id="jsB-Eb-sJl"/>
                                                 </connections>

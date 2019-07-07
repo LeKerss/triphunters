@@ -123,15 +123,52 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
             let dist = userLocation.distance(from: CLLocation(latitude:pin.coordinate.latitude, longitude: pin.coordinate.longitude))
             cell.distanceFromUser.text = String(Int(dist)) + "m"
         }
+        
+        cell.setImageArray(forActivity: pin)
         return cell
     }
 
 }
 
-class ActivityTableViewCell: UITableViewCell {
+class ActivityTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var distanceFromUser: UILabel!
     @IBOutlet weak var activityDescription: UILabel!
+    @IBOutlet weak var activityImages: UICollectionView!
+    
+    var imageArray = [UIImage]()
+    
+    override func awakeFromNib() {
+        self.activityImages.delegate = self
+        self.activityImages.dataSource = self
+    }
+    
+    func setImageArray(forActivity activity: ActivityPin) {
+        self.imageArray = activity.activity.imageDesc
+        self.activityImages.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.imageArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.activityImages.dequeueReusableCell(withReuseIdentifier: "sliderActivityCell", for: indexPath) as! ActivityCollectionViewCell
+        cell.ziziLabel.text = "zizi"
+        print("zizi")
+        
+        return cell
+    }
+}
+
+class ActivityCollectionViewCell: UICollectionViewCell {
+    
+    
+    @IBOutlet weak var ziziLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
 }
