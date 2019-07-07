@@ -543,8 +543,17 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as? ShowCommentsTableViewController
-        destinationViewController?.commentOnActivity = commentOnActivity
+        switch (segue.identifier){
+        case "showComments" :
+            let destinationViewController = segue.destination as? ShowCommentsTableViewController
+            destinationViewController?.commentOnActivity = commentOnActivity
+        case "showProfile" :
+            let destinationViewController = segue.destination as? OtherProfileViewController
+            destinationViewController?.myUser = allUsers[1]
+        default:
+            break
+        }
+        
     }
     
    

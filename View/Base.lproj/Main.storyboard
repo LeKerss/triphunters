@@ -1597,7 +1597,7 @@
                                                         <rect key="frame" x="8" y="58.5" width="398" height="129.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pseudo n'a rejoint pour l'instant aucune activité." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="Hg7-ie-nYB">
-                                                                <rect key="frame" x="16.5" y="54" width="365.5" height="20.5"/>
+                                                                <rect key="frame" x="8" y="54" width="382" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1607,7 +1607,8 @@
                                                         <constraints>
                                                             <constraint firstItem="Hg7-ie-nYB" firstAttribute="top" secondItem="N8h-K9-66T" secondAttribute="top" constant="54" id="UAh-Jf-4RT"/>
                                                             <constraint firstAttribute="bottom" secondItem="Hg7-ie-nYB" secondAttribute="bottom" constant="55" id="lWF-Jq-pzp"/>
-                                                            <constraint firstItem="Hg7-ie-nYB" firstAttribute="centerX" secondItem="N8h-K9-66T" secondAttribute="centerX" id="s0v-G3-Lx5"/>
+                                                            <constraint firstItem="Hg7-ie-nYB" firstAttribute="leading" secondItem="N8h-K9-66T" secondAttribute="leading" constant="8" id="pTM-Nn-olG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Hg7-ie-nYB" secondAttribute="trailing" constant="8" id="yXj-bc-SgA"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -1659,7 +1660,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="proposedCell" id="SWq-ko-IgK" customClass="profileJoinedCollectionViewCell" customModule="TripHunters" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="proposedCell" id="SWq-ko-IgK" customClass="profileProposedCollectionViewCell" customModule="TripHunters" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="4.5" width="132" height="180"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1739,7 +1740,7 @@
                                                         <rect key="frame" x="8" y="58.5" width="398" height="129.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pseudo n'a proposé pour l'instant aucune activité." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="16v-x6-pXz">
-                                                                <rect key="frame" x="9" y="54" width="380.5" height="20.5"/>
+                                                                <rect key="frame" x="8" y="54" width="382" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1748,7 +1749,8 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="16v-x6-pXz" firstAttribute="top" secondItem="la0-h9-73N" secondAttribute="top" constant="54" id="Lus-xC-Yx7"/>
-                                                            <constraint firstItem="16v-x6-pXz" firstAttribute="centerX" secondItem="la0-h9-73N" secondAttribute="centerX" id="khM-1P-iIM"/>
+                                                            <constraint firstItem="16v-x6-pXz" firstAttribute="leading" secondItem="la0-h9-73N" secondAttribute="leading" constant="8" id="Pig-Ou-QZS"/>
+                                                            <constraint firstAttribute="trailing" secondItem="16v-x6-pXz" secondAttribute="trailing" constant="8" id="taf-Sv-eQJ"/>
                                                             <constraint firstAttribute="bottom" secondItem="16v-x6-pXz" secondAttribute="bottom" constant="55" id="vO4-8T-1e7"/>
                                                         </constraints>
                                                     </view>
@@ -1802,7 +1804,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCell" id="aqg-aD-exx" customClass="profileJoinedCollectionViewCell" customModule="TripHunters" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCell" id="aqg-aD-exx" customClass="profileFavoriteCollectionViewCell" customModule="TripHunters" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="4.5" width="132" height="180"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1911,7 +1913,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cex-cL-GRU" firstAttribute="centerX" secondItem="bRc-6z-Ilb" secondAttribute="centerX" id="4uE-0C-kyg"/>
                             <constraint firstItem="u9G-Ad-Oah" firstAttribute="bottom" secondItem="cex-cL-GRU" secondAttribute="bottom" id="QEI-XG-BJc"/>

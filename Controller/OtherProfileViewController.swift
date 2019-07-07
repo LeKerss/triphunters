@@ -128,7 +128,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         let heightFavorite = favoriteView.frame.height
         if (listActivityJoined.count == 0){
             joinedActivityCollection.isHidden = true
-            joinedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant'aucune activité."
+            joinedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant aucune activité."
             joinedViewEmpty.isHidden = false
             buttonJoinedShowMore.isHidden = true
         }
@@ -139,7 +139,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         }
         if (listActivityProposed.count == 0){
             proposedActivityCollection.isHidden = true
-            proposedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant' aucune activité."
+            proposedEmptyLabel.text = "\(myUser.pseudo) n'a proposé pour l'instant aucune activité."
             proposedViewEmpty.isHidden = false
             buttonProposedShowMore.isHidden = true
         }
@@ -192,6 +192,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case self.joinedActivityCollection:
             if let cell: profileJoinedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "joinedCell", for: indexPath) as? profileJoinedCollectionViewCell
             {
+                print("1")
                 cell.imageActivity
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
                 cell.imageActivity.layer.cornerRadius = 15
@@ -206,6 +207,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case self.proposedActivityCollection:
             if let cell: profileProposedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "proposedCell", for: indexPath) as? profileProposedCollectionViewCell
             {
+                print("2")
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.imageActivity.layer.cornerRadius = 15
@@ -220,6 +222,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case self.favoriteActivityCollection:
             if let cell: profileFavoriteCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as? profileFavoriteCollectionViewCell
             {
+                print("3")
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.imageActivity.layer.cornerRadius = 15
