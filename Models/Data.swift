@@ -11,9 +11,9 @@ import Foundation
 import UIKit
 
 var allActivities = [
-    Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: .NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!]),
-    
-    Activity(idActivity: 2, idUser: 1, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: .Cultural, adresse: "99 rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!]),
+//    Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: .NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!]),
+//
+//    Activity(idActivity: 2, idUser: 1, nameActivity: "Le musée du Louvre", descriptionActivity: "Avec plus de 460.000 œuvres intemporelles de l’Antiquité à nos jours, le Musée du Louvre est l’un des plus grands musées d’art et d’histoire du monde. \n\nVous y découvrirez des œuvres mondialement connues, telles que La Joconde, La Vénus de Milo, le Radeau de la Méduse, La Liberté guidant le peuple, La mort de la Vierge, La Dentellière, Le Sacre de Napoléon, le Portrait de Louis XIV en costume de sacre, etc.", typeActivity: .Cultural, adresse: "99 rue de Rivoli, 75001 Paris", country: "FranceTest", gpsx: 48.864824, gpsy: 2.334595, showActivity: true, imageDesc: [UIImage(named: "louvre1")!, UIImage(named: "louvre2")!, UIImage(named: "louvre3")!, UIImage(named: "louvre4")!]),
     
     Activity(idActivity: 3, idUser: 2, nameActivity: "Amalfi", descriptionActivity: "ITALIEN – Vous aussi évadez-vous en Italie en dégustant de merveilleuses assiettes dans ce restaurant, des saveurs inédites qui vous font voyager très loin, un véritable plaisir. \n\nLE SOURIRE – Qu’il est agréable de voir une équipe avec le sourire lorsque vous entrez dans un restaurant, pas de doute dans cet établissement on travaille avec le cœur, un plus indéniable !\n\nLE DECOR – Le restaurant Amalfi a mis en place un décor vraiment très intéressant, qu’il s’agisse de la couleur utilisée ou de la disposition des tables, on ne peut que saluer la performance artistique.", typeActivity: .Gastronomy, adresse: "29 Rue de Turin, 75008 Paris", country: "FranceTest", gpsx: 48.88234, gpsy: 2.324264, showActivity: true, imageDesc: [UIImage(named: "Amalfi1")!, UIImage(named: "Amalfi2")!, UIImage(named: "Amalfi3")!]),
     
@@ -91,10 +91,10 @@ var allComments = [
 ]
 
 var allFavorites = [
-    FavoritesActivity(idActivity : 2, idUser: 1, dateFav: Date()),
-    FavoritesActivity(idActivity : 3, idUser: 1, dateFav: Date()),
-    FavoritesActivity(idActivity : 4, idUser: 1, dateFav: Date()),
-    FavoritesActivity(idActivity : 5, idUser: 1, dateFav: Date()),
+//    FavoritesActivity(idActivity : 2, idUser: 1, dateFav: Date()),
+//    FavoritesActivity(idActivity : 3, idUser: 1, dateFav: Date()),
+//    FavoritesActivity(idActivity : 4, idUser: 1, dateFav: Date()),
+//    FavoritesActivity(idActivity : 5, idUser: 1, dateFav: Date()),
     
     FavoritesActivity(idActivity : 1, idUser: 2, dateFav: Date()),
     FavoritesActivity(idActivity : 3, idUser: 2, dateFav: Date()),

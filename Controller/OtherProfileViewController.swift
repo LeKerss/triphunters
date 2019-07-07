@@ -1,16 +1,15 @@
 //
-//  ProfilViewController.swift
+//  OtherProfileViewController.swift
 //  TripHunters
 //
-//  Created by oscar Amzalag on 28/06/2019.
+//  Created by Simon Chevalier on 07/07/2019.
 //  Copyright © 2019 oscar Amzalag. All rights reserved.
 //
 
 import UIKit
 
-class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-
     // Outlets View Header Profile
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var pseudoLabel: UILabel!
@@ -34,15 +33,15 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     @IBOutlet weak var joinedViewEmpty: UIView!
     @IBOutlet weak var proposedViewEmpty: UIView!
     
+    @IBOutlet weak var joinedEmptyLabel: UILabel!
+    @IBOutlet weak var proposedEmptyLabel: UILabel!
+    
     // Outlet Countraints in stackview
     @IBOutlet weak var heightMyStackView: NSLayoutConstraint!
     @IBOutlet weak var heightProfileHeader: NSLayoutConstraint!
-    @IBOutlet weak var proposedViewTop: NSLayoutConstraint!
     @IBOutlet weak var favoriteViewTop: NSLayoutConstraint!
-    
-    //Outlet scrollView
+
     @IBOutlet weak var scrollView: UIScrollView!
-    
     
     var activitySelected : Activity? = nil
     var listSelectedForMore  : [Activity] = []
@@ -53,7 +52,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     var listActivityFavorites : [Activity] = []
     
     // Création d'une variable myUser
-    var myUser = allUsers[0]
+    var myUser : User!
     
     
     override func viewDidLoad() {
@@ -72,18 +71,12 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         proposedActivityCollection.dataSource = self
         favoriteActivityCollection.delegate = self
         favoriteActivityCollection.dataSource = self
+        self.title = "Profil de \(myUser.pseudo)"
         initProfilInformations()
         initListForCollections()
         manageView()
         
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        myUser = allUsers[0]
-        initProfilInformations()
-        initListForCollections()
-        manageView()
     }
     
     // Fonction d'initialisation des libellés du Profil et les images de profil et de nationalité
@@ -93,7 +86,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         
         if let image = myUser.imageProfil{
             imgProfile.maskCircle(anyImage: image)
-   
+            
         } else{
             imgProfile.maskCircle(anyImage: UIImage(named: "IMG_default_user")!)
         }
@@ -135,6 +128,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         let heightFavorite = favoriteView.frame.height
         if (listActivityJoined.count == 0){
             joinedActivityCollection.isHidden = true
+            joinedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant'aucune activité."
             joinedViewEmpty.isHidden = false
             buttonJoinedShowMore.isHidden = true
         }
@@ -145,6 +139,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         }
         if (listActivityProposed.count == 0){
             proposedActivityCollection.isHidden = true
+            proposedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant' aucune activité."
             proposedViewEmpty.isHidden = false
             buttonProposedShowMore.isHidden = true
         }
@@ -157,7 +152,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             favoriteView.isHidden = true
             heightMyStackView.constant -= heightFavorite
         }
-
+        
     }
     
     
@@ -265,44 +260,31 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
             let destinationViewController = segue.destination as? myActivityTableViewController
             destinationViewController?.name = nameForMore
             destinationViewController?.listActivty = listSelectedForMore
-        case "editProfile" :
-            let destinationViewController = segue.destination as? EditProfileViewController
-            destinationViewController?.myUser = myUser
         default:
             break
         }
     }
     
-    @IBAction func buttonEditProfile(_ sender: Any) {
-        performSegue(withIdentifier: "editProfile", sender: self)
-    }
     
     @IBAction func joinedShowMore(_ sender: Any) {
-        nameForMore = "✔︎ Mes activités rejointes"
+        nameForMore = "✔︎ Activités rejointes de \(myUser.pseudo)"
         listSelectedForMore = listActivityJoined
         performSegue(withIdentifier: "showMore", sender: self)
     }
     
     @IBAction func proposedShowMore(_ sender: Any) {
-        nameForMore = "+ Mes activités proposées"
+        nameForMore = "+ Activités proposées de \(myUser.pseudo)"
         listSelectedForMore = listActivityProposed
         performSegue(withIdentifier: "showMore", sender: self)
     }
     
     @IBAction func favoriteShowMore(_ sender: Any) {
-        nameForMore = " ★ Mes activités favorites"
+        nameForMore = " ★ Activités favorites de \(myUser.pseudo)"
         listSelectedForMore = listActivityFavorites
         performSegue(withIdentifier: "showMore", sender: self)
     }
     
     
-    @IBAction func discoverButton(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 0
-    }
-    
-    @IBAction func proposedButton(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 1
-    }
     
     @objc private func refreshOptions(sender: UIRefreshControl) {
         // Perform actions to refresh the content
@@ -314,12 +296,3 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
     }
 }
 
-extension UIImageView {
-    public func maskCircle(anyImage: UIImage){
-        self.contentMode = .scaleAspectFill
-        self.layer.cornerRadius = self.frame.height / 2
-        self.layer.masksToBounds = false
-        self.clipsToBounds = true
-        self.image = anyImage
-     }
-}
