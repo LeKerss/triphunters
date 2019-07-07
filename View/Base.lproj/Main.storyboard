@@ -1318,6 +1318,85 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Mot de passe" id="x1H-hx-Yw9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Xgk-Gk-uXE">
+                                        <rect key="frame" x="0.0" y="612.5" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xgk-Gk-uXE" id="NUH-nr-cwf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ancien mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1c-d8-xJ4">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="G5F-eG-Cvq"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="q1c-d8-xJ4" firstAttribute="leading" secondItem="NUH-nr-cwf" secondAttribute="leading" constant="8" id="0SP-qZ-5co"/>
+                                                <constraint firstAttribute="bottom" secondItem="q1c-d8-xJ4" secondAttribute="bottom" id="2he-Dd-ZfP"/>
+                                                <constraint firstItem="q1c-d8-xJ4" firstAttribute="top" secondItem="NUH-nr-cwf" secondAttribute="top" id="Drc-Ys-ddT"/>
+                                                <constraint firstAttribute="trailing" secondItem="q1c-d8-xJ4" secondAttribute="trailing" constant="8" id="y2n-fy-9FX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="uPx-S1-6fz">
+                                        <rect key="frame" x="0.0" y="672.5" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uPx-S1-6fz" id="y40-Vm-9Dn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nouveau mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXz-Uo-AnQ">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="pvO-pJ-jut"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="password"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="oXz-Uo-AnQ" secondAttribute="trailing" constant="8" id="6W8-Xn-QjC"/>
+                                                <constraint firstAttribute="bottom" secondItem="oXz-Uo-AnQ" secondAttribute="bottom" id="VnH-Z8-g5w"/>
+                                                <constraint firstItem="oXz-Uo-AnQ" firstAttribute="top" secondItem="y40-Vm-9Dn" secondAttribute="top" id="g2J-7Y-y4E"/>
+                                                <constraint firstItem="oXz-Uo-AnQ" firstAttribute="leading" secondItem="y40-Vm-9Dn" secondAttribute="leading" constant="8" id="gxX-i4-Ad9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="mnu-oS-sBu">
+                                        <rect key="frame" x="0.0" y="732.5" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mnu-oS-sBu" id="qtA-RB-ghw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmer nouveau mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngV-qv-SdZ">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="4bm-lq-ecG"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ngV-qv-SdZ" firstAttribute="top" secondItem="qtA-RB-ghw" secondAttribute="top" id="Dlk-kV-HdU"/>
+                                                <constraint firstAttribute="bottom" secondItem="ngV-qv-SdZ" secondAttribute="bottom" id="Phx-Wy-ZKq"/>
+                                                <constraint firstAttribute="trailing" secondItem="ngV-qv-SdZ" secondAttribute="trailing" constant="8" id="fVG-5B-QMD"/>
+                                                <constraint firstItem="ngV-qv-SdZ" firstAttribute="leading" secondItem="qtA-RB-ghw" secondAttribute="leading" constant="8" id="pNP-xN-F9h"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="aye-dY-Zuk" id="2Pu-Tz-nr4"/>
