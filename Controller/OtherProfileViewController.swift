@@ -128,7 +128,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         let heightFavorite = favoriteView.frame.height
         if (listActivityJoined.count == 0){
             joinedActivityCollection.isHidden = true
-            joinedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant'aucune activité."
+            joinedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant aucune activité."
             joinedViewEmpty.isHidden = false
             buttonJoinedShowMore.isHidden = true
         }
@@ -139,7 +139,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         }
         if (listActivityProposed.count == 0){
             proposedActivityCollection.isHidden = true
-            proposedEmptyLabel.text = "\(myUser.pseudo) n'a rejoint pour l'instant' aucune activité."
+            proposedEmptyLabel.text = "\(myUser.pseudo) n'a proposé pour l'instant aucune activité."
             proposedViewEmpty.isHidden = false
             buttonProposedShowMore.isHidden = true
         }

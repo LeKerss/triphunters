@@ -542,9 +542,6 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
 
     }
     
-    @IBAction func testButton(_ sender: Any) {
-        performSegue(withIdentifier: "showProfile", sender: self)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch (segue.identifier){
         case "showComments" :
