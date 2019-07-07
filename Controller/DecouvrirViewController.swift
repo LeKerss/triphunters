@@ -153,8 +153,14 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             
             frameAnimator.addCompletion { _ in
                 self.sliderVisible = !self.sliderVisible
-                self.sliderViewController.tableView.reloadData()
+                
+                
                 sortActivityList()
+                if (self.sliderVisible) {
+                    self.sliderViewController.tableView.reloadData()
+                } else {
+                    self.sliderViewController.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+                }
                 self.runningAnimations.removeAll()
             }
             
