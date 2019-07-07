@@ -190,3 +190,12 @@ class ActivityCollectionViewCell: UICollectionViewCell {
     }
 
 }
+
+// workaround for tintcolor not updating
+
+extension UIImageView {
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        tintColorDidChange()
+    }
+}
