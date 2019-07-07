@@ -51,6 +51,25 @@ enum ActivityType : CaseIterable {
         }
     }
     
+    var logo: UIImage {
+        switch self {
+        case .Cultural:
+            return UIImage(named: "artBlack")!
+        case .Entertainement:
+            return UIImage(named: "entertainementBlack")!
+        case .Exploration:
+            return UIImage(named: "explorationBlack")!
+        case .Freaky:
+            return UIImage(named: "freakyBlack")!
+        case .Gastronomy:
+            return UIImage(named: "gastronomyBlack")!
+        case .Sports:
+            return UIImage(named: "sportsBlack")!
+        case .NightLife:
+            return UIImage(named: "nightlifeBlack")!
+        }
+    }
+    
     
 }
 
