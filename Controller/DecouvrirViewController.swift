@@ -86,7 +86,7 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     func setupSlider() {
         sliderHeight = screenSize.height * sliderRatio
-        sliderHandleAreaHeight = screenSize.height * sliderHandleAreaRatio
+        sliderHandleAreaHeight = 330
         
         visualEffectView = UIVisualEffectView()
         self.visualEffectView.frame = self.mapView.frame

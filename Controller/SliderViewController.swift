@@ -86,7 +86,7 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func colorFilter(_ f: FilterStruct) {
-        f.filter.layer.cornerRadius = 25
+        f.filter.layer.cornerRadius = 30
         if f.active {
             f.filter.layer.backgroundColor = f.type.color.cgColor
         }
@@ -119,12 +119,12 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
         cell.setImageArray(forActivity: pin)
         cell.activityName.text = pin.activity.nameActivity
         cell.imgCountry.image = UIImage(named: pin.activity.country)
-        cell.categoryLabel.text = pin.activity.typeActivity.name()
-        cell.categoryLabel.textColor = pin.activity.typeActivity.color
+        cell.categoryImg.image = pin.activity.typeActivity.logo
+        cell.categoryImg.tintColor = pin.activity.typeActivity.color
         cell.activityDescription.text = pin.activity.descriptionActivity
         if let userLocation = lm.location {
             let dist = userLocation.distance(from: CLLocation(latitude:pin.coordinate.latitude, longitude: pin.coordinate.longitude))
-            cell.distanceFromUser.text = String(Int(dist)) + "m"
+            cell.distanceFromUser.text = String(Int(dist)) + " m"
         }
 
         cell.activityImages.reloadData()
@@ -138,9 +138,9 @@ class ActivityTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     @IBOutlet weak var activityImages: UICollectionView!
     @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var imgCountry: UIImageView!
-    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var distanceFromUser: UILabel!
     @IBOutlet weak var activityDescription: UILabel!
+    @IBOutlet weak var categoryImg: UIImageView!
     
     var imageArray = [UIImage]()
 
