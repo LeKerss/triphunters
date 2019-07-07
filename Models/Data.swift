@@ -30,10 +30,14 @@ var allActivities = [
     Activity(idActivity: 9, idUser: 5, nameActivity: "Le George", descriptionActivity: "L'élégant restaurant Le George, étoilé au Michelin, est à l'image de sa carte inspirée de la cuisine méditerranéenne, qu'il décline dans une version moderne, légère et conçue pour le partage. La fraîcheur des plats de Simone Zanoni ravira vos papilles.", typeActivity: .Gastronomy, adresse: "31 Avenue George V, 75008 Paris", country: "FranceTest", gpsx: 48.868, gpsy: 2.3008, showActivity: true, imageDesc: [UIImage(named: "George1")!, UIImage(named: "George2")!]),
     
     Activity(idActivity: 10, idUser: 3, nameActivity: "Gossima Ping Pong Bar", descriptionActivity: "Debout avec une raquette, une bière ou un cocktail à la main, assis sur un canapé ou autour d'une table de restauration, vous passerez un moment unique dans un lieu qui associe convivialité et bons produits.\n\nLe Gossima vous accueille sans réservation ou organise votre soirée entre amis ou évènement d'entreprise.", typeActivity: .Freaky, adresse: "4 Rue Victor Gelez, 75011 Paris", country: "FranceTest", gpsx: 48.864873, gpsy: 2.382772, showActivity: true, imageDesc: [UIImage(named: "Gossima1")!, UIImage(named: "Gossima2")!, UIImage(named: "Gossima3")!]),
+    
+    Activity(idActivity: 11, idUser: 7, nameActivity: "Eden Secreto De Montera", descriptionActivity: "Un salon de thé au dernier étage du magasin Salvador Bachiller. Ouvert en été comme en hiver.", typeActivity: .Gastronomy, adresse: "Calle de la Montera, 37, 28013, Madrid", country: "spain", gpsx: 40.419040, gpsy: -3.702200, showActivity: true, imageDesc: [UIImage(named: "Montera1")!, UIImage(named: "Montera2")!, UIImage(named: "Montera3")!]),
+    
+    Activity(idActivity: 12, idUser: 7, nameActivity: "Cascadas Del Hervidero", descriptionActivity: "Magnifiques cascades d'eau cristalline formées par les eaux du fleuve Guadalix, une étendue d'eeau piégée entre deux énormes rochers", typeActivity: .Exploration, adresse: "Hervidero Cascada, 28750 San Agustín del guadalix" , country: "spain", gpsx: 40.693450, gpsy: -3.610420, showActivity: true, imageDesc: [UIImage(named: "Cascadas1")!, UIImage(named: "Cascadas2")!]),
 ]
 
 var allUsers = [
-    User(idUser: 1, pseudo: "Manuelele", firstName: "Manuel", lastName: "Costa", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "spain", imageProfil: UIImage(named: "manuel")),
+    User(idUser: 1, pseudo: "Nqbral", firstName: "Simon", lastName: "Chevalier", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "france", imageProfil: UIImage(named: "IMG_default_user")),
     
     User(idUser: 2, pseudo: "OscarAmz", firstName: "Oscar", lastName: "Amzalag", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "australiaTest", imageProfil: UIImage(named: "IMG_default_user")),
     
@@ -43,14 +47,18 @@ var allUsers = [
     
     User(idUser: 5, pseudo: "SimonChe", firstName: "Simon", lastName: "Chevalier", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 6, pseudo: "Bryan", firstName: "Bryan", lastName: "Boo", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user"))
+    User(idUser: 6, pseudo: "Bryan", firstName: "Bryan", lastName: "Boo", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
+    
+    User(idUser: 7, pseudo: "Manuelele", firstName: "Manuel", lastName: "Costa", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "spain", imageProfil: UIImage(named: "manuel"))
 ]
 
 var allComments = [
     Comment(idActivity: 1, pseudo: "OscarAmz",country: "australiaTest", dateComment: Date(), comment: "Bar très atypique. Le système des prix est à découvrir. Petite terrasse pour se poser en été. Très compliqué de se garer, il fait y aller en transport"),
+    Comment(idActivity: 1, pseudo: "Manuelele",country: "spain", dateComment: Date(), comment: "Wow, so cool !"),
     Comment(idActivity: 1, pseudo: "Annanas",country: "FranceTest", dateComment: Date(), comment: "Il passe la meilleure musique au monde! L’alcool parfait. Réception et literie imbattable"),
     Comment(idActivity: 1, pseudo: "SimonChe",country: "belgiumTest", dateComment: Date(), comment: "Concept intéressant mais les prix les plus bas sont les prix de bases. Donc un peu cher."),
     Comment(idActivity: 1, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: "Le concept est super sympas (prix variant toutes les minutes)"),
+    
     
     Comment(idActivity: 2, pseudo: "Bryan",country: "FranceTest", dateComment: Date(), comment: "C'est vraiment super ! merci beaucoup "),
     Comment(idActivity: 2, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: "First"),
@@ -74,14 +82,11 @@ var allComments = [
     Comment(idActivity: 7, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: ""),
     Comment(idActivity: 7, pseudo: "OscarAmz",country: "australiaTest", dateComment: Date(), comment: "Boy Boy Boyyyyyyyyyyyyyyy"),
     
-    Comment(idActivity: 8, pseudo: "TripCodeur",country: "FranceTest", dateComment: Date(), comment: "Trop bien"),
     Comment(idActivity: 8, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: "Merci"),
     Comment(idActivity: 8, pseudo: "OscarAmz",country: "australiaTest", dateComment: Date(), comment: "First"),
-    Comment(idActivity: 8, pseudo: "TripCodeur",country: "FranceTest", dateComment: Date(), comment: "Coucou tout le monde, je suis le developeur de cette application"),
     Comment(idActivity: 8, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: "Bijourrrrr les boooooaaaahhhhh"),
     Comment(idActivity: 8, pseudo: "OscarAmz",country: "australiaTest", dateComment: Date(), comment: "Bon je reviendrai c'est sur !"),
     
-    Comment(idActivity: 9, pseudo: "TripCodeur",country: "FranceTest", dateComment: Date(), comment: "Nul"),
     Comment(idActivity: 9, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: "Que dire ?"),
     Comment(idActivity: 9, pseudo: "OscarAmz",country: "australiaTest", dateComment: Date(), comment: "Merci"),
     
@@ -146,4 +151,6 @@ var allInscriptions = [
     InscriptionActivity(idActivity : 1, idUser: 6, dateInscription: Date()),
     InscriptionActivity(idActivity : 2, idUser: 6, dateInscription: Date()),
     InscriptionActivity(idActivity : 3, idUser: 6, dateInscription: Date()),
+    
+    InscriptionActivity(idActivity : 1, idUser: 7, dateInscription: Date()),
 ]

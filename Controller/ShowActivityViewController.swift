@@ -468,7 +468,19 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         return commentOnActivity.count
     }
     
-    
+    func findUserByPseudo(pseudo : String) -> User{
+        var i : Int = 0
+        var bUserFound : Bool = false
+        
+        while (i < allUsers.count || bUserFound == false){
+            if (allUsers[i].pseudo == pseudo){
+                bUserFound = true
+                return allUsers[i]
+            }
+            i += 1
+        }
+        return allUsers[0]
+    }
     
     @IBAction func openMaps(_ sender: Any) {
         
@@ -483,12 +495,14 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         dateFormateur.timeStyle = .medium
         dateFormateur.locale    = Locale(identifier: "FR-fr")
         
+        var userInformations : User!
+        userInformations = findUserByPseudo(pseudo: commentOnActivity[indexPath.row].pseudo)
         
         cell.commentPeudo?.text = commentOnActivity[indexPath.row].pseudo
         cell.commentDate?.text = dateFormateur.string(from: commentOnActivity[indexPath.row].dateComment)
         cell.commentComment?.text = commentOnActivity[indexPath.row].comment
-        cell.commentImageUser?.image = UIImage(named: "IMG_default_user")
-        cell.commentImageFlag?.image = UIImage(named: commentOnActivity[indexPath.row].country)
+        cell.commentImageUser?.image = userInformations!.imageProfil!
+        cell.commentImageFlag?.image = UIImage(named:userInformations!.nationality)
         if (cell.commentPeudo?.text == currentUser.pseudo) {
             cell.commentDeleteButton.isHidden = false
         }else{
