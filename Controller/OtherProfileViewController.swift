@@ -192,7 +192,6 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case self.joinedActivityCollection:
             if let cell: profileJoinedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "joinedCell", for: indexPath) as? profileJoinedCollectionViewCell
             {
-                print("1")
                 cell.imageActivity
                     .image = listActivityJoined[indexPath.row].imageDesc[0]
                 cell.imageActivity.layer.cornerRadius = 15
@@ -207,7 +206,6 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case self.proposedActivityCollection:
             if let cell: profileProposedCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "proposedCell", for: indexPath) as? profileProposedCollectionViewCell
             {
-                print("2")
                 cell.imageActivity
                     .image = listActivityProposed[indexPath.row].imageDesc[0]
                 cell.imageActivity.layer.cornerRadius = 15
@@ -222,7 +220,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case self.favoriteActivityCollection:
             if let cell: profileFavoriteCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as? profileFavoriteCollectionViewCell
             {
-                print("3")
+
                 cell.imageActivity
                     .image = listActivityFavorites[indexPath.row].imageDesc[0]
                 cell.imageActivity.layer.cornerRadius = 15
@@ -262,7 +260,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case "showMore" :
             let destinationViewController = segue.destination as? myActivityTableViewController
             destinationViewController?.name = nameForMore
-            destinationViewController?.listActivty = listSelectedForMore
+            destinationViewController?.listActivitiesMore = listSelectedForMore
         default:
             break
         }

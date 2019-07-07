@@ -264,7 +264,7 @@ class ProfilViewController: UIViewController,UICollectionViewDelegate, UICollect
         case "showMore" :
             let destinationViewController = segue.destination as? myActivityTableViewController
             destinationViewController?.name = nameForMore
-            destinationViewController?.listActivty = listSelectedForMore
+            destinationViewController?.listActivitiesMore = listSelectedForMore
         case "editProfile" :
             let destinationViewController = segue.destination as? EditProfileViewController
             destinationViewController?.myUser = myUser
