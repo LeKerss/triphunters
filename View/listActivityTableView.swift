@@ -15,9 +15,9 @@ class TableActivityViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     @IBOutlet weak var imagesActivityCollectionView: UICollectionView!
     @IBOutlet weak var nameActivity: UILabel!
     @IBOutlet weak var imageCountry: UIImageView!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var imgCategory: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
+    
     
     var listImages : [UIImage] = []
 

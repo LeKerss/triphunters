@@ -24,8 +24,6 @@ class myActivityTableViewController: UITableViewController {
         
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return listActivitiesMore.count
     }
@@ -40,12 +38,8 @@ class myActivityTableViewController: UITableViewController {
             cell.initListImages(activity: listActivitiesMore[indexPath.section])
             cell.nameActivity.text = listActivitiesMore[indexPath.section].nameActivity
             cell.imageCountry.image = UIImage(named: listActivitiesMore[indexPath.section].country)
-            cell.categoryLabel.text = listActivitiesMore[indexPath.section].typeActivity.name()
-            cell.categoryLabel.textColor = listActivitiesMore[indexPath.section].typeActivity.color
-            if let userLocation = lm.location {
-                let dist = userLocation.distance(from: CLLocation(latitude: CLLocationDegrees(floatLiteral: listActivitiesMore[indexPath.section].gpsx), longitude: CLLocationDegrees(floatLiteral: listActivitiesMore[indexPath.section].gpsy)))
-                cell.distanceLabel.text = String(Int(dist)) + "m"
-            }
+            cell.imgCategory.image = listActivitiesMore[indexPath.section].typeActivity.logo
+            cell.imgCategory.tintColor = listActivitiesMore[indexPath.section].typeActivity.color
             cell.descLabel.text = listActivitiesMore[indexPath.section].descriptionActivity
             cell.imagesActivityCollectionView.reloadData()
             return cell
