@@ -113,7 +113,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtz-Ml-Que">
+                                                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtz-Ml-Que">
                                                                             <rect key="frame" x="28.5" y="15.5" width="46.5" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sportsBlack" translatesAutoresizingMaskIntoConstraints="NO" id="c0T-qW-Xsc">
@@ -152,7 +152,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2E9-HI-2Wx">
+                                                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2E9-HI-2Wx">
                                                                             <rect key="frame" x="28.5" y="15.5" width="46.5" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explorationBlack" translatesAutoresizingMaskIntoConstraints="NO" id="pxj-3T-7qa">
@@ -191,7 +191,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXy-LE-V8J">
+                                                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXy-LE-V8J">
                                                                             <rect key="frame" x="28.5" y="15.5" width="46.5" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artBlack" translatesAutoresizingMaskIntoConstraints="NO" id="fFh-22-SZ5">
@@ -230,7 +230,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzE-5J-bcI">
+                                                                        <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzE-5J-bcI">
                                                                             <rect key="frame" x="28.5" y="15.5" width="46.5" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nightlifeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="9Vx-Lf-e3U">
@@ -284,7 +284,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiZ-o1-ljj">
+                                                                        <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiZ-o1-ljj">
                                                                             <rect key="frame" x="28" y="15.5" width="47" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freakyBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Phu-lM-ZPW">
@@ -323,7 +323,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwi-Ff-kId">
+                                                                        <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwi-Ff-kId">
                                                                             <rect key="frame" x="28" y="15.5" width="47" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="entertainementBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Nxb-fg-bd6">
@@ -362,7 +362,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lri-1S-Yno">
+                                                                        <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lri-1S-Yno">
                                                                             <rect key="frame" x="28" y="15.5" width="47" height="47"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gastronomyBlack" translatesAutoresizingMaskIntoConstraints="NO" id="s8A-5e-IbD">
