@@ -32,39 +32,80 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var freakyFilter: UIView!
     
     var filters = [FilterStruct]()
+    var myParent: DecouvrirViewController!
+    
+    func isFilterActive(forType type: ActivityType) -> Bool {
+        for filter in filters {
+            if filter.type == type{
+                return filter.active
+            }
+        }
+        return false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         handleLine.layer.cornerRadius = 3
+        myParent = self.parent as? DecouvrirViewController
         
         // Initialisation des filtres
         initFilters()
-        colorFilterButtons()
+        setupFilters()
+        applyFilters()
 
     }
     
     func initFilters() {
         self.filters = [
             FilterStruct(type: .Sports, filter: sportsFilter, active: true, tag: 1),
-            FilterStruct(type: .Cultural, filter: cultureFilter, active: true, tag: 3),
-            FilterStruct(type: .Entertainement, filter: entertainementFilter, active: true, tag: 6),
             FilterStruct(type: .Exploration, filter: explorationFilter, active: true, tag: 2),
+            FilterStruct(type: .Cultural, filter: cultureFilter, active: true, tag: 3),
+            FilterStruct(type: .NightLife, filter: nightFilter, active: true, tag: 4),
             FilterStruct(type: .Freaky, filter: freakyFilter, active: true, tag: 5),
-            FilterStruct(type: .Gastronomy, filter: gastronomyFilter, active: true, tag: 7),
-            FilterStruct(type: .NightLife, filter: nightFilter, active: true, tag: 4)
+            FilterStruct(type: .Entertainement, filter: entertainementFilter, active: true, tag: 6),
+            FilterStruct(type: .Gastronomy, filter: gastronomyFilter, active: true, tag: 7)
         ]
     }
     
-    func colorFilterButtons() {
+    func setupFilters() {
         for f in filters {
-            f.filter.layer.cornerRadius = 25
-            if f.active {
-                f.filter.layer.backgroundColor = f.type.color.cgColor
-            }
-            else {
-                f.filter.layer.backgroundColor =  UIColor.lightGray.cgColor
-            }
-            print ("\(f.type) \(f.filter.tag)")
+            colorFilter(f)
+            addRecognizer(f)
+        }
+    }
+    
+    func applyFilters() {
+        let filteredActivities = allActivities.filter { (activity) -> Bool in
+            return isFilterActive(forType: activity.typeActivity)
+        
+        
+        activityList = filteredActivities.map {(activity) -> ActivityPin in
+            return ActivityPin(activity: activity)
+        }
+        myParent.populateMap()
+    }
+    
+    func colorFilter(_ f: FilterStruct) {
+        f.filter.layer.cornerRadius = 25
+        if f.active {
+            f.filter.layer.backgroundColor = f.type.color.cgColor
+        }
+        else {
+            f.filter.layer.backgroundColor =  UIColor.lightGray.cgColor
+        }
+    }
+    
+    func addRecognizer(_ f: FilterStruct) {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(SliderViewController.setFilter(recognizer:)))
+        
+        f.filter.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func setFilter(recognizer: UITapGestureRecognizer) {
+        if let view = recognizer.view {
+            self.filters[view.tag - 1].active = self.filters[view.tag - 1].active ? false : true
+            colorFilter(self.filters[view.tag - 1])
+            applyFilters()
         }
     }
     

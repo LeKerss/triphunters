@@ -10,9 +10,8 @@ import UIKit
 import MapKit
 
 
-var activityList = allActivities.map { (Activity) -> ActivityPin in
-    return ActivityPin(activity: Activity)
-}
+var activityList = [ActivityPin]()
+var activeFilters = [ActivityType]()
 
 let lm = CLLocationManager()
 
@@ -69,7 +68,6 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
         super.viewDidLoad()
         setupSlider()
         setupLocation()
-    
     }
     
     func setupTableView() {
@@ -255,9 +253,11 @@ class DecouvrirViewController: UIViewController, CLLocationManagerDelegate, MKMa
             let viewRegion = MKCoordinateRegion(center: userLocation, span: span)
             mapView.setRegion(viewRegion, animated: true)
         }
-        
+    }
+    
+    func populateMap() {
+        mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotations(activityList)
-        
     }
     
     func addPoint(_ currentActivity: Activity) {
