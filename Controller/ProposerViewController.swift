@@ -127,7 +127,10 @@ class ProposerViewController: UITableViewController, CategoryPickerDelegate {
             destinationViewController?.adressPoint = adressPoint
             destinationViewController?.activity = activity
             destinationViewController?.proposerView = self
-        
+        case "showActivityCreate" :
+            let destinationViewController = segue.destination as? ShowActivityViewController
+            let sendi = sender as! mapAddActivityViewController
+            destinationViewController?.currentActivity = sendi.activity!
         default:
             break
         }

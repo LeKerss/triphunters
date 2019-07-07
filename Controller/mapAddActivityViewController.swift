@@ -32,7 +32,8 @@ class mapAddActivityViewController: UIViewController, MKMapViewDelegate {
     @IBAction func create(_ sender: Any) {
         allActivities.insert(activity, at: 0)
         proposerView.clearAll(self)
-        performSegue(withIdentifier: "showActivityCreate", sender: self)
+        navigationController?.popViewController(animated: false)
+        proposerView.performSegue(withIdentifier: "showActivityCreate", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
