@@ -49,12 +49,15 @@ var allUsers = [
     
     User(idUser: 6, pseudo: "Bryan", firstName: "Bryan", lastName: "Boo", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "FranceTest", imageProfil: UIImage(named: "IMG_default_user")),
     
-    User(idUser: 7, pseudo: "Manuelele", firstName: "Manuel", lastName: "Costa", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "spain", imageProfil: UIImage(named: "manuel"))
+    User(idUser: 7, pseudo: "Manuelele", firstName: "Manuel", lastName: "Costa", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "spain", imageProfil: UIImage(named: "manuel")),
+    
+    User(idUser: 8, pseudo: "TripCoder", firstName: "François", lastName: "Mureau", description: nil, email: "triphunters@hotmail.com", password: "password", nationality: "france", imageProfil: UIImage(named: "IMG_default_user"))
 ]
 
 var allComments = [
     Comment(idActivity: 1, pseudo: "OscarAmz",country: "australiaTest", dateComment: Date(), comment: "Bar très atypique. Le système des prix est à découvrir. Petite terrasse pour se poser en été. Très compliqué de se garer, il fait y aller en transport"),
     Comment(idActivity: 1, pseudo: "Manuelele",country: "spain", dateComment: Date(), comment: "Wow, so cool !"),
+    Comment(idActivity: 1, pseudo: "TripCoder",country: "france", dateComment: Date(), comment: "J'ai adoré cet endroit, les serveurs sont très sympas et on peut réeellement échanger avec eux !"),
     Comment(idActivity: 1, pseudo: "Annanas",country: "FranceTest", dateComment: Date(), comment: "Il passe la meilleure musique au monde! L’alcool parfait. Réception et literie imbattable"),
     Comment(idActivity: 1, pseudo: "SimonChe",country: "belgiumTest", dateComment: Date(), comment: "Concept intéressant mais les prix les plus bas sont les prix de bases. Donc un peu cher."),
     Comment(idActivity: 1, pseudo: "Janin",country: "chinaTest", dateComment: Date(), comment: "Le concept est super sympas (prix variant toutes les minutes)"),
@@ -153,4 +156,6 @@ var allInscriptions = [
     InscriptionActivity(idActivity : 3, idUser: 6, dateInscription: Date()),
     
     InscriptionActivity(idActivity : 1, idUser: 7, dateInscription: Date()),
+    
+    InscriptionActivity(idActivity : 1, idUser: 8, dateInscription: Date())
 ]
