@@ -260,7 +260,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
         case "showMore" :
             let destinationViewController = segue.destination as? myActivityTableViewController
             destinationViewController?.name = nameForMore
-            destinationViewController?.listActivty = listSelectedForMore
+            destinationViewController?.listActivitiesMore = listSelectedForMore
         default:
             break
         }

@@ -12,7 +12,7 @@ import MapKit
 
 class myActivityTableViewController: UITableViewController {
     
-    var listActivty : [Activity] = []
+    var listActivitiesMore : [Activity] = []
     var name : String = ""
     
     var activitySelected:Activity? = nil
@@ -27,7 +27,7 @@ class myActivityTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return listActivty.count
+        return listActivitiesMore.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,23 +37,23 @@ class myActivityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell : TableActivityViewCell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as? TableActivityViewCell{
-            cell.initListImages(myActivity: listActivty[indexPath.section])
-            cell.nameActivity.text = listActivty[indexPath.section].nameActivity
-            cell.imageCountry.image = UIImage(named: listActivty[indexPath.section].country)
-            cell.categoryLabel.text = listActivty[indexPath.section].typeActivity.name()
-            cell.categoryLabel.textColor = listActivty[indexPath.section].typeActivity.color
+            cell.initListImages(myActivity: listActivitiesMore[indexPath.section])
+            cell.nameActivity.text = listActivitiesMore[indexPath.section].nameActivity
+            cell.imageCountry.image = UIImage(named: listActivitiesMore[indexPath.section].country)
+            cell.categoryLabel.text = listActivitiesMore[indexPath.section].typeActivity.name()
+            cell.categoryLabel.textColor = listActivitiesMore[indexPath.section].typeActivity.color
             if let userLocation = lm.location {
-                let dist = userLocation.distance(from: CLLocation(latitude: CLLocationDegrees(floatLiteral: listActivty[indexPath.section].gpsx), longitude: CLLocationDegrees(floatLiteral: listActivty[indexPath.section].gpsy)))
+                let dist = userLocation.distance(from: CLLocation(latitude: CLLocationDegrees(floatLiteral: listActivitiesMore[indexPath.section].gpsx), longitude: CLLocationDegrees(floatLiteral: listActivitiesMore[indexPath.section].gpsy)))
                 cell.distanceLabel.text = String(Int(dist)) + "m"
             }
-            cell.descLabel.text = listActivty[indexPath.section].descriptionActivity
+            cell.descLabel.text = listActivitiesMore[indexPath.section].descriptionActivity
             return cell
         }
         return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        activitySelected = listActivty[indexPath.section]
+        activitySelected = listActivitiesMore[indexPath.section]
         performSegue(withIdentifier: "showActivityFromList", sender: nil)
     }
     
