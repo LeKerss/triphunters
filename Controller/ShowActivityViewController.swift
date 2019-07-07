@@ -41,6 +41,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var map: MKMapView!
     
     var currentUser = allUsers[0]
+    var userForProfil = allUsers[0]
     
 //    var currentActivity1 = Activity(idActivity: 1, idUser: 1, nameActivity: "Wall Street Pigalle", descriptionActivity: "Un Concept Bar Unique à Paris. \n\nÀ partir de 18h le Concept Bar Wall Street Pigalle à Paris se transforme en place boursière pour vous proposer un large portefeuille boursier composé de verres de vins, de pintes de bières et de nombreux cocktails. \n\n5 écrans géants vous permettent de suivre le cours des boissons en direct dont la tendance changera toutes les 100 secondes ! \n\nUn verre peut ainsi passer de 12 à 4 euros en quelques secondes et même subir une décote sans précédent lors d’un des nombreux krachs boursiers qui viendront pimenter chaque soirée.", typeActivity: typeActivityEnum.NightLife, adresse: "49 Boulevard de Clichy, 75009 Paris", country: "FranceTest", gpsx: 48.88315, gpsy: 2.333989, showActivity: true, imageDesc: [UIImage(named: "activityWallStreet1")!, UIImage(named: "activityWallStreet2")!])
 //
@@ -549,7 +550,7 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             destinationViewController?.commentOnActivity = commentOnActivity
         case "showProfile" :
             let destinationViewController = segue.destination as? OtherProfileViewController
-            destinationViewController?.myUser = allUsers[1]
+            destinationViewController?.myUser = userForProfil
         default:
             break
         }
@@ -627,10 +628,17 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         // We've got the index path for the cell that contains the button, now do something with it.
-        let optionMenu = UIAlertController(title: nil, message: self.commentOnActivity[indexPath.row].pseudo, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)
-        optionMenu.addAction(cancelAction)
-        self.present(optionMenu, animated: true )
+        guard tableView.indexPath(for: cell) == nil  else {
+            for user in allUsers {
+                if self.commentOnActivity[indexPath.row].pseudo == user.pseudo {
+                    userForProfil = user
+                }
+            }
+            if currentUser != userForProfil {
+                performSegue(withIdentifier: "showProfile", sender: self)
+            }
+            return
+        }
     }
     
 

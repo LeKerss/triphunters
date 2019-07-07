@@ -22,8 +22,8 @@ class ShowCommentsTableViewController: UITableViewController {
     
     
     var commentOnActivity : [Comment]!
-    
     var currentUser = allUsers[0]
+    var userForProfil = allUsers[0]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +58,31 @@ class ShowCommentsTableViewController: UITableViewController {
             return
         }
         // We've got the index path for the cell that contains the button, now do something with it.
-        let optionMenu = UIAlertController(title: nil, message: commentOnActivity[indexPath.row].pseudo, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Annuler", style: .cancel)
-        optionMenu.addAction(cancelAction)
-        self.present(optionMenu, animated: true )
+        guard tableView.indexPath(for: cell) == nil  else {
+            for user in allUsers {
+                if commentOnActivity[indexPath.row].pseudo == user.pseudo {
+                    userForProfil = user
+                }
+            }
+            if currentUser != userForProfil {
+                performSegue(withIdentifier: "showProfile", sender: self)
+            }
+            return
+        }
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch (segue.identifier){
+        case "showProfile" :
+            let destinationViewController = segue.destination as? OtherProfileViewController
+            destinationViewController?.myUser = userForProfil
+        default:
+            break
+        }
+        
     }
     
     // MARK: - Table view data source
