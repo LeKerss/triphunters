@@ -135,6 +135,11 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
         cell.activityImages.reloadData()
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myParent.currentActivity = activityList[indexPath.row].activity
+        myParent.performSegue(withIdentifier: "goToActivity", sender: nil)
+    }
 
 }
 
