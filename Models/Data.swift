@@ -95,6 +95,7 @@ var allFavorites = [
     FavoritesActivity(idActivity : 3, idUser: 1, dateFav: Date()),
     FavoritesActivity(idActivity : 4, idUser: 1, dateFav: Date()),
     FavoritesActivity(idActivity : 5, idUser: 1, dateFav: Date()),
+    FavoritesActivity(idActivity : 6, idUser: 1, dateFav: Date()),
     
     FavoritesActivity(idActivity : 1, idUser: 2, dateFav: Date()),
     FavoritesActivity(idActivity : 3, idUser: 2, dateFav: Date()),

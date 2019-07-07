@@ -20,14 +20,21 @@ class TableActivityViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     @IBOutlet weak var descLabel: UILabel!
     
     var listImages : [UIImage] = []
+
     
     override func awakeFromNib() {
         self.imagesActivityCollectionView.delegate = self
         self.imagesActivityCollectionView.dataSource = self
     }
     
-    func initListImages(myActivity : Activity){
-        listImages = myActivity.imageDesc
+
+    
+    func initListImages(activity : Activity){
+        listImages = activity.imageDesc
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

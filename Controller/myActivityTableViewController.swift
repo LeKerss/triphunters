@@ -37,7 +37,7 @@ class myActivityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell : TableActivityViewCell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as? TableActivityViewCell{
-            cell.initListImages(myActivity: listActivitiesMore[indexPath.section])
+            cell.initListImages(activity: listActivitiesMore[indexPath.section])
             cell.nameActivity.text = listActivitiesMore[indexPath.section].nameActivity
             cell.imageCountry.image = UIImage(named: listActivitiesMore[indexPath.section].country)
             cell.categoryLabel.text = listActivitiesMore[indexPath.section].typeActivity.name()
@@ -47,6 +47,7 @@ class myActivityTableViewController: UITableViewController {
                 cell.distanceLabel.text = String(Int(dist)) + "m"
             }
             cell.descLabel.text = listActivitiesMore[indexPath.section].descriptionActivity
+            cell.imagesActivityCollectionView.reloadData()
             return cell
         }
         return UITableViewCell()
