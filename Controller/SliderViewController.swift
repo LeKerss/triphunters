@@ -13,6 +13,7 @@ struct FilterStruct {
     var type: ActivityType
     var filter: UIView
     var active: Bool
+    var tag: Int
 }
 
 class SliderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -44,13 +45,13 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
     
     func initFilters() {
         self.filters = [
-            FilterStruct(type: .Sports, filter: sportsFilter, active: true),
-            FilterStruct(type: .Cultural, filter: cultureFilter, active: true),
-            FilterStruct(type: .Entertainement, filter: entertainementFilter, active: true),
-            FilterStruct(type: .Exploration, filter: explorationFilter, active: true),
-            FilterStruct(type: .Freaky, filter: freakyFilter, active: true),
-            FilterStruct(type: .Gastronomy, filter: gastronomyFilter, active: true),
-            FilterStruct(type: .NightLife, filter: nightFilter, active: true)
+            FilterStruct(type: .Sports, filter: sportsFilter, active: true, tag: 1),
+            FilterStruct(type: .Cultural, filter: cultureFilter, active: true, tag: 3),
+            FilterStruct(type: .Entertainement, filter: entertainementFilter, active: true, tag: 6),
+            FilterStruct(type: .Exploration, filter: explorationFilter, active: true, tag: 2),
+            FilterStruct(type: .Freaky, filter: freakyFilter, active: true, tag: 5),
+            FilterStruct(type: .Gastronomy, filter: gastronomyFilter, active: true, tag: 7),
+            FilterStruct(type: .NightLife, filter: nightFilter, active: true, tag: 4)
         ]
     }
     
@@ -63,6 +64,7 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
             else {
                 f.filter.layer.backgroundColor =  UIColor.lightGray.cgColor
             }
+            print ("\(f.type) \(f.filter.tag)")
         }
     }
     
