@@ -501,7 +501,9 @@ class ShowActivityViewController: UIViewController, UITableViewDelegate, UITable
         cell.commentPeudo?.text = commentOnActivity[indexPath.row].pseudo
         cell.commentDate?.text = dateFormateur.string(from: commentOnActivity[indexPath.row].dateComment)
         cell.commentComment?.text = commentOnActivity[indexPath.row].comment
-        cell.commentImageUser?.image = userInformations!.imageProfil!
+        if let image = userInformations.imageProfil{
+            cell.commentImageUser.maskCircle(anyImage: image)
+        }
         cell.commentImageFlag?.image = UIImage(named:userInformations!.nationality)
         if (cell.commentPeudo?.text == currentUser.pseudo) {
             cell.commentDeleteButton.isHidden = false

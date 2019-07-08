@@ -82,7 +82,9 @@ class SliderViewController: UIViewController, UITableViewDataSource, UITableView
         activityList = filteredActivities.map {(activity) -> ActivityPin in
             return ActivityPin(activity: activity)
         }
+        sortActivityList()
         myParent.populateMap()
+        self.tableView.reloadData()
     }
     
     func colorFilter(_ f: FilterStruct) {
